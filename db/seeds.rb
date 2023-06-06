@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 puts "Cleaning the DB"
 User.destroy_all
 Game.destroy_all
@@ -503,3 +505,47 @@ g.save!
 # g.save!
 
 puts "#{Game.all.count} games created. Creating participations"
+
+Game.all.each do |game|
+  users = []
+  game.number_of_players.times do |i|
+    user = User.where.not(id: users.map(&:id)).sample
+    users << user
+    if i != (game.number_of_players - 1)
+      score = rand(100) * (-1)
+    else
+      score = game.participations.sum(:score) * (-1)
+    end
+    Participation.create!(
+      status: 1,
+      score: score,
+      game_id: game.id,
+      user_id: user.id
+    )
+  end
+end
+
+puts "#{Participation.count} participations created. Creating reviews"
+
+Game.all.each do |game|
+  users = []
+  number_of_reviews = (game.number_of_players) * (game.number_of_players - 1)
+
+  game.users.each do |user|
+    game.users.where.not(id: user.id).each do |other_user|
+      Review.create!(
+        personality_rating: [true, false].sample,
+        participation: Participation.find_by(game: game, user: user),
+        user: other_user
+      )
+    end
+  end
+end
+
+puts "#{Review.count} reviews"
+
+
+  # number_of_reviews.times do |i|
+  #   game.participation_id.each
+  #   # user = User.where.not(id: users.map(&:id)).sample
+  #   # users << user
