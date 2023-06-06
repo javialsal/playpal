@@ -10,9 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_155703) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_091022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_types", force: :cascade do |t|
+    t.string "name"
+    t.text "rules"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "location"
+    t.integer "duration"
+    t.datetime "start_at"
+    t.integer "number_of_players"
+    t.boolean "competitive"
+    t.text "description"
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "game_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_type_id"], name: "index_games_on_game_type_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "status"
+    t.integer "score"
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_participations_on_game_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.boolean "personality_rating"
+    t.bigint "participation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participation_id"], name: "index_reviews_on_participation_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +66,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_155703) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
+    t.integer "tags"
+    t.string "address"
+    t.bigint "game_type_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["game_type_id"], name: "index_users_on_game_type_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "game_types"
+  add_foreign_key "games", "users"
+  add_foreign_key "participations", "games"
+  add_foreign_key "participations", "users"
+  add_foreign_key "reviews", "participations"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "users", "game_types"
 end
