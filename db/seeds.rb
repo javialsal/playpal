@@ -165,7 +165,8 @@ u.save!
 
 puts "#{User.all.count} users created. Creating games"
 
-players = [1, 2, 3, 4, 5, 6].sample
+
+players = User.all.sample.id
 stat = rand(0..2)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -185,7 +186,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..2)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -205,7 +206,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..2)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -225,7 +226,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..2)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -245,7 +246,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..2)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -267,8 +268,7 @@ g = Game.new(
 )
 g.save!
 
-
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -288,7 +288,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -308,7 +308,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -328,7 +328,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -348,7 +348,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -368,7 +368,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -388,7 +388,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -408,7 +408,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -428,7 +428,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -448,7 +448,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -468,7 +468,7 @@ g = Game.new(
 )
 g.save!
 
-players = [1, 2, 3, 4, 5, 6].sample
+players = User.all.sample.id
 stat = rand(0..1)
 number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
@@ -490,8 +490,7 @@ g.save!
 
 # To create an other game
 
-# players = [1, 2, 3, 4, 5, 6]
-#.sample
+# players = User.all.sample.id
 # stat = rand(0..1)
 # number = rand(1..5)
 # time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
