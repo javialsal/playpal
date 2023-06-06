@@ -163,4 +163,352 @@ u.save!
 # )
 # u.save!
 
-puts "#{User.all.count} users created"
+puts "#{User.all.count} users created. Creating games"
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..2)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "River Café, 146 Quai de Stalingrad, 92130 Issy-les-Moulineaux",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "A real part of Tarot to find your real level",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..2)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Parc de Billancourt, 32 Allée Robert Doisneau, 92100 Boulogne-Billancourt",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "It's just a description because we have to add a description and it's boring",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..2)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Mother café, 103 Bd Jean Jaurès, 92100 Boulogne-Billancourt",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Lorem ipsum dolor sit amet. Id sint rerum eos praesentium odio id consequatur temporibus ex fugiat quia qui aspernatur odit!",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..2)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "On risque de se faire bouger par les flics mais c'est le nouvel an alors on s'en fout on n'a qu'une vie",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..2)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Lorem ipsum dolor sit amet. Ut fuga possimus quo illum fuga non enim esse. Ex dolor officiis qui velit asperiores aut repellat vero quo assumenda ipsa hic odit nobis qui pariatur iure ut nostrum eligendi.
+
+  Rem mollitia accusamus ut amet nemo et tempora excepturi. Ab nostrum tempore eos exercitationem quod et voluptas possimus et nulla numquam et amet nostrum et aspernatur aperiam. Et veritatis voluptate ut iure corporis et internos possimus qui fugiat provident? Rem quia voluptas ea sint libero sit autem sint.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Parc Monceau, 35 Boulevard de Courcelles, 75008 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Sit voluptatem aspernatur 33 eligendi aspernatur et commodi laborum aut neque mollitia aut odit alias sed nihil quia non sequi amet. Ea mollitia fugit est error laborum et dolores animi.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Mamma Primi, 18 Rue Boursault, 75017 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Ut quisquam facere aut pariatur culpa quo corporis libero est asperiores quia. Id repellat voluptatem id asperiores ipsa et excepturi distinctio.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Café des 2 moulins, 15 Rue Lepic, 75018 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Aut laboriosam illum in voluptates consequuntur est harum aliquid est alias ducimus. Aut voluptatem illo et quis sint in repellat voluptatum ut cupiditate quam et quam blanditiis nam dolores mollitia.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Cô my café, 21 Boulevard de Bonne Nouvelle, 75002 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Non accusantium praesentium qui dolorum eaque 33 dolore Quis et consectetur eaque.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Holybelly, 5 Rue Lucien Sampaix, 75010 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "accusantium non consequatur ducimus et voluptatibus",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Jardin Villemin, 14 Rue des Récollets, 75010 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Non assumenda accusantium non consequatur ducimus et voluptatibus quia aut nostrum vero qui aliquid illo ab quis officiis.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Le Train Bleu, Paris Gare de Lyon, Place Louis-Armand hall 1, 75012 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Et nihil aliquam qui sint sunt est beatae vero qui explicabo nobis ut officia eligendi non beatae quos.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Ut voluptatibus voluptatem est dolor vero ea corporis autem et harum quis.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Jardin des Plantes, 57 Rue Cuvier, 75005 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Est enim voluptas non tenetur quaerat est quia earum non reprehenderit culpa. Est nobis placeat non rerum sunt vel deleniti neque et atque nihil qui aliquid aspernatur rem quas sunt qui autem perspiciatis",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Bibliothèque George Brassens, 38 Rue Gassendi, 75014 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Et molestiae dolore quo dolores tempore et perspiciatis nemo aut laudantium quibusdam et harum error aut excepturi error ut esse velit. Qui neque necessitatibus non reiciendis molestiae ad nihil corporis quo blanditiis accusamus.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+players = [1, 2, 3, 4, 5, 6].sample
+stat = rand(0..1)
+number = rand(1..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+
+g = Game.new(
+  location: "Champ de Mars, 2 Allée Adrienne Lecouvreur, 75007 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Eos dignissimos impedit et culpa autem quo quia vitae et cupiditate placeat At velit nobis sed repellendus consequatur ab tempore totam.",
+  status: stat,
+  user_id: players,
+  game_type_id: 1
+)
+g.save!
+
+# To create an other game
+
+# players = [1, 2, 3, 4, 5, 6]
+#.sample
+# stat = rand(0..1)
+# number = rand(1..5)
+# time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+# long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+# compet = [true, false].sample
+
+# g = Game.new(
+  #   location: "",
+#   duration: long,
+#   start_at: time,
+#   number_of_players: number,
+#   competitive: compet,
+#   description: "",
+#   status: stat,
+#   user_id: players,
+#   game_type_id: 1
+# )
+# g.save!
+
+puts "#{Game.all.count} games created. Creating participations"
