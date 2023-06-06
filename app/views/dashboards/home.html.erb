@@ -1,1 +1,12 @@
-<h1>Home</h1>
+<h1>PlayPal</h1>
+<br>
+<h4>Rechercher</h4>
+<br>
+<h3>Next games</h3>
+<ul>
+  <% @next_games.each do |game| %>
+  <li><%= game.start_at %></li>
+  <% end %>
+</ul>
+<br>
+<h3>News</h3>
