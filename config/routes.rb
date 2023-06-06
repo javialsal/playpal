@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "dashboards#home"
 
   resources :games do
-    resources :participations, only: ['new', 'create']
+    resources :participations, only: ['create']
   end
 
   resources :participations, only: ['index', 'show', 'edit', 'update'] do
