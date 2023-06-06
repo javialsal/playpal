@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :participations, only: ['create']
   end
 
-  resources :participations, only: ['index', 'show', 'edit', 'update'] do
+  resources :participations, only: ['index', 'edit', 'update'] do
     resources :reviews, only: ['new', 'create']
   end
 end
