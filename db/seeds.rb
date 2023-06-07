@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 puts "Cleaning the DB"
 User.destroy_all
 Game.destroy_all
@@ -51,12 +49,14 @@ gt.save!
 # To create an other GameType
 
 # gt = GameType.new(
-#   name: "Tarot",
-#   rules:
+#   name: "",
+#   rules: ""
 # )
 # gt.save!
 
 puts "#{GameType.all.count} Game types created"
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "arnaud@wagon.org",
@@ -67,9 +67,11 @@ u = User.new(
   bio: "Freshly finished business school at ESCP with a specialization in Applied Data Science, and having experienced two jobs in entrepreneurship (Data Analyst and VC Analyst), I want to develop my coding skills and build a complete profile to find a job in Product in a startup !",
   tags: [1, 3],
   address: "19 Avenue de Villars, 75007 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "javier@wagon.org",
@@ -84,9 +86,11 @@ u = User.new(
   My main objective is to find new job opportunities in the tech.",
   tags: [0, 2],
   address: "20 Rue des Annelets, 75019 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "youval@wagon.org",
@@ -97,9 +101,11 @@ u = User.new(
   bio: "Hello, I am Youval. I am a business app functional consultant, specialized in Microsoft solutions. I want to learn code to acquire new skills.",
   tags: [0, 1, 2, 3],
   address: "26 Rue de Constantinople, 75008 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "maxime@wagon.org",
@@ -110,9 +116,11 @@ u = User.new(
   bio: "Before being a Le Wagon's alumni, I was ergonomist in an occupational health service. I wanted to change to have more challenge and I tried to code when I was student (15 years ago) and don't understand why I stopped!",
   tags: [4, 5],
   address: "53 Rue Olivier de Serres, 75015 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "Lee@wagon.org",
@@ -123,9 +131,11 @@ u = User.new(
   bio: "Shortest bio",
   tags: [0, 1, 2],
   address: "27 Rue Didot, 75014 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
+
+game = GameType.all.sample.id
 
 u = User.new(
   email: "jpa@wagon.org",
@@ -138,7 +148,7 @@ u = User.new(
   Ea asperiores nostrum vel praesentium dicta rem voluptas voluptas ab quas nisi in nihil magnam ea nulla cupiditate aut voluptatem deserunt. Et tenetur provident id voluptatem blanditiis qui modi natus hic voluptas quasi qui voluptas velit et totam incidunt?",
   tags: [5],
   address: "162 bis Avenue du Général Michel Bizot, 75012 Paris",
-  game_type_id: 1
+  game_type_id: game
 )
 u.save!
 
@@ -153,7 +163,7 @@ u.save!
 #   bio: "",
 #   tags: [],
 #   address: "",
-#   game_type_id:
+#   game_type_id: game
 # )
 # u.save!
 
@@ -166,6 +176,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "River Café, 146 Quai de Stalingrad, 92130 Issy-les-Moulineaux",
@@ -176,7 +187,7 @@ g = Game.new(
   description: "A real part of Tarot to find your real level",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -186,6 +197,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Parc de Billancourt, 32 Allée Robert Doisneau, 92100 Boulogne-Billancourt",
@@ -196,7 +208,7 @@ g = Game.new(
   description: "It's just a description because we have to add a description and it's boring",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -206,6 +218,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Mother café, 103 Bd Jean Jaurès, 92100 Boulogne-Billancourt",
@@ -216,7 +229,7 @@ g = Game.new(
   description: "Lorem ipsum dolor sit amet. Id sint rerum eos praesentium odio id consequatur temporibus ex fugiat quia qui aspernatur odit!",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -226,6 +239,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
@@ -236,7 +250,7 @@ g = Game.new(
   description: "On risque de se faire bouger par les flics mais c'est le nouvel an alors on s'en fout on n'a qu'une vie",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -246,6 +260,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
@@ -258,7 +273,7 @@ g = Game.new(
   Rem mollitia accusamus ut amet nemo et tempora excepturi. Ab nostrum tempore eos exercitationem quod et voluptas possimus et nulla numquam et amet nostrum et aspernatur aperiam. Et veritatis voluptate ut iure corporis et internos possimus qui fugiat provident? Rem quia voluptas ea sint libero sit autem sint.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -268,6 +283,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Parc Monceau, 35 Boulevard de Courcelles, 75008 Paris",
@@ -278,7 +294,7 @@ g = Game.new(
   description: "Sit voluptatem aspernatur 33 eligendi aspernatur et commodi laborum aut neque mollitia aut odit alias sed nihil quia non sequi amet. Ea mollitia fugit est error laborum et dolores animi.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -288,6 +304,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Mamma Primi, 18 Rue Boursault, 75017 Paris",
@@ -298,7 +315,7 @@ g = Game.new(
   description: "Ut quisquam facere aut pariatur culpa quo corporis libero est asperiores quia. Id repellat voluptatem id asperiores ipsa et excepturi distinctio.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -308,6 +325,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Café des 2 moulins, 15 Rue Lepic, 75018 Paris",
@@ -318,7 +336,7 @@ g = Game.new(
   description: "Aut laboriosam illum in voluptates consequuntur est harum aliquid est alias ducimus. Aut voluptatem illo et quis sint in repellat voluptatum ut cupiditate quam et quam blanditiis nam dolores mollitia.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -328,6 +346,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Cô my café, 21 Boulevard de Bonne Nouvelle, 75002 Paris",
@@ -338,7 +357,7 @@ g = Game.new(
   description: "Non accusantium praesentium qui dolorum eaque 33 dolore Quis et consectetur eaque.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -348,6 +367,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Holybelly, 5 Rue Lucien Sampaix, 75010 Paris",
@@ -358,7 +378,7 @@ g = Game.new(
   description: "accusantium non consequatur ducimus et voluptatibus",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -368,6 +388,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Jardin Villemin, 14 Rue des Récollets, 75010 Paris",
@@ -378,7 +399,7 @@ g = Game.new(
   description: "Non assumenda accusantium non consequatur ducimus et voluptatibus quia aut nostrum vero qui aliquid illo ab quis officiis.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -388,6 +409,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Le Train Bleu, Paris Gare de Lyon, Place Louis-Armand hall 1, 75012 Paris",
@@ -398,7 +420,7 @@ g = Game.new(
   description: "Et nihil aliquam qui sint sunt est beatae vero qui explicabo nobis ut officia eligendi non beatae quos.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -408,6 +430,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris",
@@ -418,7 +441,7 @@ g = Game.new(
   description: "Ut voluptatibus voluptatem est dolor vero ea corporis autem et harum quis.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -428,6 +451,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Jardin des Plantes, 57 Rue Cuvier, 75005 Paris",
@@ -438,7 +462,7 @@ g = Game.new(
   description: "Est enim voluptas non tenetur quaerat est quia earum non reprehenderit culpa. Est nobis placeat non rerum sunt vel deleniti neque et atque nihil qui aliquid aspernatur rem quas sunt qui autem perspiciatis",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -448,6 +472,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Bibliothèque George Brassens, 38 Rue Gassendi, 75014 Paris",
@@ -458,7 +483,7 @@ g = Game.new(
   description: "Et molestiae dolore quo dolores tempore et perspiciatis nemo aut laudantium quibusdam et harum error aut excepturi error ut esse velit. Qui neque necessitatibus non reiciendis molestiae ad nihil corporis quo blanditiis accusamus.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -468,6 +493,7 @@ number = rand(1..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
+game = GameType.all.sample.id
 
 g = Game.new(
   location: "Champ de Mars, 2 Allée Adrienne Lecouvreur, 75007 Paris",
@@ -478,7 +504,7 @@ g = Game.new(
   description: "Eos dignissimos impedit et culpa autem quo quia vitae et cupiditate placeat At velit nobis sed repellendus consequatur ab tempore totam.",
   status: stat,
   user_id: players,
-  game_type_id: 1
+  game_type_id: game
 )
 g.save!
 
@@ -490,9 +516,10 @@ g.save!
 # time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 # long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 # compet = [true, false].sample
+# game = GameType.all.sample.id
 
 # g = Game.new(
-  #   location: "",
+#   location: "",
 #   duration: long,
 #   start_at: time,
 #   number_of_players: number,
@@ -500,7 +527,7 @@ g.save!
 #   description: "",
 #   status: stat,
 #   user_id: players,
-#   game_type_id: 1
+#   game_type_id: game
 # )
 # g.save!
 
@@ -543,9 +570,3 @@ Game.all.each do |game|
 end
 
 puts "#{Review.count} reviews"
-
-
-  # number_of_reviews.times do |i|
-  #   game.participation_id.each
-  #   # user = User.where.not(id: users.map(&:id)).sample
-  #   # users << user
