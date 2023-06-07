@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   belongs_to :user
   belongs_to :game_type
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :users, through: :participations
 
   validates :location, presence: true
