@@ -14,22 +14,24 @@
       <% else %>
         <% @mygames.each do |game| %>
           <% if game.start_at >= Date.today %>
-            <div class="game-card">
-              <div class="game-time">
-                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
-                <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+            <%= link_to game_path(game), class: "text-decoration-none link-dark mb-3" do %>
+              <div class="game-card">
+                <div class="game-time">
+                  <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
+                  <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+                </div>
+                <div class="game-type">
+                  <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
+                  <p><i class="fa-regular fa-card-spade"></i><strong>
+                    <% if game.competitive == true %>
+                      <%= "Competitif" %>
+                    <% else %>
+                      <%= "Amical" %>
+                    <% end %>
+                  </strong></p>
+                </div>
               </div>
-              <div class="game-type">
-                <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
-                <p><i class="fa-regular fa-card-spade"></i><strong>
-                  <% if game.competitive == true %>
-                    <%= "Competitif" %>
-                  <% else %>
-                    <%= "Amical" %>
-                  <% end %>
-                </strong></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -41,22 +43,24 @@
       <% else %>
         <% @mygames.each do |game| %>
           <% if game.start_at < Date.today %>
-            <div class="game-card">
-              <div class="game-time">
-                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%A %d %B %Y") %></p>
-                <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+            <%= link_to game_path(game), class: "text-decoration-none link-dark mb-3" do %>
+              <div class="game-card">
+                <div class="game-time">
+                  <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%A %d %B %Y") %></p>
+                  <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+                </div>
+                <div class="game-type">
+                  <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
+                  <p><i class="fa-regular fa-card-spade"></i><strong>
+                    <% if game.competitive == true %>
+                      <%= "Competitif" %>
+                    <% else %>
+                      <%= "Amical" %>
+                    <% end %>
+                  </strong></p>
+                </div>
               </div>
-              <div class="game-type">
-                <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
-                <p><i class="fa-regular fa-card-spade"></i><strong>
-                  <% if game.competitive == true %>
-                    <%= "Competitif" %>
-                  <% else %>
-                    <%= "Amical" %>
-                  <% end %>
-                </strong></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
