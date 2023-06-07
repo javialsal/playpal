@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :participations, only: ['index', 'edit', 'update'] do
     resources :reviews, only: ['new', 'create']
   end
+
+  resources :users, only: ['show']
 end
