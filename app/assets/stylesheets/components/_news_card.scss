@@ -1,21 +1,39 @@
 .news-cards {
   display: grid;
-  grid-auto-columns: 100%;
-  grid-column-gap: 10px;
+  grid-auto-columns: minmax(280px, 1fr);
+  grid-column-gap: 1.3em;
   grid-auto-flow: column;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  padding: 1em 0.2em;
 }
 
-.news-card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+.news-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.news-cards img {
+  height: 100%;
+  width: 30vw;
+  object-fit: cover;
+  clip-path: ellipse(98% 110% at 99% 70%);
+}
+
+.news-cards p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  padding: 1em;
+}
+
+.news-cards .news-card-infos {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: $dark-blue;
-  font-size: 24px;
-  background: linear-gradient($light-brown, $light-gray);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,19,51,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 140px;
 }
