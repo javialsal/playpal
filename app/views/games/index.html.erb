@@ -1,14 +1,12 @@
-<div class="container">
 
-  <div data-controller="futur-passed-games">
+<div data-controller="futur-passed-games">
 
-      <div class="row ">
-        <div class="col-6 mb-3 ">
-          <button data-action="click->futur-passed-games#passedFutur"> Future reservations</button>
-          <button data-action="click->futur-passed-games#futurPassed"> Passed reservations</button>
-        </div>
-      </div>
+  <div class="onglet">
+    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="futurbtn" data-action="click->futur-passed-games#passedFutur" disabled> Future reservations</button>
+    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="passedbtn" data-action="click->futur-passed-games#futurPassed"> Passed reservations</button>
+  </div>
 
+  <div class="container">
     <div data-futur-passed-games-target="futur" class="">
       <% if @mygames == [] %>
         <h5 class= "text-center">You don't have any reservation</h5>
@@ -18,7 +16,7 @@
           <% if game.start_at >= Date.today %>
             <div class="game-card">
               <div class="game-time">
-                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B %Y") %></p>
+                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
                 <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
               </div>
               <div class="game-type">
@@ -45,7 +43,7 @@
           <% if game.start_at < Date.today %>
             <div class="game-card">
               <div class="game-time">
-                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B %Y") %></p>
+                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%A %d %B %Y") %></p>
                 <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
               </div>
               <div class="game-type">
