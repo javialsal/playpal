@@ -1,34 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Search", games_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "+", new_game_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%# LINK_TO À MODIFIER VERS LA PAGE AVEC LES PAST/NEXT GAMES DU CURRENT USER %>
-            <%= link_to "Calendar", root_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to user_path(current_user), class: "navbar-brand" do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+<div class="bg-secondary d-flex justify-content-evenly align-items-center" id="pp-navbar">
+  <% if user_signed_in? %>
+    <%# HOMEPAGE BUTTON %>
+    <div>
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
     </div>
-  </div>
+    <%# SEARCH BUTTON %>
+    <div>
+      <%= link_to games_path do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    </div>
+    <%# NEW GAME BUTTON %>
+    <div class="btn btn-info" id="new-game-btn">
+      <%= link_to new_game_path do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </div>
+    <%# CALENDAR BUTTON %>
+    <div>
+      <%= link_to games_path do %>
+        <i class="fa-regular fa-calendar-days"></i>
+      <% end %>
+    </div>
+    <%# PROFILE USER BUTTON %>
+    <div>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+      <% end %>
+    </div>
+
+  <% else %>
+    <div>
+      <%= link_to "Login", new_user_session_path %>
+    </div>
+  <% end %>
 </div>
