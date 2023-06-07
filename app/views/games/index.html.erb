@@ -1,20 +1,65 @@
-<h1>Index de Games</h1>
 
-<% @games.each do |game| %>
-  <div class="game-card">
-    <div class="game-time">
-      <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B %Y") %></p>
-      <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
-    </div>
-    <div class="game-type">
-      <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
-      <p><i class="fa-regular fa-card-spade"></i><strong>
-        <% if game.competitive == true %>
-          <%= "Competitif" %>
-        <% else %>
-          <%= "Amical" %>
+<div data-controller="futur-passed-games">
+
+  <div class="onglet">
+    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="futurbtn" data-action="click->futur-passed-games#passedFutur" disabled> Future reservations</button>
+    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="passedbtn" data-action="click->futur-passed-games#futurPassed"> Passed reservations</button>
+  </div>
+
+  <div class="container">
+    <div data-futur-passed-games-target="futur" class="">
+      <% if @mygames == [] %>
+        <h5 class= "text-center">You don't have any reservation</h5>
+        <p class= "text-center"> <%= link_to 'Click here to start your experience', root_path %> </p>
+      <% else %>
+        <% @mygames.each do |game| %>
+          <% if game.start_at >= Date.today %>
+            <div class="game-card">
+              <div class="game-time">
+                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
+                <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+              </div>
+              <div class="game-type">
+                <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
+                <p><i class="fa-regular fa-card-spade"></i><strong>
+                  <% if game.competitive == true %>
+                    <%= "Competitif" %>
+                  <% else %>
+                    <%= "Amical" %>
+                  <% end %>
+                </strong></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      </strong></p>
+      <% end %>
     </div>
+
+    <div data-futur-passed-games-target="passed" class="d-none">
+      <% if @mygames == [] %>
+        <h5 class= "text-center">You haven't any passed reservation</h5>
+      <% else %>
+        <% @mygames.each do |game| %>
+          <% if game.start_at < Date.today %>
+            <div class="game-card">
+              <div class="game-time">
+                <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%A %d %B %Y") %></p>
+                <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
+              </div>
+              <div class="game-type">
+                <p><i class="fa-regular fa-card-spade"></i><strong> <%= game.game_type.name %></strong></p>
+                <p><i class="fa-regular fa-card-spade"></i><strong>
+                  <% if game.competitive == true %>
+                    <%= "Competitif" %>
+                  <% else %>
+                    <%= "Amical" %>
+                  <% end %>
+                </strong></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
