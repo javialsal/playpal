@@ -1,7 +1,7 @@
 <div class="game-card">
   <div class="game-time">
-    <p><i class="fa-regular fa-calendar"></i> Wednesday 28 june</p>
-    <p><i class="fa-regular fa-clock"></i> 10:00</p>
+    <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%A %d %B") %></p>
+    <p><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
   </div>
   <div class="players">
       <div class="player">
@@ -25,7 +25,13 @@
       </div>
   </div>
   <div class="game-type">
-    <p><i class="fa-solid fa-diamond"></i><strong> Tarot</strong></p>
-    <p><i class="fa-solid fa-ranking-star"></i></i><strong> Competitive</strong></p>
+    <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+    <p><i class="fa-solid fa-ranking-star"></i></i>
+      <% if game.competitive == true %>
+        <%= "Competitive" %>
+      <% else %>
+        <%= "Friendly" %>
+      <% end %>
+    </p>
   </div>
 </div>
