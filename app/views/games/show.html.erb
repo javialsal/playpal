@@ -2,17 +2,21 @@
 <h6><%= @game.start_at.strftime("%d %B %Y") %></h6>
 
 <div class="banderol">
-  <p class="winner">🥇 Vainqueur 🥇</p>
+  <p class="winner">🥇 Winner 🥇</p>
   <h6><%= @game.participations.order(score: :desc).first.user.username %></h6>
+  <h6><%= @game.participations.order(score: :desc).first.score %></h6>
+
 </div>
 
 
 <div class="banderol">
   <p class="second">🥈 Second 🥈</p>
   <h6><%= @game.participations.order(score: :desc).second.user.username %></h6>
+  <h6><%= @game.participations.order(score: :desc).second.score %></h6>
 </div>
 
 <div class="banderol">
-  <p class="third">🥉 Troisième 🥉</p>
+  <p class="third">🥉 Third 🥉</p>
   <h6><%= @game.participations.order(score: :desc).third.user.username %></h6>
+  <h6><%= @game.participations.order(score: :desc).third.score %></h6>
 </div>
