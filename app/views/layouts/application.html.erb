@@ -14,10 +14,10 @@
   </head>
 
   <body>
-    <div class="<%= 'container' unless params[:controller] == 'games' && params[:action] == 'index' || params[:action] == 'show' %>">
+    <%# <div class="= 'container' unless params[:controller] == 'games' && params[:action] == 'index' || params[:action] == 'show'"> %>
       <%= render "shared/flashes" %>
       <%= yield %>
-    </div>
-    <%= render "shared/navbar" %>
+    <%# </div> %>
+    <%= render "shared/pp_navbar" %>
   </body>
 </html>

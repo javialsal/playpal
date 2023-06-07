@@ -10,9 +10,7 @@
       <h3 class="ms-3 mb-3">Next games</h3>
       <ul>
         <% @next_games.each do |game| %>
-        <li>
-          <%= render "shared/game_card", game: game %>
-        </li>
+          <%= render "shared/game_card_join", game: game %>
         <% end %>
       </ul>
     </div>
