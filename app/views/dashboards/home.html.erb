@@ -1,12 +1,24 @@
-<h1>PlayPal</h1>
-<br>
-<h4>Rechercher</h4>
-<br>
-<h3>Next games</h3>
-<ul>
-  <% @next_games.each do |game| %>
-  <li><%= game.start_at %></li>
-  <% end %>
-</ul>
-<br>
-<h3>News</h3>
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>PlayPal</h1>
+    <%= link_to "Rechercher", games_path, class: "btn btn-gradient btn-lg btn-primary"  %>
+  </div>
+</div>
+<div class="container">
+  <div>
+    <div class="my-4">
+      <h3 class="ms-3 mb-3">Next games</h3>
+      <ul>
+        <% @next_games.each do |game| %>
+        <li>
+          <%#= render "shared/game_card", game: game %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="ms-3 mb-4">
+      <h3 class="mb-3">News</h3>
+      <%= render "shared/news_card" %>
+    </div>
+  </div>
+</div>

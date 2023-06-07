@@ -1,0 +1,8 @@
+<div class="news-cards">
+  <div class="news-card-category">
+    <%= User.first.first_name %> a réalisé un score de <%= User.first.participations.first.score %> points !
+  </div>
+  <div class="news-card-category">
+    <%= User.last.first_name %> a apprécié jouer avec <%= User.find(2).first_name %> !
+  </div>
+</div>
