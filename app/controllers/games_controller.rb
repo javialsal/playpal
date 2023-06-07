@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @mygames = current_user.games_as_participant
   end
 
   def show
