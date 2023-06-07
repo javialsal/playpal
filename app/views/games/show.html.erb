@@ -1,2 +1,18 @@
-<h1>Show de Games</h1>
+<h2>Partie de <%= @game.game_type.name %></h2>
+<h6><%= @game.start_at.strftime("%d %B %Y") %></h6>
 
+<div class="banderol">
+  <p class="winner">🥇 Vainqueur 🥇</p>
+  <h6><%= @game.participations.order(score: :desc).first.user.username %></h6>
+</div>
+
+
+<div class="banderol">
+  <p class="second">🥈 Second 🥈</p>
+  <h6><%= @game.participations.order(score: :desc).second.user.username %></h6>
+</div>
+
+<div class="banderol">
+  <p class="third">🥉 Troisième 🥉</p>
+  <h6><%= @game.participations.order(score: :desc).third.user.username %></h6>
+</div>

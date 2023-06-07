@@ -75,7 +75,7 @@ game = GameType.all.sample.id
 
 u = User.new(
   email: "javier@wagon.org",
-  password: "azerty",
+  password: "qwerty",
   username: "ElGuapo",
   first_name: "Javier",
   last_name: "Alvarez Salvado",
@@ -172,7 +172,7 @@ puts "#{User.all.count} users created. Creating games"
 
 players = User.all.sample.id
 stat = rand(0..2)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -193,7 +193,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..2)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -214,7 +214,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..2)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -235,7 +235,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..2)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -256,7 +256,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..2)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -279,7 +279,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -300,7 +300,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -321,7 +321,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -342,7 +342,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -363,7 +363,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -384,7 +384,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -405,7 +405,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -426,7 +426,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -447,7 +447,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -468,7 +468,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -489,7 +489,7 @@ g.save!
 
 players = User.all.sample.id
 stat = rand(0..1)
-number = rand(1..5)
+number = rand(3..5)
 time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
@@ -512,7 +512,7 @@ g.save!
 
 # players = User.all.sample.id
 # stat = rand(0..1)
-# number = rand(1..5)
+# number = rand(3..5)
 # time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
 # long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 # compet = [true, false].sample
