@@ -1,0 +1,23 @@
+.banner {
+  height: 40vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $dark-blue;
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: $light-brown;
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: 10vh;
+  }
+  .btn {
+    padding: 15px 50px;
+    color: $light-brown;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: 1px solid $coral-red;
+  }
+}
