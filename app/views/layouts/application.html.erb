@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,9 +14,10 @@
   </head>
 
   <body>
+    <div class="<%= 'container' unless params[:controller] == 'games' && params[:action] == 'index' %>">
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    </div>
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-
-    <%= yield %>
   </body>
 </html>

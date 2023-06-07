@@ -1,0 +1,74 @@
+.game-card {
+  overflow: hidden;
+  background: $light-brown;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  border-radius: 8px;
+  margin: 1em;
+  border: 0.5px solid $dark-blue;
+
+  .players {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 1em;
+    margin-right: 1em;
+    p {
+      margin: 0;
+    }
+    .btn {
+      height: 45px;
+      width: 45px;
+      color: $light-brown;
+      border-radius: 50%;
+      background: $coral-red;
+      align-items: center;
+      display: flex;
+      i {
+        font-size: 25px;
+      }
+    }
+    .btn:hover {
+      transition: background 0.3s ease;
+      background: $light-brown;
+      color: $coral-red;
+      border: 3px solid $coral-red;
+    }
+  }
+
+  .game-time {
+    display: flex;
+    background-color: $dark-blue;
+    p {
+      color: $light-brown;
+      margin-left: 1em;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      align-items: stretch;
+    }
+  }
+
+  .game-type {
+    display: flex;
+    border-top: 1px solid $dark-blue;
+    p {
+      color: $dark-blue;
+      margin-left: 1em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      align-items: stretch;
+    }
+  }
+}
+
+.game-card .avatar-card {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.game-card p {
+  color: $dark-blue;
+}

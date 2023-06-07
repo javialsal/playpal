@@ -1,0 +1,24 @@
+<div class="game-card">
+  <div class="game-time">
+    <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%A %d %B") %></p>
+    <p><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
+  </div>
+  <div class="players">
+    <% game.participations.map do |participation|%>
+    <div class="player">
+      <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
+      <p><%= participation.user.first_name %></p>
+    </div>
+    <% end %>
+  </div>
+  <div class="game-type">
+    <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+    <p><i class="fa-solid fa-ranking-star"></i></i>
+      <% if game.competitive == true %>
+        <%= "Competitive" %>
+      <% else %>
+        <%= "Friendly" %>
+      <% end %>
+    </p>
+  </div>
+</div>

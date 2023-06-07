@@ -1,7 +1,7 @@
 <div class="game-card">
   <div class="game-time">
-    <p><i class="fa-regular fa-calendar"></i> Wednesday 28 june</p>
-    <p><i class="fa-regular fa-clock"></i> 10:00</p>
+    <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%A %d %B") %></p>
+    <p><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
   </div>
   <div class="players">
       <div class="player">
@@ -20,11 +20,18 @@
         <img class="avatar-card" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="avatar"/>
         <p>Name</p>
       </div>
+      <div class="player">
+        <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
+      </div>
   </div>
   <div class="game-type">
-    <p><i class="fa-regular fa-card-spade"></i><strong> Tarot</strong></p>
-    <p><i class="fa-regular fa-card-spade"></i><strong> Competitive</strong></p>
+    <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+    <p><i class="fa-solid fa-ranking-star"></i></i>
+      <% if game.competitive == true %>
+        <%= "Competitive" %>
+      <% else %>
+        <%= "Friendly" %>
+      <% end %>
+    </p>
   </div>
 </div>
-
-<%#= render "game_card", game: @game %>
