@@ -1,11 +1,8 @@
 class DashboardsController < ApplicationController
   def home
-    @games = current_user.participations.games
-
-
-    # @monuments = current_user.monuments
-    # @demands = Booking.all.select { |booking| booking.monument.user == current_user }
-    # @future_bookings = @bookings.where(end_date: Date.today) + @bookings.where('start_date >= ?', Date.today)
-    # @passed_bookings = @bookings.where('end_date < ?', Date.today)
+    @next_games = []
+    current_user.participations.each do |participation|
+      @next_games << participation.game if participation.game.start_at > DateTime.now
+    end
   end
 end
