@@ -28,7 +28,7 @@
     <%# PROFILE USER BUTTON %>
     <div>
       <%= link_to user_path(current_user) do %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
       <% end %>
     </div>
 
