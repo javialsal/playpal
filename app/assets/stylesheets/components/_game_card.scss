@@ -14,9 +14,11 @@
     margin-bottom: 10px;
     margin-left: 1em;
     margin-right: 1em;
+
     p {
       margin: 0;
     }
+
     .btn {
       height: 45px;
       width: 45px;
@@ -24,10 +26,12 @@
       border-radius: 50%;
       background: $coral-red;
       display: flex;
+
       i {
         font-size: 25px;
       }
     }
+
     .btn:hover {
       transition: background 0.3s ease;
       background: $light-brown;
@@ -38,11 +42,14 @@
 
   .game-time {
     display: flex;
+    justify-content: space-between;
     background-color: $dark-blue;
+
     p {
       font-size: 14px;
       color: $light-brown;
       margin-left: 1em;
+      margin-right: 1em;
       margin-top: 5px;
       margin-bottom: 5px;
       align-items: stretch;
@@ -54,13 +61,16 @@
 
   .game-type {
     display: flex;
+    justify-content: space-between;
     border-top: 1px solid $dark-blue;
+
     p {
       font-size: 16px;
       color: $dark-blue;
-      margin-left: 1em;
-      margin-top: 10px;
+      margin-top: 15px;
       margin-bottom: 10px;
+      margin-left: 1em;
+      margin-right: 1em;
       align-items: stretch;
     }
     i {
