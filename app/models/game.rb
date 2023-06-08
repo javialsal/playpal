@@ -9,4 +9,9 @@ class Game < ApplicationRecord
   validates :duration, presence: true, numericality: { only_integer: true }, comparison: { greater_than: 0 }
   validates :number_of_players, presence: true, numericality: { only_integer: true }, comparison: { greater_than: 0, less_than_or_equal_to: 5 }
   # validates :competitive, presence: true
+
+
+  def winner
+    self.participations.max_by { |participation| participation.score }.user
+  end
 end
