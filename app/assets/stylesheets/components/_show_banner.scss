@@ -1,0 +1,17 @@
+.show-banner {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $dark-blue;
+  background-size: cover;
+  background-position: center;
+  h2 {
+    color: $light-brown;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  h6 {
+    color: $light-brown;
+  }
+}
