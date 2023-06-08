@@ -21,4 +21,8 @@ class Game < ApplicationRecord
   def create_participation_for_owner
     Participation.create(game: self, user: self.user, status: 1, score: 0)
   end
+  
+  def winner
+    self.participations.max_by { |participation| participation.score }.user
+  end
 end

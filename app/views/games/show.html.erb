@@ -27,7 +27,7 @@
   </div>
   <div class="item ">
     <i class="fa-solid fa-users"></i>
-    <p><%= @game.number_of_players %> / 5</p>
+    <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
   </div>
 </div>
 
@@ -35,78 +35,19 @@
 <% if @game.start_at < Date.today %>
   <%# passed games show %>
   <div class="container">
-    <div class="card mt-1" style="width: 23rem;">
-      <div class="card-header">
-        <%= @game.participations.order(score: :desc).first.user.username.truncate(40) %>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h6><%= @game.participations.order(score: :desc).first.score %> points <span
-          class="badge bg-winner"
-          style="background-color: gold; color: black;">
-            Winner
-          </span></h6>
-        </li>
-      </ul>
-    </div>
-    <div class="card mt-1" style="width: 23rem;">
-      <div class="card-header">
-        <%= @game.participations.order(score: :desc).second.user.username.truncate(40) %>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h6><%= @game.participations.order(score: :desc).second.score %> points <span
-          class="badge bg-second"
-          style="background-color: silver; color: black;">
-            Second
-          </span></h6>
-        </li>
-      </ul>
-    </div>
-    <div class="card mt-1" style="width: 23rem;">
-      <div class="card-header">
-        <%= @game.participations.order(score: :desc).third.user.username.truncate(40) %>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h6><%= @game.participations.order(score: :desc).third.score %> points <span
-          class="badge bg-third"
-          style="background-color: #cd7f32; color: black;">
-            Third
-          </span></h6>
-        </li>
-      </ul>
-    </div>
-    <% if @game.number_of_players > 3 %>
-      <div class="card mt-1" style="width: 23rem;">
-        <div class="card-header">
-          <%= @game.participations.order(score: :desc).fourth.user.username.truncate(40) %>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <h6><%= @game.participations.order(score: :desc).fourth.score %> points <span
-            class="badge bg-primary">
-              Fourth
-            </span></h6>
+    <div class="card-game-show">
+      <ul class="people">
+        <% @game.participations.each do |participant| %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <% end %>
+            <p><%= participant.user.username.truncate(10) %></p>
+            <p><%= participant.score %></p>
           </li>
-        </ul>
-      </div>
-    <% end %>
-    <% if @game.number_of_players > 4 %>
-      <div class="card mt-1" style="width: 23rem;">
-        <div class="card-header">
-          <%= @game.participations.order(score: :desc).fifth.user.username.truncate(40) %>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <h6><%= @game.participations.order(score: :desc).fifth.score %> points <span
-            class="badge bg-primary">
-              Fifth
-            </span></h6>
-          </li>
-        </ul>
-      </div>
-    <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
 <% else %>
@@ -116,14 +57,18 @@
       <ul class="people">
         <% @game.participations.each do |participant| %>
           <li>
-            <%= participant.user.last_name.truncate(10) %>
-            <p><%= participant.user.username.truncate(10) %></p>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <% end %>
+            <%= participant.user.username.truncate(10) %>
           </li>
         <% end %>
       </ul>
-      <% if @game.number_of_players < 5 %>
-        <%= link_to 'Book', root_path, class:"button" %>
-      <% end %>
+      <div class="book">
+        <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
+          <%= link_to 'Book', root_path, class:"button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 

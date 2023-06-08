@@ -534,9 +534,11 @@ g.save!
 puts "#{Game.all.count} games created. Creating participations"
 
 Game.all.each do |game|
-  users = []
-  game.number_of_players.times do |i|
+  users = [game.user]
+
+  (game.number_of_players - 1).times do |i|
     user = User.where.not(id: users.map(&:id)).sample
+
     users << user
     if i != (game.number_of_players - 1)
       score = rand(100) * (-1)

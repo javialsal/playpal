@@ -7,6 +7,6 @@ class DashboardsController < ApplicationController
   end
 
   def mygames
-    @mygames = current_user.games_as_participant
+    @mygames = current_user.mygames
   end
 end
