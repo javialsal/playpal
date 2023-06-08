@@ -5,4 +5,5 @@ class Participation < ApplicationRecord
 
   validates :status, presence: true
   validates :score, presence: true, numericality: { only_integer: true }
+  validates :game, uniqueness: { scope: :user }
 end

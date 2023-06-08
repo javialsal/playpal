@@ -1,0 +1,16 @@
+<h1>Search</h1>
+
+<div data-controller="search-games">
+  <%= form_with url: games_path, method: :get, html: {class:
+    "mb-4", data: {search_games_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Game type, address, ",
+                     value: params[:query],
+                     data: {search_games_target: "input"} %>
+  <% end %>
+</div>
+
+<% @games.each do |game| %>
+  <%= render "shared/game_card_join", game: game %>
+<% end %>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :games_as_participant, through: :participations, source: :game
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
+  before_save :attach_photo
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -17,10 +18,15 @@ class User < ApplicationRecord
 
   def attach_photo
     return if photo.attached?
+
     self.photo.attach(io: File.open(File.join(Rails.root, 'app/assets/images/default_avatar.jpg')), filename: 'avatar')
   end
 
   def mygames
     self.games_as_participant
+  end
+
+  def games_not_participating_and_to_come
+    Game.not_participating_games_to_come_for(self)
   end
 end

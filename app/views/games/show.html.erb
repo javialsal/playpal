@@ -1,22 +1,75 @@
-<h2>Partie de <%= @game.game_type.name %></h2>
-<h6><%= @game.start_at.strftime("%d %B %Y") %></h6>
+<div class="show-banner">
+  <h2><%= @game.game_type.name %> game</h2>
+</div>
 
-<div class="banderol">
-  <p class="winner">🥇 Winner 🥇</p>
-  <h6><%= @game.participations.order(score: :desc).first.user.username %></h6>
-  <h6><%= @game.participations.order(score: :desc).first.score %></h6>
+<div class="infos-game-show infos">
+  <div class="item ">
+    <i class="fa-regular fa-clock"></i>
+    <p><%= @game.start_at.strftime("%B %d, %Y") %></p>
+    <p> <%= @game.start_at.strftime("%H:%M") %></p>
+  </div>
+  <div class="item ">
+    <i class="fa-solid fa-location-dot"></i>
+    <p><%= @game.location %></p>
+  </div>
+</div>
 
+<div class="infos-game-show infos">
+  <div class="item ">
+    <i class="fa-solid fa-medal"></i>
+    <p>
+      <% if @game.competitive == true %>
+        <%= "Competitif" %>
+      <% else %>
+        <%= "Amical" %>
+      <% end %>
+    </p>
+  </div>
+  <div class="item ">
+    <i class="fa-solid fa-users"></i>
+    <p><%= @game.number_of_players %> / 5</p>
+  </div>
 </div>
 
 
-<div class="banderol">
-  <p class="second">🥈 Second 🥈</p>
-  <h6><%= @game.participations.order(score: :desc).second.user.username %></h6>
-  <h6><%= @game.participations.order(score: :desc).second.score %></h6>
-</div>
+<% if @game.start_at < Date.today %>
+  <%# passed games show %>
+  <div class="container">
+    <div class="card-game-show">
+      <ul class="people">
+        <% @game.participations.each do |participant| %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <% end %>
+            <p><%= participant.user.username.truncate(10) %></p>
+            <p><%= participant.score %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-<div class="banderol">
-  <p class="third">🥉 Third 🥉</p>
-  <h6><%= @game.participations.order(score: :desc).third.user.username %></h6>
-  <h6><%= @game.participations.order(score: :desc).third.score %></h6>
-</div>
+<% else %>
+  <%# futur games show %>
+  <div class="container">
+    <div class="card-game-show">
+      <ul class="people">
+        <% @game.participations.each do |participant| %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <% end %>
+            <%= participant.user.username.truncate(10) %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="book">
+        <% if @game.number_of_players < 5 %>
+          <%= link_to 'Book', root_path, class:"button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
