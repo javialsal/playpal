@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
+    @games = Game.left_outer_joins(:participations).where.not(user_id: current_user.id).distinct
   end
 
   def show
