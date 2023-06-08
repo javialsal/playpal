@@ -19,6 +19,6 @@ class Game < ApplicationRecord
   }
 
   def create_participation_for_owner
-    Participation.create(game: self, user: self.user_id)
+    Participation.create(game: self, user: self.user, status: 1, score: 0)
   end
 end

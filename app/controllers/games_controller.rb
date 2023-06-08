@@ -18,7 +18,7 @@ class GamesController < ApplicationController
     @game.user = current_user
     @game.status = 0
     if @game.save
-      redirect_to game_path
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end

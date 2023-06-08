@@ -1,12 +1,19 @@
-<%= simple_form_for game do |g| %>
-  <%= g.association :game_type, as: :select, collection: GameType.all, label_method: :name %>
-  <%= g.input :start_at,
-              as: :string,
-              input_html: { data: { controller: 'datepicker' } } %>
-  <%= g.input :duration, label: 'Duration (minutes)' %>
-  <%= g.input :location %>
-  <%= g.input :number_of_players, as: :select, collection: 3..5 %>
-  <%= g.input :competitive %>
-  <%= g.input :description %>
-  <%= g.submit %>
-<% end %>
+<div class="container">
+  <div class="mt-5">
+    <%= simple_form_for game do |g| %>
+      <%= g.association :game_type, as: :radio_buttons, collection: GameType.all, label_method: :name, label: false, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
+      <%= g.input :start_at,
+                  as: :string,
+                  label: false,
+                  input_html: { data: { controller: 'datepicker' } } %>
+      <%= g.input :duration, label: false, placeholder: 'Duration (minutes)' %>
+      <%= g.input :location, label: false, placeholder: 'Location' %>
+      <%= g.input :number_of_players, as: :radio_buttons, collection: 3..5, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
+      <%= g.input :competitive, input_html: { class: 'toggle' } %>
+      <%= g.input :description, label: false, placeholder: 'Description...' %>
+      <div class="d-flex justify-content-center mt-4">
+        <%= g.submit 'Create', class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
