@@ -7,14 +7,14 @@
 <div class="container">
   <div>
     <div class="my-4">
-      <h3 class="ms-3 mb-3">Next games</h3>
+      <h3 class="mb-3">Next games</h3>
       <ul>
         <% @next_games.each do |game| %>
           <%= render "shared/game_card_join", game: game %>
         <% end %>
       </ul>
     </div>
-    <div class="ms-3 mb-4">
+    <div class="mb-4">
       <h3 class="mb-3">News</h3>
       <%= render "shared/news_card" %>
     </div>
