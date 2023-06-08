@@ -1,14 +1,42 @@
-<div class="container mt-4">
-  <div class="d-flex d-print-inline-block justify-content-between">
+<div class="container mt-5">
+  <div class="d-flex d-print-inline-block justify-content-between mb-4">
+    <i class="fa-regular fa-comments"></i>
     <h2>Profile</h2>
     <i class="fa-solid fa-bars"></i>
   </div>
-  <div class="d-flex">
+  <div class="d-flex mx-3 mb-5">
     <div class="col-6">
-      <h2>Future avatar</h2>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-xlarge" %>
+      <% end %>
     </div>
-    <div class="col-6 d-flex text-end">
+    <div class="col-6 text-end mt-3">
       <h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-evenly mb-4">
+    <button type="button" class="btn btn-secondary border border-1 border-primary rounded-3">Edit profile</button>
+    <button type="button" class="btn btn-primary shadow rounded rounded-3">Statistics</button>
+  </div>
+  <div class="d-flex justify-content-evenly">
+    <div class="d-flex flex-column">
+      <i class="fa-solid fa-dice"></i>
+      <%= @user.participations.count %>
+    </div>
+    <div class="d-flex flex-column">
+      <i class="fa-solid fa-trophy"></i>
+      <%= @user.participations.count %>
+    </div>
+  </div>
+
+  <div>
+    <div class="card-profile">
+      <div class="card-profile-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+      <%= image_tag "tarot_cards.jpeg" %>
     </div>
   </div>
 
