@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
-  before_action:set_game, only: [:show]
+  before_action :set_game, only: [:show]
 
   def index
-    @mygames = current_user.games_as_participant
   end
 
   def show
