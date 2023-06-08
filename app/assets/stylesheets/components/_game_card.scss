@@ -10,7 +10,6 @@
   .players {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 15px;
     margin-bottom: 10px;
     margin-left: 1em;
@@ -24,7 +23,6 @@
       color: $light-brown;
       border-radius: 50%;
       background: $coral-red;
-      align-items: center;
       display: flex;
       i {
         font-size: 25px;
