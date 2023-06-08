@@ -16,6 +16,11 @@ class User < ApplicationRecord
 
   def attach_photo
     return if photo.attached?
+
     self.photo.attach(io: File.open(File.join(Rails.root, 'app/assets/images/default_avatar.jpg')), filename: 'avatar')
+  end
+
+  def games_not_participating_and_to_come
+    Game.not_participating_games_to_come_for(self)
   end
 end

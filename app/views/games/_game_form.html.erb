@@ -1,0 +1,12 @@
+<%= simple_form_for game, html: { data: { controller: 'datepicker' }} do |g| %>
+  <%= g.association :game_type, as: :select, collection: GameType.all, label_method: :name %>
+  <%= g.input :start_at,
+              as: :string,
+              input_html: { data: { datepicker_target: "start" } } %>
+  <%= g.input :duration, label: 'Duration (minutes)' %>
+  <%= g.input :location %>
+  <%= g.input :number_of_players, as: :select, collection: 3..5 %>
+  <%= g.input :competitive %>
+  <%= g.input :description %>
+  <%= g.submit %>
+<% end %>
