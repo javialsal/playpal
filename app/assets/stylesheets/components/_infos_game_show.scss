@@ -1,0 +1,20 @@
+.infos {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  padding-right: 10px;
+  margin-top: 1em;
+
+  i {
+    color: $body-color;
+  }
+
+  p {
+    color: $coral-red;
+    font-size: 0.9rem;
+  }
+
+  .item {
+    width: 45vw;
+  }
+}
