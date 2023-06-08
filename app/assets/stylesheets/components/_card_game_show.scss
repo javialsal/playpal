@@ -1,20 +1,25 @@
 .card-game-show {
   background-color: $light-brown;
-  border: solid ;
-  padding: 0;
+  border: 0.5px solid #001333;
+  border-radius: 4px;
+  padding: 10 0 0 0;
+  margin-top: 10px;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.1);
 
   .people{
     list-style: none;
+    font-size: 0.9rem;
     display: inline-flex;
     justify-content: space-between;
-    padding: 0;
+    padding: 10px 0 0 0;
     width: 100%;
+    text-align: center;
+
   }
 
   .button {
     text-decoration: none;
-    color: white;
-    align-self: center;
+    color: black;
     padding: 8px 24px;
     border-radius: 4px;
     background: $primary;
@@ -26,4 +31,9 @@
     color: white;
   }
 
+  .book {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
 }
