@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+
+    @victories = @user.mygames.select { |game| game.winner == @user }
   end
 
   private
