@@ -65,7 +65,7 @@
         <% end %>
       </ul>
       <div class="book">
-        <% if @game.participations.count < @game.number_of_players && @game.participations.users != current_user %>
+        <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
           <%= link_to 'Book', root_path, class:"button" %>
         <% end %>
       </div>
