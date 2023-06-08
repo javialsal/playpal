@@ -12,6 +12,12 @@ class Game < ApplicationRecord
 
   after_create :create_participation_for_owner
 
+  scope :not_participating_games_to_come_for, ->(user) {
+    where.not(id: user.games_as_participant.pluck(:id))
+    .where("start_at > ?", DateTime.now)
+    .order(:start_at)
+  }
+
   def create_participation_for_owner
     Participation.create(game: self, user: self.user_id)
   end
