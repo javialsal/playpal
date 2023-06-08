@@ -1,0 +1,29 @@
+.card-game-show {
+  background-color: $light-brown;
+  border: solid ;
+  padding: 0;
+
+  .people{
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+  }
+
+  .button {
+    text-decoration: none;
+    color: white;
+    align-self: center;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: $primary;
+    transition: background 0.3s ease;
+  }
+
+  .button:hover {
+    background: $body-color;
+    color: white;
+  }
+
+}
