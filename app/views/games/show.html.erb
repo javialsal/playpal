@@ -27,7 +27,7 @@
   </div>
   <div class="item ">
     <i class="fa-solid fa-users"></i>
-    <p><%= @game.number_of_players %> / 5</p>
+    <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
   </div>
 </div>
 
@@ -65,7 +65,7 @@
         <% end %>
       </ul>
       <div class="book">
-        <% if @game.number_of_players < 5 %>
+        <% if @game.participations.count < @game.number_of_players && @game.participations.users != current_user %>
           <%= link_to 'Book', root_path, class:"button" %>
         <% end %>
       </div>
