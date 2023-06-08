@@ -3,10 +3,8 @@ import flatpickr from "flatpickr";
 
 export default class extends Controller {
 
-  static targets = ['start']
-
   connect() {
-    flatpickr(this.startTarget, {
+    flatpickr(this.element, {
       minDate: "today",
       enableTime: true,
       dateFormat: "Y-m-d H:i"
