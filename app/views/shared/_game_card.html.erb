@@ -9,6 +9,7 @@
       <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
       <p><%= participation.user.first_name %></p>
     </div>
+    <% if participation.user_id.count <= participation.game.number_of_players %>
     <% end %>
   </div>
   <div class="game-type">
