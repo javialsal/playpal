@@ -10,6 +10,9 @@ class Game < ApplicationRecord
   validates :number_of_players, presence: true, numericality: { only_integer: true }, comparison: { greater_than: 0, less_than_or_equal_to: 5 }
   # validates :competitive, presence: true
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   after_create :create_participation_for_owner
 
   scope :not_participating_games_to_come_for, ->(user) {
@@ -21,7 +24,7 @@ class Game < ApplicationRecord
   def create_participation_for_owner
     Participation.create(game: self, user: self.user, status: 1, score: 0)
   end
-  
+
   def winner
     self.participations.max_by { |participation| participation.score }.user
   end
