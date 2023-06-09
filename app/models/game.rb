@@ -28,4 +28,8 @@ class Game < ApplicationRecord
   def winner
     self.participations.max_by { |participation| participation.score }.user
   end
+
+  def city
+    location.split(',').last.strip.split(' ').last
+  end
 end
