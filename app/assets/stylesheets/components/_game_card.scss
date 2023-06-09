@@ -4,7 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   border-radius: 8px;
-  // margin: 0.7em;
+  margin: 1em;
   border: 0.5px solid $dark-blue;
 
   .avatar-card {
@@ -13,7 +13,7 @@
   border-radius: 50%;
   background-color: $dark-blue;
   }
-  
+
   p {
     color: $dark-blue;
   }
@@ -109,7 +109,7 @@
 #game-cards-slide {
   display: grid;
   grid-auto-columns: minmax(330px, 1fr);
-  grid-column-gap: 1.3em;
+  // grid-column-gap: 1.3em;
   grid-auto-flow: column;
   list-style: none;
   overflow-x: scroll;
