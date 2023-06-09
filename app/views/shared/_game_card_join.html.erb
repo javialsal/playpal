@@ -4,25 +4,33 @@
     <p><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
   </div>
   <div class="players">
+    <% users = [
+      {
+        photo_url: "https://ca.slack-edge.com/T02NE0241-U053FG4KRA5-4a55123cc91d-512",
+        username: "Helene"
+      },
+      {
+        photo_url: "https://ca.slack-edge.com/T02NE0241-U053FCDPZ1R-8c0631b61a00-512",
+        username: "Youval"
+      },
+      {
+        photo_url: "https://ca.slack-edge.com/T02NE0241-U053HV6QHPC-334be9208dc3-512",
+        username: "Arnaud"
+      },
+      {
+        photo_url: "https://ca.slack-edge.com/T02NE0241-U053HMT49V1-d45ba989ac22-512",
+        username: "Maxime"
+      },
+    ] %>
+    <% users.shuffle.first(rand(1..4)).each do |user| %>
       <div class="player">
-        <img class="avatar-card avatar" src="https://ca.slack-edge.com/T02NE0241-U053FG4KRA5-4a55123cc91d-512"/>
-        <p>Helene</p>
+        <img class="avatar-card avatar" src="<%= user[:photo_url] %>"/>
+        <p><%= user[:username] %></p>
       </div>
-      <div class="player">
-        <img class="avatar-card" src="https://ca.slack-edge.com/T02NE0241-U053FCDPZ1R-8c0631b61a00-512" class="avatar"/>
-        <p>Youval</p>
-      </div>
-      <div class="player">
-        <img class="avatar-card" src="https://ca.slack-edge.com/T02NE0241-U053HV6QHPC-334be9208dc3-512" class="avatar"/>
-        <p>Arnaud</p>
-      </div>
-      <div class="player">
-        <img class="avatar-card" src="https://ca.slack-edge.com/T02NE0241-U053HMT49V1-d45ba989ac22-512" class="avatar"/>
-        <p>Maxime</p>
-      </div>
-      <div class="player">
-        <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
-      </div>
+    <% end %>
+    <div class="player">
+      <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
+    </div>
   </div>
   <div class="game-type">
     <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
