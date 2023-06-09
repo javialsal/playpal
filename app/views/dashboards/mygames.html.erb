@@ -41,7 +41,7 @@
       <% if @mygames == [] %>
         <h5 class= "text-center">You don't have any previous games !</h5>
       <% else %>
-        <% @mygames.each do |game| %>
+        <% @mygames.reverse.each do |game| %>
           <% if game.start_at < Date.today %>
             <%= link_to game_path(game), class: "text-decoration-none link-dark mb-3" do %>
               <div class="game-card">
