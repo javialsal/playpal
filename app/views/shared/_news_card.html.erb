@@ -1,10 +1,14 @@
 <div class="news-cards">
   <div class="news-card-infos">
-    <p><%= User.first.first_name.capitalize %> made a score of <%= User.first.participations.first.score %> points!</p>
+    <p><%= User.find(2).first_name.capitalize %> made a score of <%= User.find(2).participations.last.score %> points!</p>
     <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
   </div>
   <div class="news-card-infos">
-    <p><%= User.first.first_name.capitalize %> made a score of <%= User.first.participations.first.score %> points!</p>
+    <p><%= User.find(3).first_name.capitalize %> made a score of <%= User.find(3).participations.last.score %> points!</p>
+    <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
+  </div>
+  <div class="news-card-infos">
+    <p><%= User.find(4).first_name.capitalize %> made a score of <%= User.find(4).participations.last.score %> points!</p>
     <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
   </div>
 </div>
