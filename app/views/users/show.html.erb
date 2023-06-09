@@ -7,7 +7,8 @@
   <div class="d-flex mx-3 mb-5">
     <div class="col-6">
       <%= link_to user_path(current_user) do %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-xlarge" %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-xlarge" %>
+        <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-xlarge" %>
       <% end %>
     </div>
     <div class="col-6 text-end mt-3">
@@ -51,7 +52,7 @@
         <h4>Level 3.5</h4>
         <p>Reliability: 30%</p>
       </div>
-      <%= image_tag "tarot_cards.jpeg" %>
+      <%= image_tag "tarot_cards.jpg" %>
     </div>
   </div>
 </div>
