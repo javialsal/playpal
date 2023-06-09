@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :game_type
-  has_many :games
+  has_many :games, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :games_as_participant, through: :participations, source: :game
   has_many :reviews, dependent: :destroy
