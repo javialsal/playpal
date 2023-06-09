@@ -69,6 +69,10 @@ u = User.new(
   address: "19 Avenue de Villars, 75007 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-arnaud.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -88,6 +92,10 @@ u = User.new(
   address: "20 Rue des Annelets, 75019 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-javier.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -103,6 +111,10 @@ u = User.new(
   address: "26 Rue de Constantinople, 75008 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-youval.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -118,30 +130,38 @@ u = User.new(
   address: "53 Rue Olivier de Serres, 75015 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-maxime.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
 
 u = User.new(
-  email: "Lee@wagon.org",
+  email: "helene@wagon.org",
   password: "azerty",
   username: "ShortestName",
-  first_name: "Lee",
-  last_name: "Wu",
+  first_name: "Helene",
+  last_name: "Becquembois",
   bio: "Shortest bio",
   tags: [0, 1, 2],
   address: "27 Rue Didot, 75014 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-helene.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
 
 u = User.new(
-  email: "jpa@wagon.org",
+  email: "tdm@wagon.org",
   password: "azerty",
   username: "TheLongestUsernameYouLlEverSeeInYourFuckingLife",
-  first_name: "Jean-Pierre-Albert",
+  first_name: "Thomas",
   last_name: "Pernety du Port du Mistral Gagnant",
   bio: "Lorem ipsum dolor sit amet. Aut galisum deserunt id molestiae voluptatibus aut nulla iste ut mollitia amet. Et nesciunt illo et pariatur impedit et recusandae suscipit sit veniam quasi eos quidem iusto. Et corporis assumenda hic itaque impedit et voluptatem quia et ullam obcaecati.
 
@@ -150,6 +170,10 @@ u = User.new(
   address: "162 bis Avenue du Général Michel Bizot, 75012 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-thomas.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 # To create other users

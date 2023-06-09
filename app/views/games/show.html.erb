@@ -40,7 +40,7 @@
         <% @game.participations.each do |participant| %>
           <li>
             <%= link_to user_path(current_user) do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <%= image_tag participant.user.photo, class: "avatar" %>
             <% end %>
             <p><%= participant.user.username.truncate(10) %></p>
             <p><%= participant.score %></p>
@@ -58,7 +58,7 @@
         <% @game.participations.each do |participant| %>
           <li>
             <%= link_to user_path(current_user) do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <%= image_tag participant.user.photo, class: "avatar" %>
             <% end %>
             <%= participant.user.username.truncate(10) %>
           </li>
