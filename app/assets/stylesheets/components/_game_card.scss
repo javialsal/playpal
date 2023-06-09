@@ -7,31 +7,42 @@
   margin: 1em;
   border: 0.5px solid $dark-blue;
 
+  p {
+    color: $dark-blue;
+  }
+
   .players {
     display: flex;
     justify-content: space-evenly;
     margin-top: 15px;
     margin-bottom: 10px;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 
     p {
       margin: 0;
-      font-size: 10px;
+      font-size: 14px;
       text-align: center;
     }
 
     .btn {
-      height: 45px;
-      width: 45px;
+      height: 50px;
+      width: 50px;
       color: $light-brown;
+      justify-content: center;
       border-radius: 50%;
-      background: $coral-red;
+      background: linear-gradient(45deg, $coral-red, $coral-orange);
       display: flex;
 
       i {
+        align-self: center;
         font-size: 25px;
       }
+    }
+
+    .player {
+      text-align: center;
+      max-width: 50px;
     }
 
     .btn:hover {
@@ -39,6 +50,13 @@
       background: $light-brown;
       color: $coral-red;
       border: 3px solid $coral-red;
+    }
+
+    .avatar-card {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-color: $dark-blue;
     }
   }
 
@@ -79,15 +97,4 @@
       margin-right: 0.5em;
     }
   }
-}
-
-.game-card .avatar-card {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: $dark-blue;
-}
-
-.game-card p {
-  color: $dark-blue;
 }
