@@ -2,7 +2,15 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
-    @games = current_user.games_not_participating_and_to_come.order("start_at")
+    if params[:query].present?
+      @games = current_user.games_not_participating_and_to_come.order("start_at").where("location ILIKE ?", "%#{params[:query]}%")
+    else
+      @games = current_user.games_not_participating_and_to_come.order("start_at")
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "games/list", locals: {games: @games}, formats: [:html] }
+    end
   end
 
   def show
