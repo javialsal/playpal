@@ -2,8 +2,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
-    @games = current_user.games_not_participating_and_to_come
-    # @games = Game.not_participating_games_to_come_for(current_user)
+    @games = current_user.games_not_participating_and_to_come.order("start_at")
   end
 
   def show
