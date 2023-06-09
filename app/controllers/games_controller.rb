@@ -6,6 +6,8 @@ class GamesController < ApplicationController
   end
 
   def show
+    @chatroom = @game.chatroom
+    @message = Message.new
   end
 
   def new

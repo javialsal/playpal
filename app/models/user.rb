@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :games_as_participant, through: :participations, source: :game
   has_many :reviews, dependent: :destroy
+  has_many :messages
   has_one_attached :photo
   before_save :attach_photo
 
