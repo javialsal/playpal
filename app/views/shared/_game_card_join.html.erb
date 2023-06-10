@@ -1,28 +1,26 @@
 <div class="game-card">
   <div class="game-time">
-    <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%A %d %B") %></p>
-    <p><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
+    <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b %H:%M") %></p>
+    <p><%= truncate(game.city, length: 15) %></p>
   </div>
   <div class="players">
+    <% user_photos = {
+        'helene@wagon.org' => "https://ca.slack-edge.com/T02NE0241-U053FG4KRA5-4a55123cc91d-512",
+        'youval@wagon.org' => "https://ca.slack-edge.com/T02NE0241-U053FCDPZ1R-8c0631b61a00-512",
+        'arnaud@wagon.org' => "https://ca.slack-edge.com/T02NE0241-U053HV6QHPC-334be9208dc3-512",
+        'maxime@wagon.org' => "https://ca.slack-edge.com/T02NE0241-U053HMT49V1-d45ba989ac22-512",
+        'javier@wagon.org' => "https://avatars.githubusercontent.com/u/130446029?v=4",
+        'tdm@wagon.org' => "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1585588520/j0m6tlufeayghsj1uqdv.jpg"
+    } %>
+    <% game.users.first(4).each do |user| %>
       <div class="player">
-        <img class="avatar-card" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="avatar"/>
-        <p>Name</p>
+        <img class="avatar-card avatar" src="<%= user_photos[user.email] %>"/>
+        <p><%= user.first_name %></p>
       </div>
-      <div class="player">
-        <img class="avatar-card" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="avatar"/>
-        <p>Name</p>
-      </div>
-      <div class="player">
-        <img class="avatar-card" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="avatar"/>
-        <p>Name</p>
-      </div>
-      <div class="player">
-        <img class="avatar-card" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="avatar"/>
-        <p>Name</p>
-      </div>
-      <div class="player">
-        <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
-      </div>
+    <% end %>
+    <div class="player">
+      <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
+    </div>
   </div>
   <div class="game-type">
     <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>

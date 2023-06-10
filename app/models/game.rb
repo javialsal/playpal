@@ -11,6 +11,9 @@ class Game < ApplicationRecord
   validates :number_of_players, presence: true, numericality: { only_integer: true }, comparison: { greater_than: 0, less_than_or_equal_to: 5 }
   # validates :competitive, presence: true
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   after_create :create_participation_for_owner
   after_create :create_chatroom
 
@@ -32,6 +35,14 @@ class Game < ApplicationRecord
 
   def create_chatroom
     Chatroom.create(game_id: id)
+  end
+
+  def winner
+    self.participations.max_by { |participation| participation.score }.user
+  end
+
+  def city
+    location.split(',').last.strip.split(' ').last
   end
 
 end

@@ -46,6 +46,82 @@ gt = GameType.new(
 )
 gt.save!
 
+gt = GameType.new(
+  name: "Rami",
+  rules: "Le Rami est un jeu de cartes de combinaison (c'est-à-dire que le but est de faire des combinaisons de cartes) pour deux joueurs et plus.
+  Le Rami se joue avec deux jeux de 54 cartes classiques avec Jokers. L'ordre des cartes est As-2-3-4-5-6-7-8-9-10-Valet-Dame-Roi-As.
+  L'as a ainsi une double valeur (avant le 2 et après le Roi).Le but d'une manche est d'être le premier à poser toutes les cartes de sa main sur la table.
+  Le(s) perdant(s) d'une manche marquent un certain nombre de points. La finalité est de marquer le moins de points possible. Dans ClubDeJeux, les joueurs peuvent choisir à partir de quel nombre de points un joueur est éliminé de la table: 101, 201 ou 501 points.
+
+  Distribution des cartes
+
+  Le premier donneur est déterminé au hasard, puis chaque joueur distribuera les cartes alternativement à chaque manche, dans le sens des aiguilles d'une montre. Les deux jeux sont soigneusement mélangés ensemble pour ne former qu'un paquet. Ensuite le donneur distribue 14 cartes à chaque joueur, et enfin retourne la carte suivante pour former la première carte de la pile de défausse . Le reste des cartes constitue la pioche.C'est le joueur à la gauche du donneur qui commence.
+
+  Tour de jeu
+
+  Le joueur dont c'est le tour :
+
+  Pioche la première carte de la pioche, ou alors la première carte de la défausse (sauf au premier tour) si elle lui permet de poser tout ou partie de son jeu (pour justifier cette prise), et dans ce cas doit être posée dans le tour courant.
+  Peut poser tout ou partie de ses cartes, sous forme de combinaisons, sur la table.
+  Peut poser une ou plusieurs de ses cartes sur son jeu déjà posé ou celui d'un autre joueur (seulement s'il a déjà posé).
+  Peut échanger une de ses cartes un joker posé par la carte qu'il représente (seulement s'il a déjà posé).
+  Enfin, il se défausse d'une carte de sa main et la place sur la pile de défausse face visible.
+
+
+  Les combinaisons valides
+
+  Les combinaisons qui peuvent être posées (voir plus loin pour la première pose) :
+
+  Série de trois cartes de même valeur (brelan) ou de quatre cartes de même valeur (carré), mais de couleurs différentes.
+  Séquence d'au moins trois cartes consécutives de même couleur.
+  Attention Une suite contenant Roi-As-Deux est interdite. L'as mis en position de 1, restera un 1. L'As mis en position d'As (après le roi) restera un As.
+  On peut mettre un joker pour remplacer n'importe quelle carte, mais un seul joker par combinaison. Ce joker est alors exactement équivalent à la carte qu'il remplace, et ne pourra être positionné qu'aux extrémités des séquences.
+
+  Chaque joueur joue chacun à son tour, jusqu'à ce qu'un joueur ait posé ou défaussé sa dernière carte.
+  Lorsque la pioche est vide, elle sera mélangée pour créer une nouvelle pioche.
+
+
+
+  Évaluer une combinaison
+
+  Chaque combinaison vaut un certain nombre de points. Ces points sont la somme des points attribués aux cartes qui la composent :
+
+  Les cartes du 2 au 10 valent leur valeur (donc de 2 à 10 points).
+  Le valet, la dame et le roi valent 10 points chacun.
+  L'as vaut 1 s'il est dans une séquence suivi d'un 2 et d'un 3. Il vaut 11 s'il est dans une séquence suivant un roi et une dame, s'il est dans un brelan, ou s'il est dans un carré.
+  Le joker vaut la valeur de la carte qu'il remplace.
+
+
+  La première pose
+
+  On ne peut poser qu'à partir du second tour. Pour poser la première fois chaque joueur doit poser un groupe de combinaisons ayant les caractéristiques suivantes :
+
+  Contenir au moins 51 points
+  Contenir au moins une tierce franche, c'est-à-dire une séquence de trois cartes sans joker.
+
+  On peut bien sûr poser bien plus de 51 points. Une fois que l'on a posé, on n'est plus limité: on peut poser de nouveaux brelans, carrés, ou séquences, on peut compléter des combinaisons existantes chez soi ou chez un adversaire, et remplacer les jokers (voir la règle ci-après).
+
+
+  Remplacer un joker
+
+  On peut remplacer un joker posé chez soi ou un adversaire si on a déjà posé, à part un joker dans un brelan (mais pas de problème pour un carré).
+  Il faut posséder la carte dont le joker a pris la place. On pose alors la carte à la place du joker et on prend le joker dans sa main.
+
+
+  Fin de la manche
+
+  La manche est finie quand un joueur n'a plus de cartes en main.
+  Chaque joueur marque alors un nombre de points égal à la somme des points de ses cartes restants en main, selon les règles vues plus haut, sachant que :
+
+  Un as, dans cette situation, vaut toujours 11
+  Un joker (ou plusieurs), dans cette situation, double les points en main
+  Quelqu'un qui n'a pas encore posé marque 100 points
+  Si aucun joueur n'a encore posé et que quelqu'un ferme le jeu, les perdants marquent 200 points.
+
+  Le but est bien évidemment de marquer le moins possible."
+)
+gt.save!
+
 # To create an other GameType
 
 # gt = GameType.new(
@@ -69,6 +145,10 @@ u = User.new(
   address: "19 Avenue de Villars, 75007 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-arnaud.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -88,6 +168,10 @@ u = User.new(
   address: "20 Rue des Annelets, 75019 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-javier.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -103,6 +187,10 @@ u = User.new(
   address: "26 Rue de Constantinople, 75008 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-youval.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
@@ -118,30 +206,38 @@ u = User.new(
   address: "53 Rue Olivier de Serres, 75015 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-maxime.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
 
 u = User.new(
-  email: "Lee@wagon.org",
+  email: "helene@wagon.org",
   password: "azerty",
   username: "ShortestName",
-  first_name: "Lee",
-  last_name: "Wu",
+  first_name: "Helene",
+  last_name: "Becquembois",
   bio: "Shortest bio",
   tags: [0, 1, 2],
   address: "27 Rue Didot, 75014 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-helene.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 game = GameType.all.sample.id
 
 u = User.new(
-  email: "jpa@wagon.org",
+  email: "tdm@wagon.org",
   password: "azerty",
   username: "TheLongestUsernameYouLlEverSeeInYourFuckingLife",
-  first_name: "Jean-Pierre-Albert",
+  first_name: "Thomas",
   last_name: "Pernety du Port du Mistral Gagnant",
   bio: "Lorem ipsum dolor sit amet. Aut galisum deserunt id molestiae voluptatibus aut nulla iste ut mollitia amet. Et nesciunt illo et pariatur impedit et recusandae suscipit sit veniam quasi eos quidem iusto. Et corporis assumenda hic itaque impedit et voluptatem quia et ullam obcaecati.
 
@@ -150,6 +246,10 @@ u = User.new(
   address: "162 bis Avenue du Général Michel Bizot, 75012 Paris",
   game_type_id: game
 )
+
+file = File.open(Rails.root.join("db/seeds/picture-thomas.jpg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
 u.save!
 
 # To create other users

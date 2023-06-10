@@ -3,6 +3,7 @@
     <h2><%= @game.game_type.name %> game</h2>
   </div>
 
+
   <div class="infos-game-show infos">
     <div class="item ">
       <i class="fa-regular fa-clock"></i>
@@ -13,16 +14,15 @@
       <i class="fa-solid fa-location-dot"></i>
       <p><%= @game.location %></p>
     </div>
-  </div>
 
   <div class="infos-game-show infos">
     <div class="item ">
       <i class="fa-solid fa-medal"></i>
       <p>
         <% if @game.competitive == true %>
-          <%= "Competitif" %>
+          <%= "Competitive" %>
         <% else %>
-          <%= "Amical" %>
+          <%= "Friendly" %>
         <% end %>
       </p>
     </div>
@@ -30,7 +30,6 @@
       <i class="fa-solid fa-users"></i>
       <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
     </div>
-  </div>
 
   <% if @game.start_at < Date.today %>
     <%# passed games show %>
@@ -40,17 +39,22 @@
           <% @game.participations.each do |participant| %>
             <li>
               <%= link_to user_path(current_user) do %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                <%= image_tag participant.user.photo, class: "avatar" %>
               <% end %>
               <p><%= participant.user.username.truncate(10) %></p>
               <p><%= participant.score %></p>
             </li>
           <% end %>
-        </ul>
+        </p>
+      </div>
+      <div class="item ">
+        <i class="fa-solid fa-users"></i>
+        <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
       </div>
     </div>
 
   <% else %>
+
     <%# futur games show %>
     <div class="container">
       <div class="card-game-show">
@@ -58,7 +62,7 @@
           <% @game.participations.each do |participant| %>
             <li>
               <%= link_to user_path(current_user) do %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                <%= image_tag participant.user.photo, class: "avatar" %>
               <% end %>
               <%= participant.user.username.truncate(10) %>
             </li>
@@ -71,8 +75,7 @@
         </div>
       </div>
     </div>
-
-  <% end %>
+   <% end %>
 
   <%# chatroom %>
   <div class="container mt-3">
@@ -93,13 +96,13 @@
   </div>
 
   <%# new message on chatroom %>
-    <%= simple_form_for [@game, @message],html: {class: "d-flex"} do |f|%>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message ",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-    <% end %>
+  <%= simple_form_for [@game, @message],html: {class: "d-flex"} do |f|%>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
 
 </div>
