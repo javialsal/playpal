@@ -27,17 +27,29 @@
     border-left: 1px solid #ced4da;
     ul {
       list-style: none;
+      padding: 0;
       .mapboxgl-ctrl-geocoder--powered-by a {
         display: none;
       }
     }
-    .mapboxgl-ctrl-geocoder--suggestion {
-      display: flex;
-      justify-content: flex-start;
+    li {
+      padding: 0.4rem 5px;
     }
-    .mapboxgl-ctrl-geocoder--suggestion-title {
-      margin-right: 0.5em;
+    li:nth-of-type(2n) {
+      background-color: $light-gray;
     }
   }
+}
 
+.launch-game-button {
+  position: relative;
+  padding: 0.15em;
+  font-size: 18px;
+  border: 0;
+  background: linear-gradient(45deg, $coral-red, $coral-orange);
+  border-radius: 50px;
+  margin-bottom: 1em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
+  padding: 1rem;
 }
