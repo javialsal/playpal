@@ -5,7 +5,11 @@ class MessagesController < ApplicationController
     @message.chatroom = @game.chatroom
     @message.user = current_user
     if @message.save
-      redirect_to game_path(@game)
+      ChatroomChannel.broadcast_to(
+        @game.chatroom,
+        render_to_string(partial: "shared/message", locals: {message: @message})
+      )
+      head :ok
     else
       render "game_path", status: :unprocessable_entity
     end
