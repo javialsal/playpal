@@ -1,0 +1,25 @@
+.search_button_home {
+  position: relative;
+  padding: 0.15em;
+  font-size: 18px;
+  border: 1px solid white;
+  background: linear-gradient(45deg, $coral-red, $coral-orange);
+  border-radius: 50px;
+  margin-bottom: 1em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  p {
+    text-align: left;
+    color: white;
+    margin: 0;
+    padding-left: 10px;
+  }
+
+  i {
+    position: absolute;
+    color: white;
+    top: 8px;
+    bottom: 8px;
+    right: 10px;
+  }
+}

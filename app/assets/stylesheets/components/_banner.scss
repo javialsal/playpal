@@ -1,5 +1,5 @@
 .banner {
-  height: 30vh;
+  height: 26vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,7 +11,9 @@
     color: $light-brown;
     font-weight: bold;
     font-size: 50px;
-    margin-bottom: 6vh;
+    letter-spacing: 4px;
+    margin-top: 3vh;
+    margin-bottom: 3.5vh;
   }
 
   .btn {
