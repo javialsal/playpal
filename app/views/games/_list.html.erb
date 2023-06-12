@@ -3,9 +3,12 @@
       <p><i class="fa-regular fa-face-grin-beam-sweat"></i>Sorry, no games in <%= params[:query] %></p>
   </div>
 <% else %>
+  <% if (params[:query]).blank? == true %>
+  <% else %>
   <div class="info-panels">
-      <p><i class="fa-regular fa-face-laugh-wink"></i><%= games.size %> <%= games.size == 1 ? "game" : "game".pluralize %> <%= params[:query] == nil ? "arround you" : "found" %></p>
+      <p><i class="fa-regular fa-face-laugh-wink"></i><%= games.size %> <%= games.size == 1 ? "game" : "game".pluralize %> found</p>
   </div>
+  <% end %>
   <% games.each do |game| %>
     <%= render "shared/game_card_join", game: game %>
   <% end %>
