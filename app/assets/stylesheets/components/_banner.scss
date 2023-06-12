@@ -1,19 +1,21 @@
 .banner {
-  height: 40vh;
+  height: 30vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: $dark-blue;
   background-size: cover;
   background-position: center;
+
   h1 {
     color: $light-brown;
     font-weight: bold;
-    font-size: 45px;
-    margin-bottom: 10vh;
+    font-size: 50px;
+    margin-bottom: 6vh;
   }
+
   .btn {
-    padding: 15px 50px;
+    padding: 10px 40px;
     color: $light-brown;
     border-radius: 4px;
     font-weight: bold;
