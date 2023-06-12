@@ -17,8 +17,11 @@
   <body>
     <%# <div class="= 'container' unless params[:controller] == 'games' && params[:action] == 'index' || params[:action] == 'show'"> %>
       <%= render "shared/flashes" %>
-      <%= yield %>
+
     <%# </div> %>
-    <%= render "shared/pp_navbar" %>
+      <div class="main-body-content">
+        <%= yield %>
+      </div>
+      <%= render "shared/pp_navbar" %>
   </body>
 </html>

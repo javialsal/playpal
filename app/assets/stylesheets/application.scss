@@ -10,3 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+  .main-body-content {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+}

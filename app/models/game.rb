@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   belongs_to :game_type
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
+  has_one :chatroom
 
   validates :location, presence: true
   validates :start_at, presence: true
@@ -14,6 +15,7 @@ class Game < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   after_create :create_participation_for_owner
+  after_create :create_chatroom
 
   scope :not_participating_games_to_come_for, ->(user) {
     where.not(id: user.games_as_participant.pluck(:id))
@@ -21,8 +23,18 @@ class Game < ApplicationRecord
     .order(:start_at)
   }
 
+  def winner
+    self.participations.max_by { |participation| participation.score }.user
+  end
+
+  private
+
   def create_participation_for_owner
     Participation.create(game: self, user: self.user, status: 1, score: 0)
+  end
+
+  def create_chatroom
+    Chatroom.create(game_id: id)
   end
 
   def winner
@@ -32,4 +44,5 @@ class Game < ApplicationRecord
   def city
     location.split(',').last.strip.split(' ').last
   end
+
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :participations, only: ['create']
+    resources :messages, only: :create
   end
 
   resources :participations, only: ['index', 'edit', 'update'] do
