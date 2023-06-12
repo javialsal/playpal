@@ -1,3 +1,8 @@
+h2 {
+  padding: 10px 16px 0px 16px;
+  margin-bottom: 0;
+}
+
 .game-card {
   overflow: hidden;
   background: $light-brown;
@@ -115,7 +120,7 @@
   list-style: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  padding: 1em 0.2em;
+  padding: 0em;
 }
 
 #game-cards-slide::-webkit-scrollbar {
