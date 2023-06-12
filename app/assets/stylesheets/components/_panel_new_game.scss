@@ -1,0 +1,22 @@
+.panel_new_game {
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+  padding: 0.5em;
+  font-size: 18px;
+  text-align: center;
+  background: linear-gradient(45deg, $coral-red, $coral-orange);
+  border: 1px solid linear-gradient(45deg, $coral-red, $coral-orange);
+  border-radius: 8px;
+  margin: 1em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+  p {
+    color: white;
+    margin: 0;
+  }
+
+  i {
+    padding-right: 0.5em;
+  }
+}
