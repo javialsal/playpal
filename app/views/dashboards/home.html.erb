@@ -1,20 +1,20 @@
 <div class="banner">
   <div class="banner-content text-center">
     <h1>PlayPal</h1>
-    <%= link_to "Search", games_path, class: "btn btn-lg btn-primary"  %>
+    <%= link_to "Find a game", games_path, class: "btn btn-lg btn-primary"  %>
   </div>
 </div>
 <div class="container">
   <div>
-    <div class="my-4">
-      <h3 class="mb-3">Next games</h3>
+    <div class="mt-4">
+      <h3>Next games</h3>
       <ul id="game-cards-slide">
         <% @next_games.each do |game| %>
           <%= render "shared/game_card_join", game: game %>
         <% end %>
       </ul>
     </div>
-    <div class="mb-4">
+    <div class="mb-2">
       <h3 class="mb-3">News</h3>
       <%= render "shared/news_card" %>
     </div>
