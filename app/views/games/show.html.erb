@@ -50,7 +50,10 @@
       <% unless @game.start_at < Date.today %>
         <div class="book">
           <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
-            <%= link_to 'Book', root_path, class:"button" %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Book
+            </button>
           <% end %>
         </div>
       <% end %>
@@ -83,5 +86,33 @@
     <% end %>
   </div>
 
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"><%= @game.game_type.name %> game</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="flex">
+          <i class="fa-solid fa-location-dot"></i>
+          <p><%= @game.location %></p>
+        </div>
+        <div class="flex">
+          <i class="fa-regular fa-clock my-2"></i>
+          <p><%= @game.start_at.strftime("%A %d %B, %Y") %> at <strong><%= @game.start_at.strftime("%H:%M") %></strong></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= simple_form_for([@game, @participation]) do |f| %>
+          <%= f.submit 'Validate participation', class:"btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
