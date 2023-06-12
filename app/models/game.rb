@@ -27,18 +27,12 @@ class Game < ApplicationRecord
     self.participations.max_by { |participation| participation.score }.user
   end
 
-  private
-
   def create_participation_for_owner
     Participation.create(game: self, user: self.user, status: 1, score: 0)
   end
 
   def create_chatroom
     Chatroom.create(game_id: id)
-  end
-
-  def winner
-    self.participations.max_by { |participation| participation.score }.user
   end
 
   def city

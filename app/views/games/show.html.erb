@@ -14,6 +14,7 @@
       <i class="fa-solid fa-location-dot"></i>
       <p><%= @game.location %></p>
     </div>
+  </div>
 
   <div class="infos-game-show infos">
     <div class="item ">
@@ -30,6 +31,7 @@
       <i class="fa-solid fa-users"></i>
       <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
     </div>
+  </div>
 
   <% if @game.start_at < Date.today %>
     <%# passed games show %>
@@ -47,11 +49,6 @@
           <% end %>
         </p>
       </div>
-      <div class="item ">
-        <i class="fa-solid fa-users"></i>
-        <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
-      </div>
-    </div>
 
   <% else %>
 
@@ -75,7 +72,8 @@
         </div>
       </div>
     </div>
-   <% end %>
+  <% end %>
+  </div>
 
   <%# chatroom %>
   <div class="container mt-3">
@@ -93,7 +91,6 @@
         <% end %>
       </div>
     </div>
-  </div>
 
   <%# new message on chatroom %>
   <%= simple_form_for [@game, @message],html: {class: "d-flex"} do |f|%>
