@@ -1,10 +1,15 @@
 .scrollable-chatroom {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 4,5em) !important;
-}
+  height: 100%;
 
-.chatroom {
-  flex-grow: 1;
-  overflow: scroll;
+  .no-scroll {
+    flex-grow: 1;
+  }
+
+  .chatroom {
+    max-height: 240px;
+    overflow: scroll;
+  }
+
 }

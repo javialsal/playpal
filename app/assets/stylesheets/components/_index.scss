@@ -1,4 +1,5 @@
 // Import your components CSS files here.
+@import "address_autocomplete";
 @import "alert";
 @import "avatar";
 @import "banderol";
@@ -9,6 +10,7 @@
 @import "game_form";
 @import "infos_game_show";
 @import "login_form";
+@import "modal";
 @import "news_card";
 @import "onglet";
 @import "pp_navbar";
@@ -20,3 +22,6 @@
 @import "panel_new_game";
 @import "search_index_games";
 @import "search_bar";
+@import "link";
+@import "button_add";
+

@@ -16,6 +16,7 @@ class GamesController < ApplicationController
   def show
     @chatroom = @game.chatroom
     @message = Message.new
+    @participation = Participation.new
   end
 
   def new
@@ -57,4 +58,5 @@ class GamesController < ApplicationController
       :status
     )
   end
+
 end

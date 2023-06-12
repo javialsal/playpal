@@ -6,10 +6,31 @@
                   as: :string,
                   label: false,
                   input_html: { data: { controller: 'datepicker' } } %>
-      <%= g.input :duration, label: false, placeholder: 'Duration (minutes)' %>
-      <%= g.input :location, label: false, placeholder: 'Location' %>
-      <%= g.input :number_of_players, as: :radio_buttons, collection: 3..5, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
-      <%= g.input :competitive, input_html: { class: 'toggle' } %>
+      <div data-controller='range'>
+        <label for='duration[range]'><strong>Duration</strong> (<span data-range-target='rangeElement'></span> h)</label>
+        <div class="d-flex">
+          <p class="me-2">30</p>
+            <div id="duration-range">
+              <%= g.input :duration, collection: ['30', '240'], label: false, as: :range, input_html: { min:'30', max:'240', data: { action: 'input->range#range', range_target: 'input'}} %>
+            </div>
+          <p class="ms-2">240</p>
+        </div>
+      </div>
+      <%= g.input :location,
+        label: false,
+        input_html: {
+          data: {address_autocomplete_target: "address"},
+          class: "d-none"
+        },
+        wrapper_html: {
+          data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}
+        } %>
+      <div class="d-flex">
+        <%= g.input :number_of_players, as: :radio_buttons, collection: 3..5, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
+        <div id="compet-select">
+          <%= g.input :competitive, input_html: { class: 'toggle' } %>
+        </div>
+      </div>
       <%= g.input :description, label: false, placeholder: 'Description...' %>
       <div class="d-flex justify-content-center mt-4">
         <%= g.submit 'Create', class: 'btn btn-form btn-lg btn-primary' %>
