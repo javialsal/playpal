@@ -672,3 +672,35 @@ Game.all.each do |game|
 end
 
 puts "#{Review.count} reviews"
+
+
+# Custom game with slots available
+g = Game.new(
+  location: "Champ de Mars, 2 Allée Adrienne Lecouvreur, 75007 Paris",
+  duration: long,
+  start_at: (Date.today + 3.weeks),
+  number_of_players: 5,
+  competitive: compet,
+  description: "Eos dignissimos impedit et culpa autem quo quia vitae et cupiditate placeat At velit nobis sed repellendus consequatur ab tempore totam.",
+  status: 1,
+  game_type_id: game
+)
+g.user = User.third
+g.save!
+
+p = Participation.new(
+  status: 1,
+  game_id: g.id,
+  score: 0
+)
+p.user = User.second
+p.save!
+
+p = Participation.new(
+  status: 1,
+  game_id: g.id,
+  score: 0,
+  user_id: User.last
+)
+p.user = User.last
+p.save!
