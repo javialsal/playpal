@@ -1,0 +1,24 @@
+.panel_new_game {
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+  padding: 0.25em;
+  font-size: 18px;
+  text-align: center;
+  border: 2px solid $coral-orange;
+  border-radius: 8px;
+  margin: 1.5em;
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    color: $coral-orange;
+    margin: 0;
+  }
+
+  i {
+    padding-right: 0.5em;
+  }
+}
