@@ -1,19 +1,19 @@
 <div class="container">
   <div class="mt-5">
     <%= simple_form_for game do |g| %>
-      <%= g.association :game_type, as: :radio_buttons, collection: GameType.all, label_method: :name, label: false, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
+      <%= g.association :game_type, as: :radio_buttons, collection: GameType.all, label_method: :name, legend_tag: false, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
       <%= g.input :start_at,
                   as: :string,
                   label: false,
                   input_html: { data: { controller: 'datepicker' } } %>
       <div data-controller='range'>
-        <label for='duration[range]'><strong>Duration</strong> (<span data-range-target='rangeElement'></span> h)</label>
+        <label for='duration[range]'><strong>Duration</strong> (<span data-range-target='rangeElement'></span>)</label>
         <div class="d-flex">
-          <p class="me-2">30</p>
+          <p class="me-2">30 min</p>
             <div id="duration-range">
-              <%= g.input :duration, collection: ['30', '240'], label: false, as: :range, input_html: { min:'30', max:'240', data: { action: 'input->range#range', range_target: 'input'}} %>
+              <%= g.input :duration, label: false, as: :range, input_html: { min:'30', max:'240', step: '15', data: { action: 'input->range#range', range_target: 'input'}} %>
             </div>
-          <p class="ms-2">240</p>
+          <p class="ms-2">4 hours</p>
         </div>
       </div>
       <%= g.input :location,
@@ -33,7 +33,7 @@
       </div>
       <%= g.input :description, label: false, placeholder: 'Description...' %>
       <div class="d-flex justify-content-center mt-4">
-        <%= g.submit 'Create', class: 'btn btn-form btn-lg btn-primary' %>
+        <%= g.submit 'Launch game 🚀', class: 'btn btn-form btn-lg btn-primary' %>
       </div>
     <% end %>
   </div>

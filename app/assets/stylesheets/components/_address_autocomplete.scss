@@ -27,10 +27,17 @@
     border-left: 1px solid #ced4da;
     ul {
       list-style: none;
+      .mapboxgl-ctrl-geocoder--powered-by a {
+        display: none;
+      }
     }
     .mapboxgl-ctrl-geocoder--suggestion {
       display: flex;
       justify-content: flex-start;
     }
+    .mapboxgl-ctrl-geocoder--suggestion-title {
+      margin-right: 0.5em;
+    }
   }
+
 }
