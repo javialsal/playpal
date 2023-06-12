@@ -35,10 +35,11 @@
     .btn {
       height: 50px;
       width: 50px;
-      color: $light-brown;
       justify-content: center;
       border-radius: 50%;
-      background: linear-gradient(45deg, $coral-red, $coral-orange);
+      background: $light-brown;
+      color: $coral-red;
+      border: 3px solid $coral-red;
       display: flex;
 
       i {
@@ -54,9 +55,9 @@
 
     .btn:hover {
       transition: background 0.3s ease;
-      background: $light-brown;
-      color: $coral-red;
-      border: 3px solid $coral-red;
+      color: $light-brown;
+      background: linear-gradient(45deg, $coral-red, $coral-orange);
+      border: none;
     }
 
     .avatar-card {
