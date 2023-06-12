@@ -71,13 +71,14 @@
     </div>
   </div>
   <div class="container">
-    <%= simple_form_for [@game, @message],html: {data: { action: "turbo:submit-end->chatroom#resetForm" }, class: "d-flex"} do |f|%>
+    <%= simple_form_for [@game, @message],html: {data: { action: "turbo:submit-end->chatroom#resetForm keyup->chatroom#validate", chatroom_target:"form" }, class: "d-flex"} do |f|%>
       <%= f.input :content,
         label: false,
         placeholder: "Message ",
-        wrapper_html: {class: "flex-grow-1"}
+        wrapper_html: {class: "flex-grow-1"},
+        input_html: {data: { chatroom_target: "input"}}
       %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3", data: { chatroom_target:"button"} %>
       <% end %>
 
   </div>
