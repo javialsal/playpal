@@ -7,13 +7,11 @@
                   label: false,
                   input_html: { data: { controller: 'datepicker' } } %>
       <div data-controller='range'>
-        <label for='duration[range]'><strong>Duration</strong> (<span data-range-target='rangeElement'></span>)</label>
+        <label for='duration[range]'><strong>Duration</strong> <span data-range-target='rangeElement'></span></label>
         <div class="d-flex">
-          <p class="me-2">30 min</p>
-            <div id="duration-range">
-              <%= g.input :duration, label: false, as: :range, input_html: { min:'30', max:'240', step: '15', data: { action: 'input->range#range', range_target: 'input'}} %>
-            </div>
-          <p class="ms-2">4 hours</p>
+          <div id="duration-range">
+            <%= g.input :duration, label: false, as: :range, input_html: { min:'30', max:'240', step: '15', data: { action: 'input->range#range', range_target: 'input'}} %>
+          </div>
         </div>
       </div>
       <%= g.input :location,
