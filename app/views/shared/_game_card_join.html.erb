@@ -1,31 +1,35 @@
 <%= link_to game_path(game) do %>
-  <div class="game-card">
-    <div class="game-time">
-      <p class="text-decoration-none"><%= truncate(game.city, length: 15) %></p>
-      <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b %H:%M") %></p>
-    </div>
-    <div class="players">
-      <% game.participations.map do |participation|%>
-      <div class="player">
-        <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
-        <p><%= participation.user.first_name %></p>
+  <% if game.start_at >= Date.today %>
+    <div class="game-card">
+      <div class="game-time">
+        <p class="text-decoration-none"><%= truncate(game.city, length: 15) %></p>
+        <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b %H:%M") %></p>
       </div>
-      <% end %>
-      <% unless game.participations.count == game.number_of_players %>
-        <div class="player">
-          <a class="btn" href="#"><i class="fa-solid fa-plus"></i></a>
-        </div>
-      <% end %>
-    </div>
-    <div class="game-type">
-      <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
-      <p><i class="fa-solid fa-ranking-star"></i>
-        <% if game.competitive == true %>
-          <%= "Competitive" %>
-        <% else %>
-          <%= "Friendly" %>
+      <div class="players">
+        <% game.participations.map do |participation|%>
+          <div class="player">
+            <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
+            <p><%= participation.user.first_name %></p>
+          </div>
         <% end %>
-      </p>
+        <% unless game.participations.count == game.number_of_players %>
+          <% (game.number_of_players - game.participations.count).times do %>
+            <div class="player">
+              <div class="btn btn-add"><i class="fa-solid fa-plus"></i></div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="game-type">
+        <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+        <p><i class="fa-solid fa-ranking-star"></i>
+          <% if game.competitive == true %>
+            <%= "Competitive" %>
+          <% else %>
+            <%= "Friendly" %>
+          <% end %>
+        </p>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
