@@ -3,17 +3,18 @@
 </div>
 
 <div data-controller="search-games" class="search_index_games">
-  <%= form_with url: games_path, method: :get, html: {class:
-    "mb-4", data: {search_games_target: "form"}} do |f| %>
-    <%= f.text_field :query,
-                      class: "form-control",
-                      placeholder: "Address",
-                      value: params[:query],
-                      data: {
-                        search_games_target: "input",
-                        action: "keyup->search-games#update"
-                      } %>
-  <% end %>
+  <div class="search_bar">
+    <%= form_with url: games_path, method: :get, html: {data: {search_games_target: "form"}} do |f| %>
+      <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: "Address",
+                        value: params[:query],
+                        data: {
+                          search_games_target: "input",
+                          action: "keyup->search-games#update"
+                        } %>
+    <% end %>
+  </div>
   <div data-search-games-target="list">
     <%= render "list", games: @games %>
   </div>
