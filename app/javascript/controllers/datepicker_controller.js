@@ -8,8 +8,9 @@ export default class extends Controller {
       minDate: "today",
       enableTime: true,
       dateFormat: "Y-m-d H:i",
-      defaultDate: "today"
+      defaultDate: Date.now(),
+      time_24hr: true,
+      disableMobile: "true"
     })
-
   }
 }
