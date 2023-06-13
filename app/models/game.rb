@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   belongs_to :game_type
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
 
   validates :location, presence: true
   validates :start_at, presence: true
