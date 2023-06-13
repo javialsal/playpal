@@ -661,11 +661,13 @@ puts "#{Game.all.count} games created. Creating participations"
 Game.all.each do |game|
   users = [game.user]
 
-  (game.number_of_players - 1).times do |i|
+  game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
+
+  (2..game.number_of_players).each do |i|
     user = User.where.not(id: users.map(&:id)).sample
 
     users << user
-    if i != (game.number_of_players - 1)
+    if i != (game.number_of_players)
       score = -1000.step(1000, 10).to_a.sample
     else
       score = game.participations.sum(:score) * (-1)
