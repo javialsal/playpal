@@ -1,15 +1,33 @@
 .scrollable-chatroom {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 90.3%;
 
   .no-scroll {
     flex-grow: 1;
   }
 
   .chatroom {
-    max-height: 240px;
+    height: 620px;
     overflow: scroll;
   }
 
+}
+.launch-chat-button {
+  position: relative;
+  padding: 0.15em;
+  font-size: 18px;
+  border: 0;
+  background: linear-gradient(45deg, $coral-red, $coral-orange);
+  border-radius: 50px;
+  margin-bottom: 1em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
+  padding: 1rem;
+}
+.flex {
+  display:flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10px;
 }
