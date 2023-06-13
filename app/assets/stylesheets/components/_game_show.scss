@@ -7,6 +7,11 @@
   grid-template-columns: 40px 1fr 1fr 0.3fr 0.3fr;
   align-items: center;
   margin: 1rem;
+  .grid-labels {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 
 i.fa-thumbs-up {
