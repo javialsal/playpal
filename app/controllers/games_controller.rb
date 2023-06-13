@@ -34,10 +34,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # def personality_like
-  #   @participation
-  # end
-
   def edit
   end
 

@@ -2,23 +2,27 @@
   background-color: $light-gray;
 }
 
-.game-date-address-card {
-  border: 1px solid red;
-}
-
-.game-details-players {
-  padding-left: 0;
-}
-
-.scores-and-likes {
-  width: 50vw;
-}
-
 .player-ranking-grid {
   display: grid;
   grid-template-columns: 40px 1fr 1fr 0.3fr 0.3fr;
   align-items: center;
   margin: 1rem;
+}
+
+i.fa-thumbs-up {
+  font-weight: 500;
+}
+
+i.fa-thumbs-up.bold {
+  font-weight: 600;
+}
+
+i.fa-thumbs-down {
+  font-weight: 500;
+}
+
+i.fa-thumbs-down.bold {
+  font-weight: 600;
 }
 
 .player-ranking-card {

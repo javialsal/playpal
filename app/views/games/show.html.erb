@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="player-ranking">
+  <div class="player-ranking" data-controller="like">
     <div class="player-ranking-grid">
       <p>Players</p>
       <p></p>
@@ -65,8 +65,8 @@
         <p class="ms-2 player-name"><%= participant.user.first_name.capitalize.truncate(10) %></p>
         <% if @game.start_at < DateTime.now %>
           <p><%= participant.score %></p>
-          <i class="fa-solid fa-thumbs-up"></i>
-          <i class="fa-solid fa-thumbs-down"></i>
+          <i data-action="click->like#bold" class="fa-solid fa-thumbs-up"></i>
+          <i data-action="click->like#bold" class="fa-solid fa-thumbs-down"></i>
         <% else %>
           <p class="pending-game">Game not started yet</p>
         <% end %>
