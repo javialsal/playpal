@@ -9,7 +9,7 @@ class GamesController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.text { render partial: "games/list", locals: {games: @games}, formats: [:html] }
+      format.text { render partial: "games/list", locals: { games: @games }, formats: [:html] }
     end
   end
 
@@ -33,6 +33,10 @@ class GamesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # def personality_like
+  #   @participation
+  # end
 
   def edit
   end

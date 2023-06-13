@@ -1,0 +1,115 @@
+<div class="scrollable-chatroom" data-controller="chatroom"
+  data-chatroom-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="show-banner">
+    <h2><%= @game.game_type.name %> game</h2>
+  </div>
+  <div class="container no-scroll">
+    <div class="infos-game-show infos">
+      <div class="item ">
+        <i class="fa-regular fa-clock"></i>
+        <p><%= @game.start_at.strftime("%B %d, %Y") %></p>
+        <p> <%= @game.start_at.strftime("%H:%M") %></p>
+      </div>
+      <div class="item ">
+        <i class="fa-solid fa-location-dot"></i>
+        <p><%= @game.location %></p>
+      </div>
+    </div>
+
+    <div class="infos-game-show infos">
+      <div class="item ">
+        <i class="fa-solid fa-medal"></i>
+        <p>
+          <% if @game.competitive == true %>
+            <%= "Competitive" %>
+          <% else %>
+            <%= "Friendly" %>
+          <% end %>
+        </p>
+      </div>
+      <div class="item ">
+        <i class="fa-solid fa-users"></i>
+        <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
+      </div>
+    </div>
+
+    <%# passed games show %>
+    <div class="card-game-show">
+      <ul class="people">
+        <% @game.participations.each do |participant| %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag participant.user.photo, class: "avatar" %>
+            <% end %>
+            <p><%= participant.user.username.truncate(10) %></p>
+            <% if @game.start_at < Date.today %>
+              <p><%= participant.score %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <% unless @game.start_at < Date.today %>
+        <div class="book">
+          <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Book
+            </button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <h2>messages</h2>
+    <%# chatroom %>
+    <div class="chatroom" data-chatroom-target="messages">
+      <div class="messages"  >
+        <% @chatroom.messages.each do |message| %>
+          <%= render "shared/message", message: message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <%= simple_form_for [@game, @message],html: {data: { action: "turbo:submit-end->chatroom#resetForm keyup->chatroom#validate", chatroom_target:"form" }, class: "d-flex"} do |f|%>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ",
+        wrapper_html: {class: "flex-grow-1"},
+        input_html: {data: { chatroom_target: "input"}}
+      %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3", data: { chatroom_target:"button"} %>
+      <% end %>
+
+  </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"><%= @game.game_type.name %> game</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="flex">
+          <i class="fa-solid fa-location-dot"></i>
+          <p><%= @game.location %></p>
+        </div>
+        <div class="flex">
+          <i class="fa-regular fa-clock my-2"></i>
+          <p><%= @game.start_at.strftime("%A %d %B, %Y") %> at <strong><%= @game.start_at.strftime("%H:%M") %></strong></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= simple_form_for([@game, @participation]) do |f| %>
+          <%= f.submit 'Validate participation', class:"btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
