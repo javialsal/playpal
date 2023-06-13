@@ -17,64 +17,71 @@
   </div>
 </div>
 
-<div class="container no-scroll">
-  <div class="mt-3">
-    <div class="d-flex">
-      <i class="fa-regular fa-calendar-days"></i>
-      <p class="ms-2"><%= @game.start_at.strftime("%B %d, %Y") %></p>
-      <i class="ms-2 fa-regular fa-clock"></i>
-      <p class="ms-2"> <%= @game.start_at.strftime("%H:%M") %></p>
+<div class="container">
+  <div class="show-game-card-infos">
+    <div class="show-game-card-infos-cards">
+      <p id="day"><%= @game.start_at.strftime("%d") %></p>
+      <p id="month"><%= @game.start_at.strftime("%b") %></p>
+      <p id="hour"><%= @game.start_at.strftime("%H:%M") %></p>
     </div>
-    <div><%= @game.location %></div>
-  </div>
-  <br>
-  <div class="d-flex">
-    <div class="d-flex flex-column">
-      <div>Players</div>
-      <div>
-        <ul class="game-details-players">
-          <% @game.participations.each do |participant| %>
-            <div class="d-flex">
-              <%= link_to user_path(current_user) do %>
-                <%= image_tag participant.user.photo, class: "avatar" %>
-              <% end %>
-              <p><%= participant.user.first_name.capitalize.truncate(10) %></p>
-            </div>
-          <% end %>
-        </ul>
+    <div class="show-game-card-infos-cards" id="game-card-location">
+      <div id="marker">
+        <i class="fa-solid fa-location-dot"></i>
       </div>
+      <p><%= @game.location %></p>
     </div>
-    <div class="d-flex flex-column">
-      <div>Scores</div>
-      <div>
-        <ul class="game-details-players">
-          <% @game.participations.each do |participant| %>
-            <div class="d-flex justify-content-between">
-              <p><%= participant.score %></p>
-              <i class="fa-solid fa-thumbs-up"></i>
-            </div>
-          <% end %>
-        </ul>
+    <div class="show-game-card-infos-cards" id="game-card-duration">
+      <div id="clock">
+        <i class="fa-regular fa-clock"></i>
       </div>
+      <p>
+        <% if (@game.duration.fdiv(60) - 0.5).round != 0 %>
+          <%= (@game.duration.fdiv(60) - 0.5).round %>h
+          <% if @game.duration % 60 != 0 %>
+            <%= @game.duration % 60 %>
+          <% end %>
+        <% else %>
+          <%= @game.duration % 60 %>min
+        <% end %>
+      </p>
     </div>
   </div>
 
-  <%# passed games show %>
-  <div class="card-game-show">
-    <% unless @game.start_at < DateTime.now %>
-      <div class="book">
-        <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Book
-          </button>
+  <div class="player-ranking">
+    <div class="player-ranking-grid">
+      <p>Players</p>
+      <p></p>
+      <p>Scores</p>
+      <p></p>
+      <p></p>
+    </div>
+
+
+    <% @game.participations.each do |participant| %>
+      <div class="player-ranking-card player-ranking-grid">
+        <%= link_to user_path(participant.user) do %>
+          <%= image_tag participant.user.photo, class: "avatar" %>
+        <% end %>
+        <p class="ms-2 player-name"><%= participant.user.first_name.capitalize.truncate(10) %></p>
+        <% if @game.start_at < DateTime.now %>
+          <p><%= participant.score %></p>
+          <i class="fa-solid fa-thumbs-up"></i>
+          <i class="fa-solid fa-thumbs-down"></i>
+        <% else %>
+          <p class="pending-game">Game not started yet</p>
         <% end %>
       </div>
     <% end %>
   </div>
-
-</div>
-
+  <% unless @game.start_at < DateTime.now %>
+    <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
+      <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    <% end %>
+  <% end %>
+  <div>Chat</div>
+  <a href="whatsapp://send?text=<%= game_url(@game)  %>">link to whatsapp</a>
 </div>
 
 <!-- Modal -->

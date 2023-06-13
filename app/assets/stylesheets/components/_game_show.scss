@@ -3,9 +3,88 @@
 }
 
 .game-date-address-card {
-  border: red;
+  border: 1px solid red;
 }
 
 .game-details-players {
   padding-left: 0;
+}
+
+.scores-and-likes {
+  width: 50vw;
+}
+
+.player-ranking-grid {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 0.3fr 0.3fr;
+  align-items: center;
+  margin: 1rem;
+}
+
+.player-ranking-card {
+  p {
+    margin: 0;
+  }
+  .pending-game {
+    grid-column: 3 / span 3;
+  }
+}
+
+.show-game-card-infos {
+  display: grid;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  .show-game-card-infos-cards {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    text-align: center;
+  }
+  #day {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: -14px;
+    background-color: $dark-blue;
+    color: white;
+  }
+  #month {
+    font-size: 22px;
+    font-weight: 600;
+    border-bottom: 0.25px solid black;
+    padding-bottom: 4px;
+    background-color: $dark-blue;
+    color: white;
+  }
+  #game-card-location {
+    #marker {
+      background-color: $dark-blue;
+      color: white;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    p {
+      background-color: white;
+      font-size: 15px;
+      padding: 5px 6px;
+    }
+  }
+  #game-card-duration {
+    #clock {
+      background-color: $dark-blue;
+      color: white;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    p {
+      background-color: white;
+      font-size: 18px;
+      padding: 5px 6px;
+      font-weight: bold;
+      color: $dark-blue;
+    }
+  }
 }
