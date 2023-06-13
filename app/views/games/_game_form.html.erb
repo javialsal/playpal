@@ -23,7 +23,7 @@
         wrapper_html: {
           data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}
         } %>
-      <div class="d-flex">
+      <div class="">
         <%= g.input :number_of_players, as: :radio_buttons, collection: 3..5, input_html: { class: 'button-hide' }, item_wrapper_class: 'label-inline' %>
         <div id="compet-select">
           <%= g.input :competitive, input_html: { class: 'toggle' } %>
