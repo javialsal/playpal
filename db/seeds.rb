@@ -4,6 +4,8 @@ Game.destroy_all
 Participation.destroy_all
 Review.destroy_all
 GameType.destroy_all
+Chatroom.destroy_all
+Message.destroy_all
 
 puts "DB clean. Creating Game Type"
 
