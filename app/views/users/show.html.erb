@@ -48,10 +48,14 @@
     <div class="card-profile d-flex justify-content-between">
       <div class="card-profile-infos">
         <h5>Tarot</h5>
-        <h4>Level <%= @user.level %></h4>
+        <h4>Level <%= @user.current_level %></h4>
         <p>Reliability: 30%</p>
       </div>
       <%= image_tag "tarot_cards.jpg" %>
     </div>
+  </div>
+
+  <div>
+    <%= line_chart @user.level_history_data %>
   </div>
 </div>
