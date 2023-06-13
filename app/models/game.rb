@@ -27,6 +27,13 @@ class Game < ApplicationRecord
     self.participations.max_by { |participation| participation.score }.user
   end
 
+  def bonus
+    @user = current_user
+    bonus = 0
+    self.participations.all.where(user_id == @user.id) { |participation| bonus += participation.score.fdiv(3_000) }
+    @user.level += bonus
+  end
+
   def create_participation_for_owner
     Participation.create(game: self, user: self.user, status: 1, score: 0)
   end
@@ -38,5 +45,4 @@ class Game < ApplicationRecord
   def city
     location.split(',').last.strip.split(' ').last
   end
-
 end
