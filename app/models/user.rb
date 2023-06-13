@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def games_not_participating_and_to_come
     Game.not_participating_games_to_come_for(self)
   end
+
+  def level
+    participations.pluck(:score).reduce(2) { |level, score| level += (score.fdiv(1000)) }.round(2)
+  end
 end

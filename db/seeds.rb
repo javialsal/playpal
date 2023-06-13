@@ -145,7 +145,8 @@ u = User.new(
   bio: "Freshly finished business school at ESCP with a specialization in Applied Data Science, and having experienced two jobs in entrepreneurship (Data Analyst and VC Analyst), I want to develop my coding skills and build a complete profile to find a job in Product in a startup !",
   tags: [1, 3],
   address: "19 Avenue de Villars, 75007 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-arnaud.jpg"))
@@ -168,7 +169,8 @@ u = User.new(
   My main objective is to find new job opportunities in the tech.",
   tags: [0, 2],
   address: "20 Rue des Annelets, 75019 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-javier.jpg"))
@@ -187,7 +189,8 @@ u = User.new(
   bio: "Hello, I am Youval. I am a business app functional consultant, specialized in Microsoft solutions. I want to learn code to acquire new skills.",
   tags: [0, 1, 2, 3],
   address: "26 Rue de Constantinople, 75008 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-youval.jpg"))
@@ -206,7 +209,8 @@ u = User.new(
   bio: "Before being a Le Wagon's alumni, I was ergonomist in an occupational health service. I wanted to change to have more challenge and I tried to code when I was student (15 years ago) and don't understand why I stopped!",
   tags: [4, 5],
   address: "53 Rue Olivier de Serres, 75015 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-maxime.jpg"))
@@ -225,7 +229,8 @@ u = User.new(
   bio: "Shortest bio",
   tags: [0, 1, 2],
   address: "27 Rue Didot, 75014 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-helene.jpg"))
@@ -246,7 +251,8 @@ u = User.new(
   Ea asperiores nostrum vel praesentium dicta rem voluptas voluptas ab quas nisi in nihil magnam ea nulla cupiditate aut voluptatem deserunt. Et tenetur provident id voluptatem blanditiis qui modi natus hic voluptas quasi qui voluptas velit et totam incidunt?",
   tags: [5],
   address: "162 bis Avenue du Général Michel Bizot, 75012 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-thomas.jpg"))
@@ -643,7 +649,7 @@ Game.all.each do |game|
 
     users << user
     if i != (game.number_of_players - 1)
-      score = rand(100) * (-1)
+      score = -1000.step(1000, 10).to_a.sample
     else
       score = game.participations.sum(:score) * (-1)
     end

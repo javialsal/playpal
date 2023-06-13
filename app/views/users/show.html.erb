@@ -8,7 +8,6 @@
     <div class="col-6">
       <%= link_to user_path(current_user) do %>
         <%= cl_image_tag current_user.photo.key, class: "avatar-xlarge" %>
-        <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-xlarge" %>
       <% end %>
     </div>
     <div class="col-6 text-end mt-3">
@@ -35,7 +34,7 @@
       <div class="d-flex justify-content-center mt-3">
         <div class="d-flex flex-column align-items-center">
           <div>
-            <i class="fa-solid fa-trophy icone"></i>
+            <i class="fa-solid fa-medal icone"></i>
           </div>
           <div>
             <strong><%= @victories.count %></strong>
@@ -49,7 +48,7 @@
     <div class="card-profile d-flex justify-content-between">
       <div class="card-profile-infos">
         <h5>Tarot</h5>
-        <h4>Level 3.5</h4>
+        <h4>Level <%= @user.level %></h4>
         <p>Reliability: 30%</p>
       </div>
       <%= image_tag "tarot_cards.jpg" %>
