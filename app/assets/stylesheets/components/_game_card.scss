@@ -20,6 +20,28 @@ h2 {
   background-color: $dark-blue;
   }
 
+  .avatar-card-winner {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  // background-color: $dark-blue;
+  border: thick double gold;
+  }
+  .avatar-card-second {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  // background-color: $dark-blue;
+  border: thick double silver;
+  }
+  .avatar-card-third {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  // background-color: $dark-blue;
+  border: thick double #977b29;
+  }
+
   p {
     color: $dark-blue;
   }
