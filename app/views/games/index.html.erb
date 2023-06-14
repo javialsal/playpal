@@ -3,7 +3,7 @@
 </div>
 
 <div data-controller="search-games" data-search-games-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>" class="search_index_games">
-  <div class="search_bar">
+  <div class="search_bar" data-controller="display-filters" >
     <%= form_with url: games_path, method: :get, html: {data: { search_games_target: "form" }} do |f| %>
       <div class="location-wrapper" data-search-games-target="locationWrapper">
         <%= f.text_field :query,
@@ -14,13 +14,19 @@
                             search_games_target: "input"
                           } %>
       </div>
-      <%= f.select :game_type_id, options_for_select([ ["Tarot", "1"], ["Rami", "2"] ], params[:game_type_id]), prompt: "Any game" %>
-      <%= f.select :number_of_players, options_for_select([ "3", "4", "5" ], params[:number_of_players]), prompt: "Players" %>
-      <%= f.select :competitive, options_for_select([["competitive", true], ["friendly", false]], params[:competitive]), prompt: "Style" %>
+      <button class="button-search-filters" data-action="click->display-filters#displayForm">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <div class="d-none" data-display-filters-target="form" >
+        <p>Search filters</p>
+        <%= f.select :game_type_id, options_for_select([ ["Tarot", "1"], ["Rami", "2"] ], params[:game_type_id]), prompt: "Any game" %>
+        <%= f.select :number_of_players, options_for_select([ "3", "4", "5" ], params[:number_of_players]), prompt: "Players" %>
+        <%= f.select :competitive, options_for_select([["competitive", true], ["friendly", false]], params[:competitive]), prompt: "Style" %>
 
       <%# RENDER HERE THE OTHER LIST %>
 
-      <%= f.submit "Save", :type => "submit", class: "filters-button"%>
+        <%= f.submit "Save", :type => "submit", class: "filters-button", data: {display_filters_target: "submit"}%>
+      </div>
     <% end %>
   </div>
   <div data-search-games-target="list">
