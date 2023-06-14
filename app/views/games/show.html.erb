@@ -1,89 +1,87 @@
-<div class="scrollable-chatroom" data-controller="chatroom"
-  data-chatroom-chatroom-id-value="<%= @chatroom.id %>">
-  <div class="show-banner">
-    <h2><%= @game.game_type.name %> game</h2>
-  </div>
-  <div class="container no-scroll">
-    <div class="infos-game-show infos">
-      <div class="item ">
-        <i class="fa-regular fa-clock"></i>
-        <p><%= @game.start_at.strftime("%B %d, %Y") %></p>
-        <p> <%= @game.start_at.strftime("%H:%M") %></p>
-      </div>
-      <div class="item ">
-        <i class="fa-solid fa-location-dot"></i>
-        <p><%= @game.location %></p>
-      </div>
-    </div>
-
-    <div class="infos-game-show infos">
-      <div class="item ">
-        <i class="fa-solid fa-medal"></i>
-        <p>
-          <% if @game.competitive == true %>
-            <%= "Competitive" %>
-          <% else %>
-            <%= "Friendly" %>
-          <% end %>
-        </p>
-      </div>
-      <div class="item ">
-        <i class="fa-solid fa-users"></i>
-        <p> <%= @game.participations.count %>/ <%= @game.number_of_players %></p>
-      </div>
-    </div>
-
-    <%# passed games show %>
-    <div class="card-game-show">
-      <ul class="people">
-        <% @game.participations.each do |participant| %>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <%= image_tag participant.user.photo, class: "avatar" %>
-            <% end %>
-            <p><%= participant.user.username.truncate(10) %></p>
-            <% if @game.start_at < Date.today %>
-              <p><%= participant.score %></p>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-      <% unless @game.start_at < Date.today %>
-        <div class="book">
-          <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Book
-            </button>
-          <% end %>
-        </div>
+<div class="show-banner">
+  <h2>Game details</h2>
+</div>
+<div class="show-second-banner">
+  <div class="d-flex justify-content-between p-4">
+    <div class="d-flex justify-content-start">
+      <h4><%= @game.game_type.name %></h4>
+      <% if @game.competitive %>
+        <p class="ms-2">Competitive</p>
+      <% else %>
+        <p class="ms-2">Friendly</p>
       <% end %>
     </div>
-
-    <%# chatroom %>
-    <%# <div class="chatroom" data-chatroom-target="messages">
-      <div class="messages"  > %>
-        <%# @chatroom.messages.each do |message| %>
-          <%#= render "shared/message", message: message %>
-        <%# end %>
-      <%# </div>
+    <div>
+      <%= @game.participations.count %>/<%= @game.number_of_players %>
     </div>
   </div>
-  <div class="container"> %>
-    <%#@= simple_form_for [@game, @message],html: {data: { action: "turbo:submit-end->chatroom#resetForm keyup->chatroom#validate", chatroom_target:"form" }, class: "d-flex"} do |f|%>
-      <%#= f.input :content,
-        label: false,
-        placeholder: "Message ",
-        wrapper_html: {class: "flex-grow-1"},
-        input_html: {data: { chatroom_target: "input"}}
-      %>
-      <%#= f.submit "Send", class: "btn btn-primary mb-3", data: { chatroom_target:"button"} %>
-    <%# end %>
-    <div class="flex">
-      <%= link_to 'Go to chatroom', chatroom_path(@chatroom.game_id), class:"launch-chat-button"%>
-    </div>
+</div>
 
+<div class="container">
+  <div class="show-game-card-infos">
+    <div class="show-game-card-infos-cards">
+      <p id="day"><%= @game.start_at.strftime("%d") %></p>
+      <p id="month"><%= @game.start_at.strftime("%b") %></p>
+      <p id="hour"><%= @game.start_at.strftime("%H:%M") %></p>
+    </div>
+    <div class="show-game-card-infos-cards" id="game-card-location">
+      <div id="marker">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <p><%= @game.location %></p>
+    </div>
+    <div class="show-game-card-infos-cards" id="game-card-duration">
+      <div id="clock">
+        <i class="fa-regular fa-clock"></i>
+      </div>
+      <p>
+        <% if (@game.duration.fdiv(60) - 0.5).round != 0 %>
+          <%= (@game.duration.fdiv(60) - 0.5).round %>h
+          <% if @game.duration % 60 != 0 %>
+            <%= @game.duration % 60 %>
+          <% end %>
+        <% else %>
+          <%= @game.duration % 60 %>min
+        <% end %>
+      </p>
+    </div>
   </div>
+  <br>
+  <div class="player-ranking" data-controller="like">
+    <div class="player-ranking-grid">
+      <p class="grid-labels">Players</p>
+      <p></p>
+      <p class="grid-labels">Scores</p>
+      <p></p>
+      <p></p>
+    </div>
+    <% @game.participations.each do |participant| %>
+      <div class="player-ranking-card player-ranking-grid">
+        <%= link_to user_path(participant.user) do %>
+          <%= image_tag participant.user.photo, class: "avatar" %>
+        <% end %>
+        <p class="ms-2 player-name"><%= participant.user.first_name.capitalize.truncate(10) %></p>
+        <% if @game.start_at < DateTime.now %>
+          <p><%= participant.score %></p>
+          <i data-action="click->like#bold" class="fa-solid fa-thumbs-up"></i>
+          <i data-action="click->like#bold" class="fa-solid fa-thumbs-down"></i>
+        <% else %>
+          <p class="pending-game">Game not started yet</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% unless @game.start_at < DateTime.now %>
+    <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
+      <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    <% end %>
+  <% end %>
+  <div class="flex">
+    <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
+  </div>
+  <a href="whatsapp://send?text=<%= game_url(@game)  %>">link to whatsapp</a>
 </div>
 
 <!-- Modal -->

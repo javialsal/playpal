@@ -13,7 +13,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.text { render partial: "games/list", locals: {games: @games}, formats: [:html] }
+      format.text { render partial: "games/list", locals: { games: @games }, formats: [:html] }
     end
   end
 
