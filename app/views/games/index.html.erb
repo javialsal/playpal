@@ -14,7 +14,7 @@
                             search_games_target: "input"
                           } %>
       </div>
-      <%= f.select :game_type_id, options_for_select([ ["Tarot", "1"], ["Remi", "2"] ], params[:game_type_id]), prompt: "Any game" %>
+      <%= f.select :game_type_id, options_for_select([ ["Tarot", "1"], ["Rami", "2"] ], params[:game_type_id]), prompt: "Any game" %>
       <%= f.select :number_of_players, options_for_select([ "3", "4", "5" ], params[:number_of_players]), prompt: "Players" %>
       <%= f.select :competitive, options_for_select([["competitive", true], ["friendly", false]], params[:competitive]), prompt: "Style" %>
 
