@@ -4,9 +4,10 @@ class GamesController < ApplicationController
   def index
     @games = current_user.games_not_participating_and_to_come
     @games = @games.near(params[:query], 5) if params[:query].present?
-    @games = @games.where(game_type: params[:game_type]) if params[:game_type].present?
-    @games = @games.where(game_type: params[:number_of_players]) if params[:number_of_players].present?
-    @games = @games.where(game_type: params[:competitive]) if params[:competitive].present?
+    @games = @games.where(game_type_id: params[:game_type_id]) if params[:game_type_id].present?
+    @games = @games.where(number_of_players: params[:number_of_players]) if params[:number_of_players].present?
+    @games = @games.where(competitive: params[:competitive]) if params[:competitive].present?
+
     @games = @games.select { |game| game.number_of_players > game.participations.count }
 
 
