@@ -1,0 +1,44 @@
+      <%# GAME TYPES RADIO BUTTONS %>
+      <fieldset class="mb-3 radio_buttons required game_game_type">
+        <legend class="col-form-label pt-0">Game type<abbr title="required">*</abbr></legend>
+        <input type="hidden" name="game_type_id" value="" autocomplete="off">
+        <div class="label-inline">
+          <input class="form-check-input radio_buttons required button-hide" type="radio" value="1" name="game_type_id" id="game_type_id_1">
+          <label class="form-check-label collection_radio_buttons" for="game_type_id_1">Tarot</label>
+        </div>
+        <div class="label-inline">
+          <input class="form-check-input radio_buttons required button-hide" type="radio" value="2" name="game_type_id" id="game_type_id_2">
+          <label class="form-check-label collection_radio_buttons" for="game_type_id_2">Rami</label>
+        </div>
+      </fieldset>
+
+      <%# DURATION BAR %>
+      <div data-controller="range" class="mx-5">
+        <label for="duration[range]"><strong>Duration</strong> <span data-range-target="rangeElement">2h15</span></label>
+          <div id="duration-range">
+            <div class="mb-3 range required game_duration">
+              <input class="form-range numeric range required" min="30" max="240" step="15" data-action="input->range#range" data-range-target="input" type="range" name="duration" id="duration">
+            </div>
+          </div>
+      </div>
+
+      <%# NUMBER OF PLAYERS RADIO BUTTONS %>
+      <fieldset class="mb-3 radio_buttons required game_number_of_players">
+        <legend class="col-form-label pt-0">Number of players <abbr title="required">*</abbr></legend>
+        <input type="hidden" name="number_of_players" value="" autocomplete="off">
+        <% (3..5).to_a.each do |index| %>
+          <div class="label-inline">
+            <input class="form-check-input radio_buttons required button-hide" type="radio" value="<%= index %>" name="number_of_players" id="game_number_of_players_<%= index %>">
+            <label class="form-check-label collection_radio_buttons" for="game_number_of_players_<%= index %>"><%= index %></label>
+          </div>
+        <% end %>
+      </fieldset>
+
+      <%# COMPETITIVE TOGLE BUTTON %>
+      <fieldset class="mb-3 boolean optional game_competitive">
+        <div class="form-check">
+          <input name="competitive" type="hidden" value="0" autocomplete="off">
+          <input class="form-check-input boolean optional toggle" type="checkbox" value="1" name="competitive" id="competitive">
+          <label class="form-check-label boolean optional" for="competitive">Competitive</label>
+        </div>
+      </fieldset>

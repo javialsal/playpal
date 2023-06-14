@@ -2,14 +2,13 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
-    if params[:query].present?
-      @games = current_user.games_not_participating_and_to_come
-                           .near(params[:query], 5)
-                           .select { |game| game.number_of_players > game.participations.count }
-    else
-      @games = current_user.games_not_participating_and_to_come
-                           .select { |game| game.number_of_players > game.participations.count }
-    end
+    @games = current_user.games_not_participating_and_to_come
+    @games = @games.near(params[:query], 5) if params[:query].present?
+    @games = @games.where(game_type: params[:game_type]) if params[:game_type].present?
+    @games = @games.where(game_type: params[:number_of_players]) if params[:number_of_players].present?
+    @games = @games.where(game_type: params[:competitive]) if params[:competitive].present?
+    @games = @games.select { |game| game.number_of_players > game.participations.count }
+
 
     respond_to do |format|
       format.html

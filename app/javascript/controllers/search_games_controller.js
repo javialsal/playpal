@@ -4,7 +4,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 // Connects to data-controller="search-games"
 export default class extends Controller {
   static values = { apiKey: String }
-  static targets = ["form", "input", "list"]
+  static targets = ["form", "input", "list", "locationWrapper"]
 
   connect() {
     console.log(this.formTarget)
@@ -18,7 +18,7 @@ export default class extends Controller {
       countries: "FR",
       limit: 3
     })
-    this.geocoder.addTo(this.formTarget)
+    this.geocoder.addTo(this.locationWrapperTarget)
     this.geocoder.on("result", event => this.#updateGames(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
   }
