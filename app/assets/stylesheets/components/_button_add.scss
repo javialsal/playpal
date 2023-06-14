@@ -7,3 +7,28 @@
   border: 1px solid $coral-red dotted;
   background-color: $light-brown;
 }
+
+.btn-score-edit {
+  position: relative;
+  padding: 0.15em;
+  font-size: 18px;
+  border-color: $coral-red;
+  background: none;
+  border-radius: 50px;
+  margin-bottom: 1em;
+  color: $coral-red;
+  padding: 1rem;
+
+  :active {
+    position: relative;
+    padding: 0.15em;
+    font-size: 18px;
+    border: 0;
+    background: linear-gradient(45deg, $coral-red, $coral-orange);
+    border-radius: 50px;
+    margin-bottom: 1em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    color: white;
+    padding: 1rem;
+  }
+}
