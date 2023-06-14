@@ -1095,9 +1095,9 @@ p = Participation.new(
   status: 1,
   game_id: g.id,
   score: 0,
-  user_id: User.second
+  user_id: User.sixth
 )
-p.user = User.second
+p.user = User.sixth
 p.save!
 
 p = Participation.new(
