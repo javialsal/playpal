@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Edit scores</h1>
+
+  <%= form_with model: @game, url: update_score_game_path(@game) do |f| %>
+    <%= f.fields_for :participations do |pf| %>
+      <%= cl_image_tag pf.object.user.photo.key, class: "avatar" %>
+      <%= pf.label :score %>
+      <%= pf.text_field :score %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
