@@ -44,7 +44,7 @@
       <div class="game-type">
         <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %>
           <% if game.participations.where(score: 0).length == game.number_of_players%>
-            <span class="badge text-bg-primary text-light">Add scores</span>
+              <span class="badge text-bg-primary text-light">Add scores</span>
           <% end %>
         </p>
         <p><i class="fa-solid fa-ranking-star"></i>
