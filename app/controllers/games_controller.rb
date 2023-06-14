@@ -3,10 +3,14 @@ class GamesController < ApplicationController
 
   def index
     if params[:query].present?
-      @games = current_user.games_not_participating_and_to_come.order("start_at").where("location ILIKE ?", "%#{params[:query]}%")
+      @games = current_user.games_not_participating_and_to_come
+                           .select { |game| game.number_of_players > game.participations.count }
+                           .near(params[:query], 5)
     else
-      @games = current_user.games_not_participating_and_to_come.order("start_at")
+      @games = current_user.games_not_participating_and_to_come
+                           .select { |game| game.number_of_players > game.participations.count }
     end
+
     respond_to do |format|
       format.html
       format.text { render partial: "games/list", locals: { games: @games }, formats: [:html] }
@@ -14,7 +18,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    @chatroom = @game.chatroom
     @message = Message.new
     @participation = Participation.new
   end

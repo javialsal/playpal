@@ -30,4 +30,27 @@ class User < ApplicationRecord
   def games_not_participating_and_to_come
     Game.not_participating_games_to_come_for(self)
   end
+
+  def average_level
+    total = participations.where.not(score: nil).sum { |participation| participation.level }
+    total.fdiv(participations.where.not(score: nil).count).round(1)
+  end
+
+  def current_level
+    participations.where.not(score: nil).joins(:game).order("games.start_at ASC").reduce(2) do |sum, p|
+      sum += p.level.fdiv(30)
+    end.round(1)
+  end
+
+  def level_history_data
+    games = Game.joins(participations: :user).where.not(participations: { score: nil }).where(users: { id: self.id }).order("games.start_at ASC")
+    games.map do |game|
+      date = game.start_at
+      previous_games = games.select { |g| g.start_at <= date }
+      level_at_the_time = previous_games.map { |g| g.participations.find_by(user_id: self.id) }.reduce(2) do |sum, p|
+        sum += p.level.fdiv(30)
+      end.round(1)
+      [date, level_at_the_time]
+    end.to_h
+  end
 end

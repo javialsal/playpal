@@ -10,9 +10,9 @@
 .button-hide + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
   border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
+  font-size: 20px;
+  padding: 10px 20px;
   background-color: $light_brown;
   color: $dark_blue;
   border: 1px solid white;
@@ -22,13 +22,13 @@
 
 .button-hide:checked + label {
   background-color: $coral-red;
-  color: $light-brown;
+  color: white;
   border: 1px solid $coral-red;
 }
 
 #compet-select {
   padding-left: 0;
-  margin-top: 2.2em;
+  margin-top: 0.2em;
   margin-right: 2em;
 }
 
@@ -89,4 +89,45 @@
   font-weight: bold;
   transition: background 0.3s ease;
   border: 1px solid $coral-red;
+}
+
+.form-control {
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.mapboxgl-ctrl-geocoder {
+
+  .suggestions-wrapper {
+    border: none;
+  }
+}
+
+body {
+  font-size: 18px;
+}
+
+.launch-game-button {
+  font-size: 18px;
+}
+
+.form-check {
+  padding: 0;
+}
+
+#compet-select {
+  display: grid;
+}
+
+.form-range {
+  padding-top: 15px;
+}
+
+.container {
+  --bs-gutter-x: 3em;
+  padding-top: 2em;
+}
+
+abbr[title] {
+  display: none;
 }

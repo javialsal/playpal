@@ -55,8 +55,6 @@
       <p></p>
       <p></p>
     </div>
-
-
     <% @game.participations.each do |participant| %>
       <div class="player-ranking-card player-ranking-grid">
         <%= link_to user_path(participant.user) do %>
@@ -80,7 +78,9 @@
       </button>
     <% end %>
   <% end %>
-  <div>Chat</div>
+  <div class="flex">
+    <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
+  </div>
   <a href="whatsapp://send?text=<%= game_url(@game)  %>">link to whatsapp</a>
 </div>
 

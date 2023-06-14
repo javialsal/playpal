@@ -4,6 +4,8 @@ Game.destroy_all
 Participation.destroy_all
 Review.destroy_all
 GameType.destroy_all
+Chatroom.destroy_all
+Message.destroy_all
 
 puts "DB clean. Creating Game Type"
 
@@ -143,7 +145,8 @@ u = User.new(
   bio: "Freshly finished business school at ESCP with a specialization in Applied Data Science, and having experienced two jobs in entrepreneurship (Data Analyst and VC Analyst), I want to develop my coding skills and build a complete profile to find a job in Product in a startup !",
   tags: [1, 3],
   address: "19 Avenue de Villars, 75007 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-arnaud.jpg"))
@@ -166,7 +169,8 @@ u = User.new(
   My main objective is to find new job opportunities in the tech.",
   tags: [0, 2],
   address: "20 Rue des Annelets, 75019 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-javier.jpg"))
@@ -185,7 +189,8 @@ u = User.new(
   bio: "Hello, I am Youval. I am a business app functional consultant, specialized in Microsoft solutions. I want to learn code to acquire new skills.",
   tags: [0, 1, 2, 3],
   address: "26 Rue de Constantinople, 75008 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-youval.jpg"))
@@ -204,7 +209,8 @@ u = User.new(
   bio: "Before being a Le Wagon's alumni, I was ergonomist in an occupational health service. I wanted to change to have more challenge and I tried to code when I was student (15 years ago) and don't understand why I stopped!",
   tags: [4, 5],
   address: "53 Rue Olivier de Serres, 75015 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-maxime.jpg"))
@@ -223,7 +229,8 @@ u = User.new(
   bio: "Shortest bio",
   tags: [0, 1, 2],
   address: "27 Rue Didot, 75014 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-helene.jpg"))
@@ -244,7 +251,8 @@ u = User.new(
   Ea asperiores nostrum vel praesentium dicta rem voluptas voluptas ab quas nisi in nihil magnam ea nulla cupiditate aut voluptatem deserunt. Et tenetur provident id voluptatem blanditiis qui modi natus hic voluptas quasi qui voluptas velit et totam incidunt?",
   tags: [5],
   address: "162 bis Avenue du Général Michel Bizot, 75012 Paris",
-  game_type_id: game
+  game_type_id: game,
+  level: rand(1..5)
 )
 
 file = File.open(Rails.root.join("db/seeds/picture-thomas.jpg"))
@@ -279,7 +287,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "River Café, 146 Quai de Stalingrad, 92130 Issy-les-Moulineaux",
+  place: "River Café",
+  location: "146 Quai de Stalingrad, 92130 Issy-les-Moulineaux",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -300,7 +309,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Parc de Billancourt, 32 Allée Robert Doisneau, 92100 Boulogne-Billancourt",
+  place: "Parc de Billancourt",
+  location: "32 Allée Robert Doisneau, 92100 Boulogne-Billancourt",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -321,7 +331,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Mother café, 103 Bd Jean Jaurès, 92100 Boulogne-Billancourt",
+  place: "Mother café",
+  location: "103 Bd Jean Jaurès, 92100 Boulogne-Billancourt",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -342,7 +353,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
+  place: "Arc de Triomphe",
+  location: "Place Charles de Gaulle, 75008 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -363,7 +375,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Arc de Triomphe, Place Charles de Gaulle, 75008 Paris",
+  place: "Arc de Triomphe",
+  location: "Place Charles de Gaulle, 75008 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -386,7 +399,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Parc Monceau, 35 Boulevard de Courcelles, 75008 Paris",
+  place: "Parc Monceau",
+  location: "35 Boulevard de Courcelles, 75008 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -407,7 +421,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Mamma Primi, 18 Rue Boursault, 75017 Paris",
+  place: "Mamma Primi",
+  location: "18 Rue Boursault, 75017 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -428,7 +443,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Café des 2 moulins, 15 Rue Lepic, 75018 Paris",
+  place: "Café des 2 moulins",
+  location: "15 Rue Lepic, 75018 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -449,7 +465,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Cô my café, 21 Boulevard de Bonne Nouvelle, 75002 Paris",
+  place: "Cô my café",
+  location: "21 Boulevard de Bonne Nouvelle, 75002 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -470,7 +487,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Holybelly, 5 Rue Lucien Sampaix, 75010 Paris",
+  place: "Holybelly",
+  location: "5 Rue Lucien Sampaix, 75010 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -491,7 +509,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Jardin Villemin, 14 Rue des Récollets, 75010 Paris",
+  place: "Jardin Villemin",
+  location: "14 Rue des Récollets, 75010 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -512,7 +531,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Le Train Bleu, Paris Gare de Lyon, Place Louis-Armand hall 1, 75012 Paris",
+  place: "Le Train Bleu, Paris Gare de Lyon",
+  location: "Place Louis-Armand hall 1, 75012 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -533,7 +553,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris",
+  place: "Parc Zoologique de Paris",
+  location: "Avenue Daumesnil, 75012 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -554,7 +575,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Jardin des Plantes, 57 Rue Cuvier, 75005 Paris",
+  place: "Jardin des Plantes",
+  location: "57 Rue Cuvier, 75005 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -575,7 +597,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Bibliothèque George Brassens, 38 Rue Gassendi, 75014 Paris",
+  place: "Bibliothèque George Brassens",
+  location: "38 Rue Gassendi, 75014 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -596,7 +619,8 @@ compet = [true, false].sample
 game = GameType.all.sample.id
 
 g = Game.new(
-  location: "Champ de Mars, 2 Allée Adrienne Lecouvreur, 75007 Paris",
+  place: "Champ de Mars",
+  location: "2 Allée Adrienne Lecouvreur, 75007 Paris",
   duration: long,
   start_at: time,
   number_of_players: number,
@@ -619,6 +643,7 @@ g.save!
 # game = GameType.all.sample.id
 
 # g = Game.new(
+#   place: "",
 #   location: "",
 #   duration: long,
 #   start_at: time,
@@ -636,12 +661,14 @@ puts "#{Game.all.count} games created. Creating participations"
 Game.all.each do |game|
   users = [game.user]
 
-  (game.number_of_players - 1).times do |i|
+  game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
+
+  (2..game.number_of_players).each do |i|
     user = User.where.not(id: users.map(&:id)).sample
 
     users << user
-    if i != (game.number_of_players - 1)
-      score = rand(100) * (-1)
+    if i != (game.number_of_players)
+      score = -1000.step(1000, 10).to_a.sample
     else
       score = game.participations.sum(:score) * (-1)
     end

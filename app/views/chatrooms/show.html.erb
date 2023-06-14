@@ -1,0 +1,25 @@
+
+<div class="scrollable-chatroom">
+  <div class="show-banner">
+    <h2>Chatroom of <%= @chatroom.game.game_type.name %> game</h2>
+  </div>
+  <div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @chatroom.id %>">
+    <div class="chatroom container" data-chatroom-target="messages">
+      <div class="messages"  >
+        <% @chatroom.messages.each do |message| %>
+          <%= render "shared/message", message: message %>
+        <% end %>
+      </div>
+    </div>
+    <div class="">
+    <%= simple_form_for [@chatroom, @message],html: {data: { action: "turbo:submit-end->chatroom#resetForm keyup->chatroom#validate", chatroom_target:"form" }, class: "d-flex"} do |f|%>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ",
+        wrapper_html: {class: "flex-grow-1"},
+        input_html: {data: { chatroom_target: "input"}}
+      %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3", data: { chatroom_target:"button"} %>
+    <% end %>
+  </div>
+</div>
