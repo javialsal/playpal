@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show]
+  before_action :set_game, only: [:show, :edit_score, :update_score]
 
   def index
     if params[:query].present?
@@ -44,6 +44,17 @@ class GamesController < ApplicationController
   def update
   end
 
+  def edit_score
+  end
+
+  def update_score
+    if @game.update(game_score_params)
+      redirect_to game_path(@game)
+    else
+      render :edit_score, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_game
@@ -63,4 +74,7 @@ class GamesController < ApplicationController
     )
   end
 
+  def game_score_params
+    params.require(:game).permit(participations_attributes: [:id, :score])
+  end
 end

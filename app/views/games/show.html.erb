@@ -54,7 +54,7 @@
       <p class="grid-labels">Scores</p>
       <p></p>
       <p></p>
-    </div>
+    </div>r
     <% @game.participations.each do |participant| %>
       <div class="player-ranking-card player-ranking-grid">
         <%= link_to user_path(participant.user) do %>
@@ -78,10 +78,11 @@
       </button>
     <% end %>
   <% end %>
-  <div class="flex">
+  <div class="d-flex justify-content-evenly">
     <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
+    <%= link_to 'Edit scores', edit_score_game_path(@game), class:"launch-chat-button" %>
   </div>
-  <a href="whatsapp://send?text=<%= game_url(@game)  %>">link to whatsapp</a>
+  <a href="whatsapp://send?text=<%= game_url(@game)  %>">Share on Whatsapp</a>
 </div>
 
 <!-- Modal -->

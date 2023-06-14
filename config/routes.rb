@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :participations, only: ['create']
+
+    member do
+      get :edit_score
+      patch :update_score
+    end
   end
 
   resources :chatrooms, only: :show do
