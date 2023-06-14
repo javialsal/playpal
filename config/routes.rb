@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :participations, only: ['index', 'edit', 'update'] do
-    resources :reviews, only: ['new', 'create']
+    resources :reviews, only: ['create']
   end
 
   resources :users, only: ['show']
