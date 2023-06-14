@@ -1,5 +1,6 @@
 .show-second-banner {
   background-color: $light-gray;
+  height: 8vh;
 }
 
 .player-ranking-grid {
@@ -25,6 +26,7 @@ i.fa-thumbs-up {
 
 i.fa-thumbs-up.bold {
   font-weight: 600;
+  color: green;
 }
 
 i.fa-thumbs-down {
@@ -38,6 +40,7 @@ i.fa-thumbs-down {
 
 i.fa-thumbs-down.bold {
   font-weight: 600;
+  color: green;
 }
 
 .player-ranking-card {
@@ -106,4 +109,31 @@ i.fa-thumbs-down.bold {
       color: $dark-blue;
     }
   }
+}
+
+#show-game-score {
+  text-align: center;
+}
+
+#show-game-compet {
+  font-family: Sansita;
+  font-weight: 300;
+}
+
+.pending-game {
+  margin-left: 2.5rem !important;
+}
+
+.show-game-join {
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #FF595A;
+  border: 3px solid #FF595A;
+  display: flex;
+  font-weight: 900;
+  font-size: 25px;
+  margin: 1rem;
 }

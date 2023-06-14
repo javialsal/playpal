@@ -6,13 +6,13 @@
     <div class="d-flex justify-content-start">
       <h4><%= @game.game_type.name %></h4>
       <% if @game.competitive %>
-        <p class="ms-2">Competitive</p>
+        <p class="ms-2" id="show-game-compet">competitive</p>
       <% else %>
-        <p class="ms-2">Friendly</p>
+        <p class="ms-2" id="show-game-compet">friendly</p>
       <% end %>
     </div>
     <div>
-      <%= @game.participations.count %>/<%= @game.number_of_players %>
+      <%= @game.participations.count %>/<%= @game.number_of_players %> players
     </div>
   </div>
 </div>
@@ -51,7 +51,7 @@
     <div class="player-ranking-grid">
       <p class="grid-labels">Players</p>
       <p></p>
-      <p class="grid-labels">Scores</p>
+      <p class="grid-labels" id="show-game-score">Scores</p>
       <p></p>
       <p></p>
     </div>
@@ -60,26 +60,32 @@
         <%= link_to user_path(participant.user) do %>
           <%= image_tag participant.user.photo, class: "avatar" %>
         <% end %>
-        <p class="ms-2 player-name"><%= participant.user.first_name.capitalize.truncate(10) %></p>
+        <p class="ms-2 player-name"><%= participant.user.first_name.capitalize.truncate(9) %></p>
         <% if @game.start_at < DateTime.now %>
-          <p><%= participant.score %></p>
+          <p id="show-game-score"><%= participant.score %></p>
           <%= render "reviews/review", participant: participant %>
         <% else %>
-          <p class="pending-game">Game not started</p>
+          <p class="pending-game"> — </p>
         <% end %>
       </div>
     <% end %>
   </div>
-  <% unless @game.start_at < DateTime.now %>
-    <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
-      <button type="button" class="btn button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa-solid fa-plus"></i>
-      </button>
+  <div class="<%= "d-none" if @game.participations.map(&:user).include?(current_user) %>">
+    <% unless @game.start_at < DateTime.now %>
+      <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
+        <button type="button" class="btn button show-game-join" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div class="d-flex justify-content-evenly">
-    <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
-    <%= link_to 'Edit scores', edit_score_game_path(@game), class:"btn-score-edit border border-1 border-primary" %>
+    <div class="<%= "d-none" unless @game.participations.map(&:user).include?(current_user) %>">
+      <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
+    </div>
+    <div class="<%= "d-none" unless @game.user == current_user && DateTime.now > @game.start_at %>">
+      <%= link_to 'Edit scores', edit_score_game_path(@game), class:"btn-score-edit border border-1 border-primary" %>
+    </div>
   </div>
   <a href="whatsapp://send?text=<%= game_url(@game)  %>">Share on Whatsapp</a>
 </div>
@@ -105,7 +111,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <%= simple_form_for([@game, @participation]) do |f| %>
-          <%= f.submit 'Validate participation', class:"btn btn-primary"%>
+          <%= f.submit 'Join', class:"btn btn-primary"%>
         <% end %>
       </div>
     </div>
