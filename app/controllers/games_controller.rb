@@ -4,8 +4,8 @@ class GamesController < ApplicationController
   def index
     if params[:query].present?
       @games = current_user.games_not_participating_and_to_come
-                           .select { |game| game.number_of_players > game.participations.count }
                            .near(params[:query], 5)
+                           .select { |game| game.number_of_players > game.participations.count }
     else
       @games = current_user.games_not_participating_and_to_come
                            .select { |game| game.number_of_players > game.participations.count }
@@ -20,6 +20,7 @@ class GamesController < ApplicationController
   def show
     @message = Message.new
     @participation = Participation.new
+    @chatroom = @game.chatroom
   end
 
   def new
