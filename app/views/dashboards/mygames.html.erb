@@ -1,8 +1,8 @@
 <div data-controller="futur-passed-games">
 
   <div class="onglet">
-    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="futurbtn" data-action="click->futur-passed-games#passedFutur" disabled> Future reservations</button>
-    <button class="btn btn-secondary onglets py-3 col-6" data-futur-passed-games-target="passedbtn" data-action="click->futur-passed-games#futurPassed"> Passed reservations</button>
+    <button class="onglets" data-futur-passed-games-target="futurbtn" data-action="click->futur-passed-games#passedFutur" disabled> <h2>Future games</h2></button>
+    <button class="onglets" data-futur-passed-games-target="passedbtn" data-action="click->futur-passed-games#futurPassed"> <h2>Passed games</h2></button>
   </div>
 
   <div class="container">
@@ -14,25 +14,7 @@
         <% @mygames.each do |game| %>
           <% if game.start_at >= Date.today %>
             <%= link_to game_path(game), class: "text-decoration-none link-dark mb-3" do %>
-              <div class="game-card">
-                <div class="game-time">
-                  <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
-                  <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
-                </div>
-                <div class="game-type">
-                  <div class="d-flex inline-block">
-                    <p><strong> <%= game.game_type.name %></strong></p>
-                    <p>
-                      <% if game.competitive == true %>
-                        <%= "Competitive" %>
-                      <% else %>
-                        <%= "Friendly" %>
-                      <% end %>
-                    </p>
-                  </div>
-                  <p><%= game.location.split.last %></p>
-                </div>
-              </div>
+                <%= render "shared/game_card_join", game: game %>
             <% end %>
           <% end %>
         <% end %>
@@ -46,23 +28,7 @@
         <% @mygames.reverse.each do |game| %>
           <% if game.start_at < Date.today %>
             <%= link_to game_path(game), class: "text-decoration-none link-dark mb-3" do %>
-              <div class="game-card">
-                <div class="game-time">
-                  <p><i class="fa-regular fa-calendar"></i> <%= game.start_at.strftime("%d %B") %></p>
-                  <p><i class="fa-regular fa-clock"></i> <%= game.start_at.strftime("%H:%M") %></p>
-                </div>
-                <div class="game-type">
-                  <p><strong> <%= game.game_type.name %></strong></p>
-                  <p><strong>
-                    <% if game.competitive == true %>
-                      <%= "Competitive" %>
-                    <% else %>
-                      <%= "Friendly" %>
-                    <% end %>
-                  </strong></p>
-                  <p><%= game.location.split.last %></p>
-                </div>
-              </div>
+              <%= render "shared/passed_card_game", game: game %>
             <% end %>
           <% end %>
         <% end %>

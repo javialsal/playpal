@@ -1,15 +1,27 @@
 <%= link_to game_path(game) do %>
-  <% if game.start_at >= Date.today %>
+  <% if game.start_at < Date.today %>
     <div class="game-card">
       <div class="game-time">
         <p class="text-decoration-none"><%= truncate(game.city, length: 15) %></p>
         <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b %H:%M") %></p>
       </div>
       <div class="players">
-        <% game.participations.map do |participation|%>
+        <% g = game.participations.order(:score).reverse %>
+        <% g.map do |participation|%>
           <div class="player">
-            <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
-            <p><%= participation.user.first_name.capitalize %></p>
+            <% if g.first == participation %>
+              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-winner" %>
+              <p><%= participation.user.first_name.capitalize %></p>
+            <% elsif g.second == participation %>
+              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-second" %>
+              <p><%= participation.user.first_name.capitalize %></p>
+            <% elsif g.third == participation %>
+              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-third" %>
+              <p><%= participation.user.first_name.capitalize %></p>
+            <% else %>
+              <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
+              <p><%= participation.user.first_name.capitalize %></p>
+            <% end %>
           </div>
         <% end %>
         <% unless game.participations.count == game.number_of_players %>
