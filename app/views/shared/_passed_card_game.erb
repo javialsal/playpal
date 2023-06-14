@@ -7,22 +7,31 @@
       </div>
       <div class="players">
         <% g = game.participations.order(:score).reverse %>
-        <% g.map do |participation|%>
-          <div class="player">
-            <% if g.first == participation %>
-              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-winner" %>
-              <p><%= participation.user.first_name.capitalize %></p>
-            <% elsif g.second == participation %>
-              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-second" %>
-              <p><%= participation.user.first_name.capitalize %></p>
-            <% elsif g.third == participation %>
-              <%= cl_image_tag participation.user.photo.key, class: "avatar-card-third" %>
-              <p><%= participation.user.first_name.capitalize %></p>
-            <% else %>
+        <% if game.participations.where(score: 0).length == game.number_of_players%>
+          <% g.map do |participation|%>
+            <div class="player">
               <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
               <p><%= participation.user.first_name.capitalize %></p>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+        <% else %>
+          <% g.map do |participation|%>
+            <div class="player">
+              <% if g.first == participation %>
+                <%= cl_image_tag participation.user.photo.key, class: "avatar-card-winner" %>
+                <p><%= participation.user.first_name.capitalize %></p>
+              <% elsif g.second == participation %>
+                <%= cl_image_tag participation.user.photo.key, class: "avatar-card-second" %>
+                <p><%= participation.user.first_name.capitalize %></p>
+              <% elsif g.third == participation %>
+                <%= cl_image_tag participation.user.photo.key, class: "avatar-card-third" %>
+                <p><%= participation.user.first_name.capitalize %></p>
+              <% else %>
+                <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
+                <p><%= participation.user.first_name.capitalize %></p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
         <% unless game.participations.count == game.number_of_players %>
           <% (game.number_of_players - game.participations.count).times do %>
@@ -33,7 +42,11 @@
         <% end %>
       </div>
       <div class="game-type">
-        <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+        <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %>
+          <% if game.participations.where(score: 0).length == game.number_of_players%>
+            <span class="badge text-bg-primary text-light">Add scores</span>
+          <% end %>
+        </p>
         <p><i class="fa-solid fa-ranking-star"></i>
           <% if game.competitive == true %>
             <%= "Competitive" %>

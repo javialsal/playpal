@@ -5,7 +5,7 @@
     <button class="onglets" data-futur-passed-games-target="passedbtn" data-action="click->futur-passed-games#futurPassed"> <h2>Passed games</h2></button>
   </div>
 
-  <div class="container">
+  <%# <div class="container"> %>
     <div data-futur-passed-games-target="futur" class="">
       <% if @mygames == [] %>
         <h5 class= "text-center">You don't have any future games !</h5>
@@ -34,5 +34,5 @@
         <% end %>
       <% end %>
     </div>
-  </div>
+  <%# </div> %>
 </div>
