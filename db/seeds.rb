@@ -1062,11 +1062,14 @@ Game.all.each do |game|
 
   game.users.each do |user|
     game.users.where.not(id: user.id).each do |other_user|
-      Review.create!(
-        personality_rating: [true, false].sample,
-        participation: Participation.find_by(game: game, user: user),
-        user: other_user
-      )
+
+      if game.start_at < Date.today
+        Review.create!(
+          personality_rating: [-1, 0, 1].sample,
+          participation: Participation.find_by(game: game, user: user),
+          user: other_user
+        )
+      end
     end
   end
 end
