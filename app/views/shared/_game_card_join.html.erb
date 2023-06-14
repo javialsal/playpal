@@ -9,7 +9,7 @@
         <% game.participations.map do |participation|%>
           <div class="player">
             <%= cl_image_tag participation.user.photo.key, class: "avatar-card" %>
-            <p><%= participation.user.first_name.capitalize %></p>
+            <p><%= participation.user.first_name.capitalize.truncate(6) %></p>
           </div>
         <% end %>
         <% unless game.participations.count == game.number_of_players %>
