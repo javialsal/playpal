@@ -260,6 +260,96 @@ u.photo.attach(io: file, filename: "avatar.jpg")
 
 u.save!
 
+u = User.new(
+  email: "jbb@wagon.org",
+  password: "azerty",
+  username: "JB",
+  first_name: "Jean-Baptiste",
+  last_name: "Bernard",
+  bio: "Après avoir travaillé 2 ans dans une banque d’investissement dédiée au secteur des technologies, je souhaite découvrir de plus près l’écosystème start-up et bien sûr apprendre à coder. J’espère également rencontre des personnes passionnées par ce secteur.",
+  tags: [5],
+  address: "140 bis Avenue du Général Michel Bizot, 75012 Paris",
+  game_type_id: game,
+  level: rand(1..5)
+)
+
+file = File.open(Rails.root.join("db/seeds/picture-JBB.jpeg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
+u.save!
+
+u = User.new(
+  email: "alexandre@wagon.org",
+  password: "azerty",
+  username: "Alex",
+  first_name: "Alexandre",
+  last_name: "Berthon",
+  bio: "Hi! I've been a Product Manager in a small SaaS startup (calizy.com) for the last 4 years. I've come to Le Wagon to learn how to build products by myself the right way. Future is still open: I could either join an existing dev team, or start working on my own product.",
+  tags: [1],
+  address: "162 rue de la mairie, 75010 Paris",
+  game_type_id: game,
+  level: rand(1..5)
+)
+
+file = File.open(Rails.root.join("db/seeds/picture-alexandre.png"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
+u.save!
+
+u = User.new(
+  email: "stephanie@wagon.org",
+  password: "azerty",
+  username: "Stephanie",
+  first_name: "Stephanie",
+  last_name: "Bourdillon",
+  bio: "Having worked mostly for the food industry in roles in corporate finance and management, I'm excited to learn coding skills that will help me support or create new (more flexible) businesses hopefully.",
+  tags: [3],
+  address: "40 bis Avenue des Champs-Elysées, 75008 Paris",
+  game_type_id: game,
+  level: rand(1..5)
+)
+
+file = File.open(Rails.root.join("db/seeds/picture-stephanie.jpeg"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
+u.save!
+
+u = User.new(
+  email: "nicolas@wagon.org",
+  password: "azerty",
+  username: "Nico",
+  first_name: "Nicolas",
+  last_name: "Bourdin",
+  bio: "After 15 years running my own business in real estate and self trading, i wish to learn and better understand dev universe to be up to launch an app, website or business in a new Field. ",
+  tags: [3],
+  address: "30 rue du Capitaine Ferber, 92130 Issy-les-Moulineaux",
+  game_type_id: game,
+  level: rand(1..5)
+)
+
+file = File.open(Rails.root.join("db/seeds/picture-nicolas.png"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
+u.save!
+
+u = User.new(
+  email: "celine@wagon.org",
+  password: "azerty",
+  username: "Celine",
+  first_name: "Celine",
+  last_name: "Chader",
+  bio: "After 6 years of marketing, communication and event planning, I decided to embark on a new challenge : learning to code. Let's see how it goes ! ",
+  tags: [1, 4],
+  address: "16 villa Gaudelet, 75011 Paris",
+  game_type_id: game,
+  level: rand(1..5)
+)
+
+file = File.open(Rails.root.join("db/seeds/picture-celine.png"))
+u.photo.attach(io: file, filename: "avatar.jpg")
+
+u.save!
+
 # To create other users
 
 # u = User.new(
@@ -281,7 +371,7 @@ puts "#{User.all.count} users created. Creating games"
 players = User.all.sample.id
 stat = rand(0..2)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -303,7 +393,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..2)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -325,7 +415,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..2)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -347,7 +437,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..2)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -369,7 +459,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..2)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -393,7 +483,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -415,7 +505,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -437,7 +527,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -459,7 +549,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -481,7 +571,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -503,7 +593,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -525,7 +615,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -547,7 +637,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -569,7 +659,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -591,7 +681,7 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -613,7 +703,249 @@ g.save!
 players = User.all.sample.id
 stat = rand(0..1)
 number = rand(3..5)
-time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Champ de Mars",
+  location: "2 Allée Adrienne Lecouvreur, 75007 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Eos dignissimos impedit et culpa autem quo quia vitae et cupiditate placeat At velit nobis sed repellendus consequatur ab tempore totam.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Parc Monceau",
+  location: "35 Boulevard de Courcelles, 75008 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Sit voluptatem aspernatur 33 eligendi aspernatur et commodi laborum aut neque mollitia aut odit alias sed nihil quia non sequi amet. Ea mollitia fugit est error laborum et dolores animi.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Mamma Primi",
+  location: "18 Rue Boursault, 75017 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Ut quisquam facere aut pariatur culpa quo corporis libero est asperiores quia. Id repellat voluptatem id asperiores ipsa et excepturi distinctio.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Café des 2 moulins",
+  location: "15 Rue Lepic, 75018 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Aut laboriosam illum in voluptates consequuntur est harum aliquid est alias ducimus. Aut voluptatem illo et quis sint in repellat voluptatum ut cupiditate quam et quam blanditiis nam dolores mollitia.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Cô my café",
+  location: "21 Boulevard de Bonne Nouvelle, 75002 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Non accusantium praesentium qui dolorum eaque 33 dolore Quis et consectetur eaque.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Holybelly",
+  location: "5 Rue Lucien Sampaix, 75010 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "accusantium non consequatur ducimus et voluptatibus",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Jardin Villemin",
+  location: "14 Rue des Récollets, 75010 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Non assumenda accusantium non consequatur ducimus et voluptatibus quia aut nostrum vero qui aliquid illo ab quis officiis.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Le Train Bleu, Paris Gare de Lyon",
+  location: "Place Louis-Armand hall 1, 75012 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Et nihil aliquam qui sint sunt est beatae vero qui explicabo nobis ut officia eligendi non beatae quos.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Parc Zoologique de Paris",
+  location: "Avenue Daumesnil, 75012 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Ut voluptatibus voluptatem est dolor vero ea corporis autem et harum quis.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Jardin des Plantes",
+  location: "57 Rue Cuvier, 75005 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Est enim voluptas non tenetur quaerat est quia earum non reprehenderit culpa. Est nobis placeat non rerum sunt vel deleniti neque et atque nihil qui aliquid aspernatur rem quas sunt qui autem perspiciatis",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
+long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
+compet = [true, false].sample
+game = GameType.all.sample.id
+
+g = Game.new(
+  place: "Bibliothèque George Brassens",
+  location: "38 Rue Gassendi, 75014 Paris",
+  duration: long,
+  start_at: time,
+  number_of_players: number,
+  competitive: compet,
+  description: "Et molestiae dolore quo dolores tempore et perspiciatis nemo aut laudantium quibusdam et harum error aut excepturi error ut esse velit. Qui neque necessitatibus non reiciendis molestiae ad nihil corporis quo blanditiis accusamus.",
+  status: stat,
+  user_id: players,
+  game_type_id: game
+)
+g.save!
+
+players = User.all.sample.id
+stat = rand(0..1)
+number = rand(3..5)
+time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(5).months - rand(29).days - rand(20).hours
 long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 compet = [true, false].sample
 game = GameType.all.sample.id
@@ -637,7 +969,7 @@ g.save!
 # players = User.all.sample.id
 # stat = rand(0..1)
 # number = rand(3..5)
-# time = DateTime.new(2023, 12, 30, 20, 45) - rand(2).years - rand(11).months - rand(29).days - rand(20).hours
+# time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(11).months - rand(29).days - rand(20).hours
 # long = [30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180].sample
 # compet = [true, false].sample
 # game = GameType.all.sample.id
@@ -658,26 +990,67 @@ g.save!
 
 puts "#{Game.all.count} games created. Creating participations"
 
+# Game.all.each do |game|
+#   users = [game.user]
+
+#   game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
+
+#   (2..rand(game.number_of_players)).each do |i|
+#     user = User.where.not(id: users.map(&:id)).sample
+
+# users << user
+#     if game.start_at >= Date.today
+#       score = 0
+#     elsif i != (game.number_of_players)
+#       score = -1000.step(1000, 10).to_a.sample
+#     else
+#       score = game.participations.sum(:score) * (-1)
+#     end
+#     Participation.create!(
+#       status: 1,
+#       score: score,
+#       game_id: game.id,
+#       user_id: user.id
+#     )
+#   end
+# end
+
 Game.all.each do |game|
   users = [game.user]
 
   game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
 
-  (2..game.number_of_players).each do |i|
-    user = User.where.not(id: users.map(&:id)).sample
+  if game.start_at < Date.today
 
-    users << user
-    if i != (game.number_of_players)
-      score = -1000.step(1000, 10).to_a.sample
-    else
-      score = game.participations.sum(:score) * (-1)
+    (2..game.number_of_players).each do |i|
+      user = User.where.not(id: users.map(&:id)).sample
+
+      users << user
+      if i != (game.number_of_players)
+        score = -1000.step(1000, 10).to_a.sample
+      else
+        score = game.participations.sum(:score) * (-1)
+      end
+      Participation.create!(
+        status: 1,
+        score: score,
+        game_id: game.id,
+        user_id: user.id
+      )
     end
-    Participation.create!(
-      status: 1,
-      score: score,
-      game_id: game.id,
-      user_id: user.id
-    )
+  else
+
+    (2..rand(game.number_of_players)).each do |i|
+      user = User.where.not(id: users.map(&:id)).sample
+
+      users << user
+        Participation.create!(
+          status: 1,
+          score: 0,
+          game_id: game.id,
+          user_id: user.id
+        )
+    end
   end
 end
 
@@ -705,22 +1078,41 @@ puts "#{Review.count} reviews"
 g = Game.new(
   location: "Champ de Mars, 2 Allée Adrienne Lecouvreur, 75007 Paris",
   duration: long,
-  start_at: (Date.today + 3.weeks),
+  start_at: (Date.today - 1.days),
   number_of_players: 5,
   competitive: compet,
   description: "Eos dignissimos impedit et culpa autem quo quia vitae et cupiditate placeat At velit nobis sed repellendus consequatur ab tempore totam.",
   status: 1,
   game_type_id: game
 )
-g.user = User.third
+g.user = User.first
 g.save!
 
 p = Participation.new(
   status: 1,
   game_id: g.id,
-  score: 0
+  score: 0,
+  user_id: User.second
 )
 p.user = User.second
+p.save!
+
+p = Participation.new(
+  status: 1,
+  game_id: g.id,
+  score: 0,
+  user_id: User.third
+)
+p.user = User.third
+p.save!
+
+p = Participation.new(
+  status: 1,
+  game_id: g.id,
+  score: 0,
+  user_id: User.fifth
+)
+p.user = User.fifth
 p.save!
 
 p = Participation.new(
