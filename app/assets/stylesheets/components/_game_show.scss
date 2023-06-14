@@ -4,7 +4,7 @@
 
 .player-ranking-grid {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr 0.3fr 0.3fr;
+  grid-template-columns: 40px 1fr 1fr 0.8fr;
   align-items: center;
   margin: 1rem;
   .grid-labels {
@@ -16,7 +16,12 @@
 
 i.fa-thumbs-up {
   font-weight: 500;
+  font-size: 1.5rem;
 }
+
+// i.fa-thumbs-up.thumbs-marker {
+//   pointer-events: none;
+// }
 
 i.fa-thumbs-up.bold {
   font-weight: 600;
@@ -24,7 +29,12 @@ i.fa-thumbs-up.bold {
 
 i.fa-thumbs-down {
   font-weight: 500;
+  font-size: 1.5rem;
 }
+
+// i.fa-thumbs-down.thumbs-marker {
+//   pointer-events: none;
+// }
 
 i.fa-thumbs-down.bold {
   font-weight: 600;

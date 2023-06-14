@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-between <%= "d-none" if participant.user_id == current_user.id %>" data-controller="like" data-like-path-value="<%= participation_reviews_path(participant) %>">
+  <i data-action="click->like#boldUp" class="fa-solid fa-thumbs-up <%= "bold" if participant.reviews.find_by(user_id: current_user)&.personality_rating == 1 %>"></i>
+  <i data-action="click->like#boldDown" class="fa-solid fa-thumbs-down <%= "bold" if participant.reviews.find_by(user_id: current_user)&.personality_rating == -1 %>"></i>
+</div>
