@@ -18,6 +18,8 @@
       <%= f.select :number_of_players, options_for_select([ "3", "4", "5" ], params[:number_of_players]), prompt: "Players" %>
       <%= f.select :competitive, options_for_select([["competitive", true], ["friendly", false]], params[:competitive]), prompt: "Style" %>
 
+      <%# RENDER HERE THE OTHER LIST %>
+
       <%= f.submit "Save", :type => "submit", class: "filters-button"%>
     <% end %>
   </div>
