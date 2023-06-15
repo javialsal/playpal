@@ -3,8 +3,16 @@
     <%= link_to user_chatrooms_path(current_user) do %>
       <i class="fa-regular fa-comments icone link"></i>
     <% end %>
-    <h2 class="mt-2">Profile</h2>
-    <div><%# <i class="fa-solid fa-bars icone"></i> %></div>
+    <h2>Profile</h2>
+    <div>
+      <i class="fa-solid fa-bars icone" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "Home", root_path, class: "dropdown-item" %>
+        <%= link_to "Messages", user_chatrooms_path(current_user), class: "dropdown-item" %>
+        <%= link_to "Edit profile", "#", class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+      </div>
+    </div>
   </div>
   <div class="d-flex mx-3 mb-5">
     <div class="col-6">
