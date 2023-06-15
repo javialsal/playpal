@@ -11,6 +11,25 @@
                       required: true,
                       autofocus: true,
                       placeholder: "yourmail@mail.com" %>
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "John" %>
+          <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "Doe" %>
+          <%= f.association :game_type,
+                      required: true,
+                      autofocus: true,
+                      # collection: GameType.all,
+                      # label_method: :name,
+                      selected: GameType.first.name,
+                      include_blank: "Select a favorite game type" %>
+          <%= f.input :username,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "Doe" %>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

@@ -58,6 +58,8 @@
   </div>
 
   <div>
-    <%= line_chart @user.level_history_data, min: (@user.level_history_data.values.min - 0.5), max: (@user.level_history_data.values.max + 0.5)%>
+    <% if (@user.participations.count != 0)  %>
+      <%= line_chart @user.level_history_data, min: (@user.level_history_data.values.min - 0.5), max: (@user.level_history_data.values.max + 0.5)%>
+    <% end %>
   </div>
 </div>
