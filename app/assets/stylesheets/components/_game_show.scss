@@ -174,7 +174,7 @@ i.fa-thumbs-down.bold {
 }
 
 .show-chat-button {
-  font-size: 45px;
+  font-size: 18px;
   font-weight: 500;
   background: linear-gradient(45deg, $coral-red, $coral-orange );
   border-radius: 50px;
@@ -183,12 +183,15 @@ i.fa-thumbs-down.bold {
   padding: 10px;
   margin-bottom: 2em;
   border: solid 2px white;
+  p {
+    font-size: 18px;
+  }
 }
 
 .chat-button-card {
   text-align: center;
-  margin-bottom: 1em;
-  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+  margin-top: -0.25em;
 }
 
 .show-scores-button {
