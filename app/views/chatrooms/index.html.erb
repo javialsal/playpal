@@ -1,0 +1,11 @@
+<div class="show-banner">
+  <h2>Chatrooms</h2>
+</div>
+
+<% @chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom) do %>
+    <hr>
+      <h5><%= chatroom.game.game_type.name %> game - <%= chatroom.game.start_at %></h5>
+    <hr>
+  <% end %>
+<% end %>
