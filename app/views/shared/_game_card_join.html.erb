@@ -2,8 +2,8 @@
   <% if game.start_at >= Date.today %>
     <div class="game-card">
       <div class="game-time">
-        <p class="text-decoration-none"><%= truncate(game.city, length: 15) %></p>
-        <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b %H:%M") %></p>
+        <p class="text-decoration-none"><strong><%= truncate(game.city, length: 15) %></strong></p>
+        <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b") %><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
       </div>
       <div class="players">
         <% game.participations.map do |participation|%>
@@ -21,12 +21,12 @@
         <% end %>
       </div>
       <div class="game-type">
-        <p><i class="fa-solid fa-diamond"></i><%= game.game_type.name %></p>
+        <p><i class="fa-solid fa-diamond"></i><strong><%= game.game_type.name %></strong></p>
         <p>
           <% if game.competitive == true %>
-            <%= "Competitive" %>
+            <strong><%= "Competitive" %> <i class="fa-solid fa-trophy"></i></strong>
           <% else %>
-            <%= "Friendly" %>
+            <strong><%= "Friendly" %> <i class="fa-solid fa-handshake-angle"></i></strong>
           <% end %>
         </p>
       </div>
