@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :reviews, only: ['create']
   end
 
-  resources :users, only: ['show']
+  resources :users, only: ['show'] do
+    resources :chatrooms, only: :index
+  end
 
   get :mygames, to: "dashboards#mygames"
 end

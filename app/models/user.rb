@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :games, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :games_as_participant, through: :participations, source: :game
+  has_many :chatrooms, through: :games_as_participant
   has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_one_attached :photo

@@ -1,6 +1,8 @@
 <div class="container mt-3">
   <div class="d-flex d-print-inline-block justify-content-between mb-4 mx-3">
-    <i class="fa-regular fa-comments icone"></i>
+    <%= link_to user_chatrooms_path(current_user) do %>
+      <i class="fa-regular fa-comments icone link"></i>
+    <% end %>
     <h2 class="mt-2">Profile</h2>
     <i class="fa-solid fa-bars icone"></i>
   </div>
