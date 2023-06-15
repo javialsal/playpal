@@ -1,8 +1,10 @@
 <div class="news-cards">
   <% User.all.shuffle.first(3).each do |user| %>
     <div class="news-card-infos">
-      <p><%= user.first_name.capitalize %> made a score of <%= user.participations.last.score %> points!</p>
-      <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
+      <% if (user.participations.count != 0)  %>
+        <p><%= user.first_name.capitalize %> made a score of <%= user.participations.last.score %> points!</p>
+        <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
+      <% end %>
     </div>
   <% end %>
 </div>
