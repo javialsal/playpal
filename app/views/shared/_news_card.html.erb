@@ -1,10 +1,18 @@
 <div class="news-cards">
-  <% User.all.shuffle.first(3).each do |user| %>
+  <% User.all.shuffle.first(2).each do |user| %>
     <div class="news-card-infos">
-      <% if (user.participations.count != 0)  %>
-        <p><%= user.first_name.capitalize %> made a score of <%= user.participations.last.score %> points!</p>
-        <img src="https://media.istockphoto.com/id/618535002/vector/hand-holding-playing-cards-four-aces-poker-gambling-vector-illustration.jpg?s=612x612&w=0&k=20&c=rxnx4NdnAiM-ae_YBKFBo5HGZHZ-eCyGtnzvno-SrJ4=" />
+      <% if (user.participations.last.game.start_at < Date.today) && (user.participations.last.game.winner) && (user != current_user) %>
+        <p><%= user.first_name.capitalize %> recently won a game of <%= user.participations.last.game.game_type.name %>!</p>
+        <img src="https://media.istockphoto.com/id/1342048331/fr/vectoriel/main-tenant-un-troph%C3%A9e-acclam%C3%A9-par-dautres.jpg?s=612x612&w=0&k=20&c=q0W7eUrIsjQHnI6QcINUG_PjkWs7JeOOkQfKdAyhV7I=" />
       <% end %>
     </div>
+  <% end %>
+  <% User.all.shuffle.first(2).each do |user| %>
+  <div class="news-card-infos">
+    <% if (user.participations.last.game.start_at < Date.today) && (user != current_user) %>
+      <p><%= user.first_name.capitalize %> made a score of <%= user.participations.last.score %> points!</p>
+      <img src="https://play-lh.googleusercontent.com/n410wbqCMcGZ3ZWFytQR4JN2RyRii3SliKO978j8_AlE7716Ax6n7VjcNvqdHGS9SYs6" />
+    <% end %>
+  </div>
   <% end %>
 </div>

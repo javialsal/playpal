@@ -1,7 +1,7 @@
 .news-cards {
   display: grid;
-  grid-auto-columns: minmax(280px, 1fr);
-  grid-column-gap: 1.3em;
+  grid-auto-columns: minmax(295px, 1fr);
+  grid-column-gap: 2em;
   grid-auto-flow: column;
   list-style: none;
   overflow-x: scroll;
@@ -21,7 +21,7 @@
 }
 
 .news-cards p {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 2px;
@@ -35,5 +35,5 @@
   box-shadow: 0 0 15px rgba(0,19,51,0.2);
   border-radius: 8px;
   overflow: hidden;
-  height: 140px;
+  height: 161px;
 }

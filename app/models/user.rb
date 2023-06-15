@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :games_as_participant, through: :participations, source: :game
   has_many :chatrooms, through: :games_as_participant
   has_many :reviews, dependent: :destroy
+  has_many :reviews_as_participant, through: :participations, source: :reviews
   has_many :messages, dependent: :destroy
   has_one_attached :photo
   # before_save :attach_photo
@@ -67,7 +68,7 @@ class User < ApplicationRecord
   end
 
   def level_history_data
-    past_competitive_games_with_score.map do |game|
+    past_competitive_games_with_score.includes(:participations).map do |game|
       date = game.start_at
       previous_games = games.select { |g| g.start_at <= date }
       level_at_the_time = previous_games.map { |g| g.participations.find_by(user_id: self.id) }.reduce(2) do |sum, p|
