@@ -7,7 +7,7 @@ class GamesController < ApplicationController
     @games = @games.where(game_type_id: params[:game_type_id]) if params[:game_type_id].present?
     @games = @games.where(number_of_players: params[:number_of_players]) if params[:number_of_players].present?
     @games = @games.where(competitive: params[:competitive]) if params[:competitive].present?
-
+    
     @games = @games.select { |game| game.number_of_players > game.participations.count }
 
 
