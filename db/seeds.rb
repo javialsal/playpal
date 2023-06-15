@@ -392,6 +392,11 @@ scrapper.students.values.each_with_index do |student, index|
   u.photo.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
 
 end
+
+puts "destroying Javier"
+  u = User.find_by(first_name: 'Javier')
+  u.destroy
+
 puts "#{User.all.count} users created. Creating games"
 
 # Games with Arnaud Passed
@@ -465,7 +470,7 @@ end
 end
 
 #Games without Arnaud future
-25.times do
+50.times do
 
   player = User.all.sample.id
   stat = rand(0..2)
@@ -496,7 +501,7 @@ end
   )
   g.save!
 
-  puts "#{Game.all.count} Games -> 85"
+  puts "#{Game.all.count} Games ->110"
 end
 
 puts "#{Game.all.count} games created. Creating participations"
