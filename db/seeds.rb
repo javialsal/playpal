@@ -365,6 +365,9 @@ u.save!
 # )
 # u.save!
 
+scrapper = Scrapper.new(Rails.root.join("db/seeds/classmates_1210.html"))
+scrapper.students
+
 puts "#{User.all.count} users created. Creating games"
 
 
