@@ -1,23 +1,18 @@
-.show-second-banner {
-  background-color: $light-gray;
-  height: 8vh;
-}
-
 .player-ranking-grid {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr 0.8fr;
+  grid-template-columns: 40px 1fr 1fr 0.6fr;
   align-items: center;
   margin: 1rem;
   .grid-labels {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
   }
 }
 
 i.fa-thumbs-up {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 // i.fa-thumbs-up.thumbs-marker {
@@ -26,12 +21,12 @@ i.fa-thumbs-up {
 
 i.fa-thumbs-up.bold {
   font-weight: 600;
-  color: green;
+  color: rgb(97, 210, 97);
 }
 
 i.fa-thumbs-down {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 // i.fa-thumbs-down.thumbs-marker {
@@ -40,7 +35,7 @@ i.fa-thumbs-down {
 
 i.fa-thumbs-down.bold {
   font-weight: 600;
-  color: green;
+  color: $coral-red;
 }
 
 .player-ranking-card {
@@ -52,72 +47,50 @@ i.fa-thumbs-down.bold {
   }
 }
 
-.show-game-card-infos {
+.event-details {
   display: grid;
-  grid-template-columns: 0.75fr 1.5fr 0.75fr;
-  grid-gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: 0.6fr 1.5fr ;
+  margin: -4em 1em 1em 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  background: white;
   p {
     margin: 0;
     padding: 0;
   }
-  .show-game-card-infos-cards {
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    border-radius: 4px;
+  .event-details-timestart {
     text-align: center;
+    border: solid 1px $coral-red;
+    border-radius: 4px;
   }
   #day {
+    font-family: "Sansita";
     font-size: 34px;
     font-weight: 600;
     margin-bottom: -14px;
-    background-color: $dark-blue;
+    background-color: $coral-red;
     color: white;
   }
   #month {
-    font-size: 22px;
+    font-family: "Sansita";
+    font-size: 25px;
     font-weight: 600;
-    border-bottom: 0.25px solid black;
     padding-bottom: 4px;
-    background-color: $dark-blue;
+    background-color: $coral-red;
     color: white;
   }
   #game-card-location {
-    #marker {
-      background-color: $dark-blue;
-      color: white;
-      padding-top: 3px;
-      padding-bottom: 3px;
-    }
     p {
+      text-align: left;
+      color: $dark-blue;
       background-color: white;
       font-size: 15px;
-      padding: 5px 6px;
-    }
-  }
-  #game-card-duration {
-    #clock {
-      background-color: $dark-blue;
-      color: white;
-      padding-top: 3px;
-      padding-bottom: 3px;
-    }
-    p {
-      background-color: white;
-      font-size: 18px;
-      padding: 5px 6px;
-      font-weight: bold;
-      color: $dark-blue;
     }
   }
 }
 
 #show-game-score {
   text-align: center;
-}
-
-#show-game-compet {
-  font-family: Sansita;
-  font-weight: 300;
 }
 
 .pending-game {
@@ -136,4 +109,106 @@ i.fa-thumbs-down.bold {
   font-weight: 900;
   font-size: 25px;
   margin: 1rem;
+}
+
+.game-specifications {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-infos-card {
+  padding: 1.5em 1.5em 5em 1.5em;
+  overflow: hidden;
+  background: $light-brown;
+  align-items: center;
+  border-radius: 4px;
+  p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+.game-infos-header {
+  display: flex;
+  justify-content: space-between;
+  p {
+    color: $dark-blue;
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+  h4 {
+    font-size: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+}
+
+#hour-text {
+  font-size: 15px;
+  margin-bottom: -15px;
+}
+
+#hour {
+  padding: 0;
+  margin: 5px;
+  font-size: 25px;
+  color: $dark-blue;
+  font-family: "Sansita";
+}
+
+.event-address {
+  padding: 10px 15px 10px 15px;
+}
+
+.player-ranking {
+  margin: 1.5em 0.75em 2.5em 0.75em;
+}
+
+.show-game-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: $light-brown;
+  padding-bottom: 1em;
+  padding-top: 25px;
+}
+
+.show-chat-button {
+  font-size: 45px;
+  font-weight: 500;
+  background: linear-gradient(45deg, $coral-red, $coral-orange );
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: white;
+  padding: 10px;
+  margin-bottom: 2em;
+  border: solid 2px white;
+}
+
+.chat-button-card {
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: -1.5em;
+}
+
+.show-scores-button {
+  position: relative;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  background: linear-gradient(45deg, $coral-red, $coral-orange );
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.share-whatsapp {
+  position: relative;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: 500;
+  background: linear-gradient(45deg, #173972, $dark-blue);
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
 }
