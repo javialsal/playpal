@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3 pt-0">
   <div class="d-flex d-print-inline-block justify-content-between mb-4 mx-3">
     <i class="fa-regular fa-comments icone"></i>
     <h2 class="mt-2">Profile</h2>
@@ -24,7 +24,7 @@
             <i class="fa-solid fa-dice icone"></i>
           </div>
           <div>
-            <strong><%= @user.participations.count %></strong>
+            <strong><%= @number_of_games %></strong>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
             <i class="fa-solid fa-medal icone"></i>
           </div>
           <div>
-            <strong><%= @victories.count %></strong>
+            <strong><%= @victories %></strong>
           </div>
         </div>
       </div>
@@ -49,13 +49,13 @@
       <div class="card-profile-infos">
         <h5>Tarot</h5>
         <h4>Level <%= @user.current_level %></h4>
-        <p>Reliability: 30%</p>
+        <p>Reliability: <%= @user.participations.count %>%</p>
       </div>
       <%= image_tag "tarot_cards.jpg" %>
     </div>
   </div>
 
   <div>
-    <%= line_chart @user.level_history_data %>
+    <%= line_chart @user.level_history_data, min: (@user.level_history_data.values.min - 0.5), max: (@user.level_history_data.values.max + 0.5)%>
   </div>
 </div>
