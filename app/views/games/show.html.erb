@@ -1,40 +1,26 @@
 <div class="show-banner">
   <h2>Game details</h2>
 </div>
-<div class="show-second-banner">
-  <div class="d-flex justify-content-between p-4">
-    <div class="d-flex justify-content-start">
+
+<div class="game-infos-card">
+  <div class="game-infos-header">
+    <div class="game-type">
       <h4><%= @game.game_type.name %></h4>
+    </div>
+    <div class="game-style">
       <% if @game.competitive %>
-        <p class="ms-2" id="show-game-compet">competitive</p>
+        <p><strong>Competitive 🏆</strong></p>
       <% else %>
-        <p class="ms-2" id="show-game-compet">friendly</p>
+        <p><strong>Friendly 🤝</strong></p>
       <% end %>
     </div>
-    <div>
-      <%= @game.participations.count %>/<%= @game.number_of_players %> players
-    </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="show-game-card-infos">
-    <div class="show-game-card-infos-cards">
-      <p id="day"><%= @game.start_at.strftime("%d") %></p>
-      <p id="month"><%= @game.start_at.strftime("%b") %></p>
-      <p id="hour"><%= @game.start_at.strftime("%H:%M") %></p>
-    </div>
-    <div class="show-game-card-infos-cards" id="game-card-location">
-      <div id="marker">
-        <i class="fa-solid fa-location-dot"></i>
-      </div>
-      <p><%= @game.location %></p>
-    </div>
-    <div class="show-game-card-infos-cards" id="game-card-duration">
-      <div id="clock">
-        <i class="fa-regular fa-clock"></i>
-      </div>
-      <p>
+  <div class="game-description">
+    <p><%= @game.description %></p>
+  </div>
+  <div class="game-specifications">
+    <div class="game-duration">
+      <p><strong>Duration:</strong>
         <% if (@game.duration.fdiv(60) - 0.5).round != 0 %>
           <%= (@game.duration.fdiv(60) - 0.5).round %>h
           <% if @game.duration % 60 != 0 %>
@@ -45,14 +31,31 @@
         <% end %>
       </p>
     </div>
+    <div class="game-participations">
+      <p><strong>Players: </strong><%= @game.participations.count %>/<%= @game.number_of_players %></p>
+    </div>
   </div>
-  <br>
+</div>
+
+<div class="event-details">
+  <div class="event-details-timestart">
+    <p id="day"><%= @game.start_at.strftime("%d") %></p>
+    <p id="month"><%= @game.start_at.strftime("%b") %></p>
+    <p id="hour-text">hour</p>
+    <p id="hour"><strong><%= @game.start_at.strftime("%H:%M") %></strong></p>
+  </div>
+  <div class="event-address">
+    <p><strong>Address:</strong></p>
+    <p><%= @game.location %></p>
+  </div>
+</div>
+
+<div>
   <div class="player-ranking" >
     <div class="player-ranking-grid">
       <p class="grid-labels">Players</p>
       <p></p>
       <p class="grid-labels" id="show-game-score">Scores</p>
-      <p></p>
       <p></p>
     </div>
     <% @game.participations.each do |participant| %>
@@ -81,7 +84,7 @@
   </div>
   <div class="d-flex justify-content-evenly">
     <div class="<%= "d-none" unless @game.participations.map(&:user).include?(current_user) %>">
-      <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
+      <%= link_to 'Chat with the other players', chatroom_path(@chatroom), class:"launch-chat-button"%>
     </div>
     <div class="<%= "d-none" unless @game.user == current_user && DateTime.now > @game.start_at %>">
       <%= link_to 'Edit scores', edit_score_game_path(@game), class:"btn-score-edit border border-1 border-primary" %>
