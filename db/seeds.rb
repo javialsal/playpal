@@ -1134,9 +1134,9 @@ puts "#{Game.all.count} games created. Creating participations"
 Game.all.each do |game|
   users = [game.user]
 
-  game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
 
   if game.start_at < Date.today
+    game.participations.first.update(score: -1000.step(1000, 10).to_a.sample)
 
     (2..game.number_of_players).each do |i|
       user = User.where.not(id: users.map(&:id)).sample
@@ -1155,6 +1155,8 @@ Game.all.each do |game|
       )
     end
   else
+
+    game.participations.first.update(score: nil)
 
     (2..rand(game.number_of_players)).each do |i|
       user = User.where.not(id: users.map(&:id)).sample
