@@ -18,7 +18,11 @@
   background-color: $coral-red;
   display: flex;
   justify-content: center;
-
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   i {
     font-size: 30px;
     padding: 0;
