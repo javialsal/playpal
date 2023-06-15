@@ -4,7 +4,7 @@ class Participation < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   validates :status, presence: true
-  validates :score, presence: true, numericality: { only_integer: true }
+  # validates :score, presence: true, numericality: { only_integer: true }
   validates :user, uniqueness: { scope: :game }
 
   def level
