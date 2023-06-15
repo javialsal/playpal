@@ -20,7 +20,7 @@
   </div>
   <div class="game-specifications">
     <div class="game-duration">
-      <p><strong>Duration:</strong>
+      <p><strong>Duration</strong>
         <% if (@game.duration.fdiv(60) - 0.5).round != 0 %>
           <%= (@game.duration.fdiv(60) - 0.5).round %>h
           <% if @game.duration % 60 != 0 %>
@@ -32,7 +32,7 @@
       </p>
     </div>
     <div class="game-participations">
-      <p><strong>Players: </strong><%= @game.participations.count %>/<%= @game.number_of_players %></p>
+      <p><strong>Players </strong><%= @game.participations.count %>/<%= @game.number_of_players %></p>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@
     <p id="hour"><strong><%= @game.start_at.strftime("%H:%M") %></strong></p>
   </div>
   <div class="event-address">
-    <p><strong>Address:</strong></p>
+    <p><strong>Address</strong></p>
     <p><%= @game.location %></p>
   </div>
 </div>
@@ -53,9 +53,9 @@
 <div>
   <div class="player-ranking" >
     <div class="player-ranking-grid">
-      <p class="grid-labels">Players</p>
+      <p class="grid-labels"><strong>Players</strong></p>
       <p></p>
-      <p class="grid-labels" id="show-game-score">Scores</p>
+      <p class="grid-labels" id="show-game-score"><strong>Scores</strong></p>
       <p></p>
     </div>
     <% @game.participations.each do |participant| %>
@@ -73,6 +73,13 @@
       </div>
     <% end %>
   </div>
+  <div class="chat-button-card">
+    <div class="<%= "d-none" unless @game.participations.map(&:user).include?(current_user) %>">
+      <%= link_to chatroom_path(@chatroom), class:"show-chat-button" do %>
+        <i class="fa-solid fa-comments"></i>
+      <% end %>
+    </div>
+  </div>
   <div class="<%= "d-none" if @game.participations.map(&:user).include?(current_user) %>">
     <% unless @game.start_at < DateTime.now %>
       <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
@@ -82,15 +89,12 @@
       <% end %>
     <% end %>
   </div>
-  <div class="d-flex justify-content-evenly">
-    <div class="<%= "d-none" unless @game.participations.map(&:user).include?(current_user) %>">
-      <%= link_to 'Chat with the other players', chatroom_path(@chatroom), class:"launch-chat-button"%>
-    </div>
+  <div class="show-game-cta">
     <div class="<%= "d-none" unless @game.user == current_user && DateTime.now > @game.start_at %>">
-      <%= link_to 'Edit scores', edit_score_game_path(@game), class:"btn-score-edit border border-1 border-primary" %>
+      <%= link_to 'Update scores', edit_score_game_path(@game), class:"show-scores-button" %>
     </div>
+    <a href="whatsapp://send?text=<%= game_url(@game) %>" class="share-whatsapp">Share on Whatsapp</a>
   </div>
-  <a href="whatsapp://send?text=<%= game_url(@game)  %>">Share on Whatsapp</a>
 </div>
 
 <!-- Modal -->

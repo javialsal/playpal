@@ -5,7 +5,7 @@
   margin: 1rem;
   .grid-labels {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
   }
 }
@@ -21,7 +21,7 @@ i.fa-thumbs-up {
 
 i.fa-thumbs-up.bold {
   font-weight: 600;
-  color: green;
+  color: rgb(97, 210, 97);
 }
 
 i.fa-thumbs-down {
@@ -35,7 +35,7 @@ i.fa-thumbs-down {
 
 i.fa-thumbs-down.bold {
   font-weight: 600;
-  color: red;
+  color: $coral-red;
 }
 
 .player-ranking-card {
@@ -50,16 +50,17 @@ i.fa-thumbs-down.bold {
 .event-details {
   display: grid;
   grid-template-columns: 0.6fr 1.5fr ;
-  margin: 1em;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  margin: -4em 1em 1em 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 4px;
+  background: white;
   p {
     margin: 0;
     padding: 0;
   }
   .event-details-timestart {
     text-align: center;
-    border: solid 1px $dark-blue;
+    border: solid 1px $coral-red;
     border-radius: 4px;
   }
   #day {
@@ -67,7 +68,7 @@ i.fa-thumbs-down.bold {
     font-size: 34px;
     font-weight: 600;
     margin-bottom: -14px;
-    background-color: $dark-blue;
+    background-color: $coral-red;
     color: white;
   }
   #month {
@@ -75,7 +76,7 @@ i.fa-thumbs-down.bold {
     font-size: 25px;
     font-weight: 600;
     padding-bottom: 4px;
-    background-color: $dark-blue;
+    background-color: $coral-red;
     color: white;
   }
   #game-card-location {
@@ -116,13 +117,11 @@ i.fa-thumbs-down.bold {
 }
 
 .game-infos-card {
-  padding: 15px;
+  padding: 1.5em 1.5em 5em 1.5em;
   overflow: hidden;
   background: $light-brown;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   align-items: center;
   border-radius: 4px;
-  margin: 1em;
   p {
     margin-bottom: 10px;
     margin-top: 10px;
@@ -146,14 +145,15 @@ i.fa-thumbs-down.bold {
 
 #hour-text {
   font-size: 15px;
-  margin-bottom: -5px;
+  margin-bottom: -15px;
 }
 
 #hour {
   padding: 0;
-  margin: 0;
+  margin: 5px;
   font-size: 25px;
   color: $dark-blue;
+  font-family: "Sansita";
 }
 
 .event-address {
@@ -162,4 +162,53 @@ i.fa-thumbs-down.bold {
 
 .player-ranking {
   margin: 1.5em 0.75em 2.5em 0.75em;
+}
+
+.show-game-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: $light-brown;
+  padding-bottom: 1em;
+  padding-top: 25px;
+}
+
+.show-chat-button {
+  font-size: 45px;
+  font-weight: 500;
+  background: linear-gradient(45deg, $coral-red, $coral-orange );
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: white;
+  padding: 10px;
+  margin-bottom: 2em;
+  border: solid 2px white;
+}
+
+.chat-button-card {
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: -1.5em;
+}
+
+.show-scores-button {
+  position: relative;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  background: linear-gradient(45deg, $coral-red, $coral-orange );
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.share-whatsapp {
+  position: relative;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: 500;
+  background: linear-gradient(45deg, #173972, $dark-blue);
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: white;
 }
