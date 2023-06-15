@@ -26,6 +26,7 @@
                       # label_method: :name,
                       selected: GameType.first.name,
                       include_blank: "Select a favorite game type" %>
+          <%= f.input :photo, as: :file %>
           <%= f.input :username,
                       required: true,
                       autofocus: true,

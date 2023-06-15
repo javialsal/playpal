@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_one_attached :photo
-  before_save :attach_photo
+  # before_save :attach_photo
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
