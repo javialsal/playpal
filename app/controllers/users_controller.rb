@@ -5,10 +5,7 @@ class UsersController < ApplicationController
     # @victories = @user.mygames.select { |game| game.winner == @user }
     @victories = @user.victories_number
     @number_of_games = @user.past_games_with_score.count
-    @reviews = @user.participations.map(&:reviews)
-    personality = @reviews.map { |review| review.pluck(:personality_rating) }
-    personality_total = personality.map { |p| p.sum unless p.empty? }
-    @personality_rating = personality_total.compact.sum
+    @personality_rating = @user.reviews_as_participant.sum(:personality_rating)
   end
 
   private
