@@ -1,5 +1,5 @@
 <%= link_to game_path(game) do %>
-  <% if game.start_at < Date.today %>
+  <% if game.start_at < DateTime.now %>
     <div class="game-card">
       <div class="game-time">
         <p class="text-decoration-none"><%= truncate(game.city, length: 15) %></p>
