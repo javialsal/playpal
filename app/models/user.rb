@@ -38,8 +38,8 @@ class User < ApplicationRecord
     total.fdiv(participations.where.not(level: nil).count).round(1)
   end
 
-  def current_level
-    participations.where.not(level: nil).joins(:game).where(games: { competitive: true }).order("games.start_at ASC").reduce(2) do |sum, p|
+  def current_level(participations = self.participations.where.not(level: nil).joins(:game).where(games: { competitive: true }).where("games.start_at < ?", Time.now).order("games.start_at ASC"))
+    participations.reduce(2) do |sum, p|
       sum += p.level.fdiv(30)
     end.round(1)
   end
@@ -53,8 +53,8 @@ class User < ApplicationRecord
 
   def past_competitive_games_with_score
     Game.joins(participations: :user)
-        .where.not(participations: { score: nil })
-        .where(users: { id: self.id })
+        .where.not(participations: { level: nil })
+        .where(participations: { user_id: self.id })
         .where(competitive: true)
         .order("games.start_at ASC")
   end
@@ -70,11 +70,9 @@ class User < ApplicationRecord
   def level_history_data
     past_competitive_games_with_score.includes(:participations).map do |game|
       date = game.start_at
-      previous_games = games.where("start_at < ?", date)
+      previous_games = past_competitive_games_with_score.where("start_at <= ?", date)
       # level_at_the_time = previous_games.map { |g| g.participations.find_by(user_id: self.id) }.reduce(2) do |sum, p|
-      level_at_the_time = participations.where(game: previous_games).reduce(2) do |sum, p|
-        sum += p.level.fdiv(30)
-      end.round(1)
+      level_at_the_time = current_level(participations.where(game: previous_games))
       [date, level_at_the_time]
     end.to_h
   end
