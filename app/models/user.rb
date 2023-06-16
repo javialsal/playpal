@@ -48,15 +48,12 @@ class User < ApplicationRecord
     Game.joins(participations: :user)
         .where.not(participations: { score: nil })
         .where(users: { id: self.id })
+        .where("games.start_at <= ?", Time.now.in_time_zone)
         .order("games.start_at ASC")
   end
 
   def past_competitive_games_with_score
-    Game.joins(participations: :user)
-        .where.not(participations: { level: nil })
-        .where(participations: { user_id: self.id })
-        .where(competitive: true)
-        .order("games.start_at ASC")
+    past_games_with_score.where(competitive: true)
   end
 
   def victories_number
