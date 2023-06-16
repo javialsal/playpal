@@ -26,7 +26,7 @@ class Game < ApplicationRecord
   }
 
   def winner
-    self.participations.max_by { |participation| participation.score }.user
+    self.participations.where.not(score: nil).max_by(&:score).user
   end
 
   def create_participation_for_owner
