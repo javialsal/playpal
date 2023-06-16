@@ -21,7 +21,7 @@ class Game < ApplicationRecord
 
   scope :not_participating_games_to_come_for, ->(user) {
     where.not(id: user.games_as_participant.pluck(:id))
-    .where("start_at > ?", DateTime.now)
+    .where("start_at > ?", Time.now + 7_200)
     .order(:start_at)
   }
 

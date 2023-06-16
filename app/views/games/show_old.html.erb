@@ -42,13 +42,13 @@
               <%= image_tag participant.user.photo, class: "avatar" %>
             <% end %>
             <p><%= participant.user.username.truncate(10) %></p>
-            <% if @game.start_at < DateTime.now %>
+            <% if @game.start_at - 7_200 < DateTime.now %>
               <p><%= participant.score %></p>
             <% end %>
           </li>
         <% end %>
       </ul>
-      <% unless @game.start_at < DateTime.now %>
+      <% unless @game.start_at - 7_200 < DateTime.now %>
         <div class="book">
           <% if (@game.participations.count < @game.number_of_players) && (@game.participations.where(user_id: current_user) != false ) %>
             <!-- Button trigger modal -->

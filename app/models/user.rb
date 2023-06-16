@@ -38,7 +38,7 @@ class User < ApplicationRecord
     total.fdiv(participations.where.not(level: nil).count).round(1)
   end
 
-  def current_level(participations = self.participations.where.not(level: nil).joins(:game).where(games: { competitive: true }).where("games.start_at < ?", Time.now).order("games.start_at ASC"))
+  def current_level(participations = self.participations.where.not(level: nil).joins(:game).where(games: { competitive: true }).where("games.start_at < ?", Time.now + 7_200).order("games.start_at ASC"))
     participations.reduce(2) do |sum, p|
       sum += p.level.fdiv(30)
     end.round(1)
