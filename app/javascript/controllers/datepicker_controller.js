@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     flatpickr(this.element, {
-      minDate: "today",
+      minDate: Date.now(),
       enableTime: true,
       dateFormat: "Y-m-d H:i",
       defaultDate: Date.now(),

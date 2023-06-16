@@ -111,12 +111,11 @@ body {
   font-size: 18px;
 }
 
-.form-check {
-  padding: 0;
-}
-
 #compet-select {
   display: grid;
+  .form-check {
+    padding: 0;
+  }
 }
 
 .form-range {
@@ -125,7 +124,7 @@ body {
 
 .container {
   --bs-gutter-x: 3em;
-  padding-top: 2em;
+  padding-top: 1rem;
 }
 
 abbr[title] {
