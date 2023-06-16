@@ -3,7 +3,7 @@
     <div class="game-card">
       <div class="game-time">
         <p class="text-decoration-none"><strong><%= truncate(game.city, length: 15) %></strong></p>
-        <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b") %><i class="fa-regular fa-clock"></i><%= game.start_at.strftime("%H:%M") %></p>
+        <p><i class="fa-regular fa-calendar"></i><%= game.start_at.strftime("%a %d %b") %> <%= game.start_at.strftime("%H:%M") %></p>
       </div>
       <div class="players">
         <% game.participations.map do |participation|%>

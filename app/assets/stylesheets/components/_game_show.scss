@@ -108,7 +108,7 @@ i.fa-thumbs-down.bold {
   display: flex;
   font-weight: 900;
   font-size: 25px;
-  margin: 1rem;
+  margin: 30px;
 }
 
 .game-specifications {
@@ -117,7 +117,7 @@ i.fa-thumbs-down.bold {
 }
 
 .game-infos-card {
-  padding: 1.5em 1.5em 5em 1.5em;
+  padding: 1.5em 2em 5em 2em;
   overflow: hidden;
   background: $light-brown;
   align-items: center;
@@ -171,6 +171,7 @@ i.fa-thumbs-down.bold {
   background: $light-brown;
   padding-bottom: 1em;
   padding-top: 25px;
+  height: 16vh;
 }
 
 .show-chat-button {
