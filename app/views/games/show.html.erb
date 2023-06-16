@@ -77,7 +77,7 @@
   <div class="chat-button-card">
     <div class="<%= "d-none" unless @game.participations.map(&:user).include?(current_user) %>">
       <%= link_to chatroom_path(@chatroom), class:"show-chat-button" do %>
-        <i class="fa-solid fa-comments"></i> Chat with the other players
+        <i class="fa-solid fa-comments"></i> Chat
       <% end %>
     </div>
   </div>
