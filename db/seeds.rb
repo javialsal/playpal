@@ -468,7 +468,7 @@ end
 #Games without Arnaud future
 50.times do
 
-  player = User.all.sample.id
+  player = User.all.reject{|user| user.username == 'Lejade'}.sample.id
   stat = rand(0..2)
   number = rand(3..5)
   time = DateTime.new(2023, 12, 30, 20, 45) - rand(1).years - rand(6..11).months - rand(29).days - rand(20).hours
