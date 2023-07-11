@@ -12,7 +12,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Final web development bootcamp project built from scratch.
+Final web development bootcamp project built from scratch with Ruby on Rails. The project was carried out during two weeks in which I also learned the team methodologies by working with three other students.
 
 
 ## Built With
@@ -30,3 +30,15 @@ Final web development bootcamp project built from scratch.
 ## The PlayPal pitch (in french)
 
 [![Watch the video](https://img.youtube.com/vi/XK0nbuPuGio/0.jpg)](https://www.youtube.com/watch?v=XK0nbuPuGio&t=2967s)
+
+
+## About PlayPal
+
+This smartphone application allows users to create or search for games around them.
+
+There are different types of games. And during the creation of each of them, you can choose a date, time, duration and number of players among other options. This makes it easy for users that are searching for specific games.
+Other users can request to join existing games. And the owner of each game can confirm the participation of the other user based on their level and score and his tags (good player, nice player...).
+
+There are also features included in the application to foster community between different PlayPal users. Examples of these are the thread with current information about the games of friendlist players (on the homepage), an exclusive chat created for each game, or the rating system of users that have played together.
+
+At the end of each game, the owner of the game can also enter the scores of all players, and based on these scores a ranking and level system is established.
