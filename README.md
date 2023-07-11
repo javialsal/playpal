@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/javialsal/playpal">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="app/assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">PlayPal</h3>
