@@ -5,7 +5,7 @@
   </a>
 
   <h3 align="center">PlayPal</h3>
-  <p align="center">Finding other card players around you has never been easier!</p>
+  <p align="center">It's never been so easy to meet other card players!</p>
 </div>
 
 
