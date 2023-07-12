@@ -13,7 +13,7 @@
 ## About the project
 
 Final web development bootcamp project built from scratch with Ruby on Rails. 
-The project was done over the last two weeks of the bootcamp during which I also learned team methodologies by working with three other students.
+The project was developed over the last two weeks of the bootcamp during which I also learned team methodologies by working with three other students.
 
 
 
@@ -23,14 +23,14 @@ The project was done over the last two weeks of the bootcamp during which I also
 
 
 
-### PlayPal
+### PlayPal features
 
-This smartphone application allows users to create or search for games around them.
+This smartphone application allows users to create or search for card games in a specific location.
 
-There are different types of games. And during the creation of each of them, you can choose a date, time, duration and number of players among other options. This makes it easy for users that are searching for specific games.
+There are different types of games available, and during the creation of each game, users can specify the date, time, duration, and number of players, among other options. This simplifies the search process for users looking for specific games. 
 Other users can request to join existing games. And the owner of each game can confirm the participation of the other user based on their level and score and his tags (good player, nice player...).
 
-There are also features included in the application to foster community between different PlayPal users. Examples of these are the thread with current information about the games of friendlist players (on the homepage), an exclusive chat created for each game, or the rating system of users that have played together.
+There are also features included in the application to foster community between users. Examples of these are the news-cards on the homepage, an exclusive chat created for each game, or the rating system between users that have played together.
 
 At the end of each game, the owner of the game can also enter the scores of all players, and based on these scores a ranking and level system is established.
 
@@ -51,8 +51,8 @@ At the end of each game, the owner of the game can also enter the scores of all 
 
 ### Team
 <ul>
+  <li> <a href="https://github.com/javialsal">Me</a></li>
   <li> <a href="https://github.com/arnaudljd">Arnaud</a></li>
   <li> <a href="https://github.com/Albathar41">Maxime</a></li>
   <li> <a href="https://github.com/yakouk">Youval</a></li>
-  <li> <a href="https://github.com/javialsal">Me</a></li>
 </ul>
