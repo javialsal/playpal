@@ -16,6 +16,13 @@ Final web development bootcamp project built from scratch with Ruby on Rails.
 The project was done over the last two weeks of the bootcamp during which I also learned team methodologies by working with three other students.
 
 
+
+### Pitch
+
+[![Watch the video](https://img.youtube.com/vi/XK0nbuPuGio/0.jpg)](https://www.youtube.com/watch?v=XK0nbuPuGio&t=2967s)
+
+
+
 ### PlayPal
 
 This smartphone application allows users to create or search for games around them.
@@ -26,12 +33,6 @@ Other users can request to join existing games. And the owner of each game can c
 There are also features included in the application to foster community between different PlayPal users. Examples of these are the thread with current information about the games of friendlist players (on the homepage), an exclusive chat created for each game, or the rating system of users that have played together.
 
 At the end of each game, the owner of the game can also enter the scores of all players, and based on these scores a ranking and level system is established.
-
-
-### Pitch
-
-[![Watch the video](https://img.youtube.com/vi/XK0nbuPuGio/0.jpg)](https://www.youtube.com/watch?v=XK0nbuPuGio&t=2967s)
-
 
 
 
